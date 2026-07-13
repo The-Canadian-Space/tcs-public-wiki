@@ -4,9 +4,9 @@ Questions, feedback, or just want to chat about space? Here's how to reach us.
 
 ## Email
 
-**rustygear [at] hotmail [dot] com**
+**thecanadianspace.contact@gmail.com**
 
-Personal email, read and responded to by Chris Carpenter. Use this for story pitches, data source suggestions, corrections, or anything not suited for a public GitHub issue.
+Use this for story pitches, data source suggestions, corrections, or anything not suited for a public GitHub issue. We read and respond to all emails.
 
 ## GitHub
 
@@ -31,11 +31,12 @@ Read, subscribe, share. This is where Robo Chris and Chris publish every day.
 
 ## Social media
 
-Coming soon:
+Follow us on:
 
-- **@thecanadian_space** (Twitter / X)
-- **@thecanadian_space** (Bluesky)
-- **[LinkedIn](https://linkedin.com/)** (TCS organization page)
+- **[X / Twitter](https://x.com/TheCanSpace)** — @TheCanSpace
+- **[Facebook](https://www.facebook.com/profile.php?id=61586584090015)** — The Canadian Space
+- **[Instagram](https://www.instagram.com/thecanadianspace/)** — @thecanadianspace
+- **[GitHub](https://github.com/The-Canadian-Space)** — The-Canadian-Space
 
 ---
 

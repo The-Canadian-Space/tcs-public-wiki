@@ -14,7 +14,7 @@ Here's what we run on. These are the real tools powering TCS—not a marketing w
   
   Containerizes n8n, Redis, and supporting services. Makes local dev and production identical—no "works on my machine" surprises.
 
-- :material-shield-network: **Caddy**
+- :material-network-lock: **Caddy**
   
   Modern reverse proxy and TLS terminator. Handles HTTPS, rate limiting, and routing for both the VPS services and the wiki.
 
@@ -28,9 +28,9 @@ Here's what we run on. These are the real tools powering TCS—not a marketing w
 
 <div class="grid cards" markdown>
 
-- :material-workflow: **n8n**
+- :material-graph-outline: **n8n**
   
-  The heartbeat of TCS. Open-source workflow engine orchestrating all data ingestion, LLM routing, WordPress publishing, and cost tracking. Runs self-hosted on the VPS.
+  The heartbeat of TCS. Open-source workflow engine orchestrating all data ingestion, LLM routing, editorial handoff, and WordPress publishing. Runs self-hosted on the VPS.
 
 - :material-github: **GitHub Actions**
   
@@ -58,7 +58,7 @@ Here's what we run on. These are the real tools powering TCS—not a marketing w
   
   Secondary fallback when needed. Adds redundancy and diversity to our LLM pool.
 
-- :material-router: **OpenRouter**
+- :material-router-wireless: **OpenRouter**
   
   Unified API for routing requests to all three models. Simplifies authentication and gives us a single interface to manage costs and quotas.
 
@@ -90,7 +90,7 @@ Here's what we run on. These are the real tools powering TCS—not a marketing w
   
   Launch schedules, mission details, and real-time launch tracking. Maintained by The Space Devs—a volunteer organization.
 
-- :material-spider: **Crawl4AI**
+- :material-spider-web: **Crawl4AI**
   
   Custom web scraper for sources that don't expose APIs. Respectful scraping with caching and backoff logic built in.
 
@@ -98,7 +98,7 @@ Here's what we run on. These are the real tools powering TCS—not a marketing w
   
   Entity lookups, historical context, and fact verification. Always cited when we use it.
 
-- :material-rss-box: **RSS feeds**
+- :material-rss: **RSS feeds**
   
   Curated feeds from SpaceQ and other aerospace news sources. Simple, reliable, and fills gaps where APIs don't.
 

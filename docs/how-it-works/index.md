@@ -35,7 +35,7 @@ Every article—whether it's a daily roundup, a weekly deep dive, or a monthly s
 
 - :material-shield-check:{ .lg .middle } **[Quality Assurance](quality-assurance.md)**
 
-    Human-in-the-loop reviews, automated fact-checking, source attribution, and cost transparency.
+    Human-in-the-loop reviews, automated fact-checking, source attribution, and editorial oversight.
 
 </div>
 
@@ -47,7 +47,7 @@ Every article—whether it's a daily roundup, a weekly deep dive, or a monthly s
 - **3 LLM providers** — Gemini 2.5 Flash (primary), Claude Haiku 4.5 (editor/fallback), xAI Grok 3 (secondary fallback)
 - **4 major data sources** — SpaceFlightNews API, Launch Library 2, Crawl4AI web scraper, curated RSS feeds
 - **Every article** — reviewed by a human before it reaches you
-- **Every token** — tracked and reported in monthly cost rolls
+- **Every article** — archived for reference and continuous learning
 
 No mystery here. You're reading the output of a system we're proud to show you.
 

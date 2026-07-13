@@ -30,17 +30,28 @@ All workflows are triggered on Wednesdays. Here's the typical week:
 
 ```mermaid
 gantt
-    title TCS Publishing Schedule
+    title TCS Publishing Schedule — Sample Month
     dateFormat YYYY-MM-DD
-    
-    section Workflows
-    Daily Broadcast           :daily, 2026-01-01, 2026-12-31
-    SpaceX Report (Mon)       :spacex, crit, 2026-01-05, 1d
-    NASA Overview (Fri)       :nasa, crit, 2026-01-09, 1d
-    Canada From Orbit (W1)    :canada, 2026-01-01, 1d
-    Rocket Lab Roundup (mid)  :rl, 2026-01-15, 1d
-    Blue Origin (W3)          :bo, 2026-01-15, 1d
-    Commercial Space (W4)     :cs, 2026-01-22, 1d
+    axisFormat %b %d
+
+    section Daily
+    Daily Broadcast : daily, 2026-01-01, 31d
+
+    section Weekly
+    SpaceX Mon 1  : crit, spacex1, 2026-01-05, 1d
+    NASA Fri 1    : crit, nasa1,   2026-01-09, 1d
+    SpaceX Mon 2  : crit, spacex2, 2026-01-12, 1d
+    NASA Fri 2    : crit, nasa2,   2026-01-16, 1d
+    SpaceX Mon 3  : crit, spacex3, 2026-01-19, 1d
+    NASA Fri 3    : crit, nasa3,   2026-01-23, 1d
+    SpaceX Mon 4  : crit, spacex4, 2026-01-26, 1d
+    NASA Fri 4    : crit, nasa4,   2026-01-30, 1d
+
+    section Monthly
+    Canada From Orbit Wk1 : active, canada,   2026-01-07, 1d
+    Rocket Lab mid-month  : active, rocketlab, 2026-01-14, 1d
+    Blue Origin Wk3       : active, blue,     2026-01-21, 1d
+    Commercial Space Wk4  : active, commercial, 2026-01-28, 1d
 ```
 
 ## Workflow triggers and gates

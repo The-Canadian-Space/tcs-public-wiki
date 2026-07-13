@@ -33,18 +33,18 @@ theme:
     - toc.follow
     - announce.dismiss
   palette:
-    - scheme: default
-      primary: custom
-      accent: custom
-      toggle:
-        icon: material/lightbulb-outline
-        name: Switch to dark mode
     - scheme: slate
       primary: custom
       accent: custom
       toggle:
-        icon: material/lightbulb
+        icon: material/lightbulb-outline
         name: Switch to light mode
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/lightbulb
+        name: Switch to dark mode
   font:
     text: Inter
     code: JetBrains Mono
@@ -147,15 +147,24 @@ nav:
 
 extra:
   social:
+    - icon: fontawesome/brands/x-twitter
+      link: https://x.com/TheCanSpace
+      name: The Canadian Space on X (Twitter)
+    - icon: fontawesome/brands/facebook
+      link: https://www.facebook.com/profile.php?id=61586584090015
+      name: The Canadian Space on Facebook
+    - icon: fontawesome/brands/instagram
+      link: https://www.instagram.com/thecanadianspace/
+      name: The Canadian Space on Instagram
     - icon: fontawesome/brands/github
       link: https://github.com/The-Canadian-Space
-      name: GitHub
+      name: The Canadian Space on GitHub
     - icon: material/web
       link: https://thecanadian.space/
-      name: Main site
-    - icon: material/rss
+      name: The Canadian Space blog
+    - icon: fontawesome/solid/rss
       link: https://thecanadian.space/feed/
-      name: RSS feed
+      name: TCS RSS feed
   # analytics:
   #   provider: google
   #   property: G_XXXXXXXXXX

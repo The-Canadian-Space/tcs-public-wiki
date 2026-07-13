@@ -192,6 +192,113 @@
   }
 
   /**
+   * Attach click-to-zoom modal handlers to Mermaid diagrams
+   * Uses glightbox plugin (already loaded by mkdocs-material) for lightbox display
+   */
+  function initMermaidModals() {
+    const mermaidElements = document.querySelectorAll('.mermaid, pre.mermaid, div.mermaid');
+
+    if (!mermaidElements.length) return; // Exit if no mermaid diagrams
+
+    // Set up a MutationObserver to handle async-rendered SVGs
+    mermaidElements.forEach((container, index) => {
+      const setupMermaidClick = () => {
+        const svg = container.querySelector('svg');
+        if (!svg) return; // SVG not yet rendered
+
+        // Clone SVG and convert to data URL for glightbox
+        container.style.cursor = 'zoom-in';
+        container.addEventListener('click', (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          // Serialize the SVG to a data URL
+          const svgClone = svg.cloneNode(true);
+          svgClone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+
+          // Add padding/styling to the clone
+          svgClone.style.margin = '1.5rem';
+          svgClone.style.maxWidth = '95vw';
+          svgClone.style.maxHeight = '95vh';
+
+          const svgString = new XMLSerializer().serializeToString(svgClone);
+          const blob = new Blob([svgString], { type: 'image/svg+xml' });
+          const url = URL.createObjectURL(blob);
+
+          // Open with glightbox if available, else use native dialog
+          if (window.GLightbox) {
+            window.GLightbox({
+              elements: [{ href: url, type: 'image' }],
+            }).openAt(0);
+
+            // Clean up blob URL after a delay
+            setTimeout(() => URL.revokeObjectURL(url), 5000);
+          } else {
+            // Fallback: native modal dialog
+            const dialog = document.createElement('dialog');
+            dialog.style.cssText = `
+              position: fixed;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              max-width: 95vw;
+              max-height: 95vh;
+              padding: 2rem;
+              background: var(--md-default-bg-color);
+              border: 2px solid var(--md-accent-fg-color);
+              border-radius: 12px;
+              z-index: 1000;
+              overflow: auto;
+            `;
+
+            const closeBtn = document.createElement('button');
+            closeBtn.innerHTML = '&times;';
+            closeBtn.style.cssText = `
+              position: absolute;
+              top: 1rem;
+              right: 1rem;
+              background: transparent;
+              border: none;
+              font-size: 2rem;
+              color: var(--md-accent-fg-color);
+              cursor: pointer;
+            `;
+            closeBtn.addEventListener('click', () => dialog.close());
+
+            const svgContainer = document.createElement('div');
+            svgContainer.appendChild(svgClone);
+            dialog.appendChild(closeBtn);
+            dialog.appendChild(svgContainer);
+            document.body.appendChild(dialog);
+            dialog.showModal();
+
+            dialog.addEventListener('close', () => {
+              dialog.remove();
+              URL.revokeObjectURL(url);
+            });
+          }
+        });
+      };
+
+      // Immediate attempt (in case SVG is already rendered)
+      setupMermaidClick();
+
+      // Also watch for future SVG injection via MutationObserver
+      const observer = new MutationObserver(() => {
+        if (container.querySelector('svg')) {
+          setupMermaidClick();
+          observer.disconnect();
+        }
+      });
+
+      observer.observe(container, { childList: true, subtree: true });
+
+      // Timeout safety: stop observing after 5 seconds
+      setTimeout(() => observer.disconnect(), 5000);
+    });
+  }
+
+  /**
    * Main initialization function
    * Called when DOM is fully loaded
    */
@@ -200,6 +307,7 @@
     initScrollReveal();
     initPageTransitions();
     initHeroStarfieldTwinkle();
+    initMermaidModals();
   }
 
   // Trigger initialization

@@ -9,22 +9,28 @@ Why does this matter? Aerospace news usually lives in silos: industry press for 
 <div class="grid cards" markdown>
 
 - :fontawesome-solid-bullseye:{ .lg .middle } **Our Mission**
-  
-  Why we exist and who we're here for.
-  
-  [Read more →](mission.md)
+
+    ---
+
+    Why we exist and who we're here for.
+
+    [Read more →](mission.md)
 
 - :fontawesome-solid-list-check:{ .lg .middle } **What We Publish**
-  
-  Daily broadcasts, weekly spotlights, monthly deep dives—the full cadence.
-  
-  [Read more →](content-categories.md)
 
-- :fontawesome-solid-head-side-virus:{ .lg .middle } **Editorial Philosophy**
-  
-  How we think about AI in the newsroom, and what we won't compromise on.
-  
-  [Read more →](editorial-philosophy.md)
+    ---
+
+    Daily broadcasts, weekly spotlights, monthly deep dives—the full cadence.
+
+    [Read more →](content-categories.md)
+
+- :fontawesome-solid-scale-balanced:{ .lg .middle } **Editorial Philosophy**
+
+    ---
+
+    How we think about AI in the newsroom, and what we won't compromise on.
+
+    [Read more →](editorial-philosophy.md)
 
 </div>
 

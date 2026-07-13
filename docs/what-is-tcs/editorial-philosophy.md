@@ -15,7 +15,7 @@ Here's the actual workflow:
 3. **Human review**: Chris (the human) reads every story, fact-checks using primary sources, adds context, catches errors, and either publishes or requests rewrites.
 4. **Fact-checking pass**: A second AI (fallback Claude) scans the published article for factual consistency and source alignment.
 5. **Publishing**: WordPress publishes to [thecanadian.space](https://thecanadian.space){ target="_blank" rel="noopener" }.
-6. **Cost tracking**: Every token spent is logged. We publish a weekly cost report so you know what this automation costs.
+6. **Distribution**: The story goes out via RSS and TCS's social channels — one story, many audiences.
 
 !!! info "Why be transparent?"
     

@@ -51,4 +51,4 @@ Thanks for reading. Strap in—it's a good time to follow space.
 **Chris Carpenter**  
 Founder, *The Canadian Space*
 
-P.S. — Have thoughts on what should be in this wiki, or spotted an error? Open an issue on [GitHub](https://github.com/The-Canadian-Space/tcs-public-wiki) or email [rustygear@hotmail.com](mailto:rustygear@hotmail.com).
+P.S. — Have thoughts on what should be in this wiki, or spotted an error? Open an issue on [GitHub](https://github.com/The-Canadian-Space/tcs-public-wiki) or email [thecanadianspace.contact@gmail.com](mailto:thecanadianspace.contact@gmail.com).

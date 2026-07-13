@@ -46,4 +46,4 @@ Every person and project above made that possible.
 
 If you've contributed to TCS and aren't listed here, let us know. We want to make sure everyone gets proper credit.
 
-Email **rustygear [at] hotmail [dot] com** or open an issue on [GitHub](https://github.com/The-Canadian-Space/tcs-public-wiki).
+Email **thecanadianspace.contact@gmail.com** or open an issue on [GitHub](https://github.com/The-Canadian-Space/tcs-public-wiki).

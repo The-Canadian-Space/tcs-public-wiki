@@ -54,19 +54,6 @@ We don't hide the AI. We name it. This matters because:
 - **Transparency builds trust.** We're not pretending this is 100% human-written. We're saying, "Here's what we built. Here's who/what touched it. Judge for yourself."
 - **It's honest.** This is the cutting edge of publishing. Transparency about the method is part of the integrity.
 
-## Cost transparency
-
-Every token spent drafting, editing, and fact-checking an article gets tracked. We publish **monthly cost reports** that roll up:
-
-- Total tokens by LLM provider (Gemini, Claude, Grok)
-- Cost per article
-- Cost per workflow (daily vs. weekly vs. monthly)
-- Trend analysis (are we getting more efficient?)
-
-This is *not* proprietary secrecy. You deserve to know if we're burning through expensive API calls or finding ways to get smarter on the budget. Cost awareness keeps us honest about whether our pipeline makes sense economically.
-
-*(Cost report links coming soon.)*
-
 ---
 
 ## The QA stack

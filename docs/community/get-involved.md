@@ -6,7 +6,7 @@
 
 Have a space industry story we should be covering? Want to see us dig into a specific topic in our Monthly Deep Dives?
 
-Email us at **rustygear [at] hotmail [dot] com** with:
+Email us at **thecanadianspace.contact@gmail.com** with:
 
 - The story or topic idea
 - Why you think it matters
@@ -31,7 +31,7 @@ We'll evaluate it for reliability, coverage, and ethical scraping concerns.
 
 Spot a factual error, broken link, or typo?
 
-Open an issue on [GitHub](https://github.com/The-Canadian-Space) or email **rustygear [at] hotmail [dot] com** with:
+Open an issue on [GitHub](https://github.com/The-Canadian-Space) or email **thecanadianspace.contact@gmail.com** with:
 
 - What's wrong
 - Where you found it (which post, which section)

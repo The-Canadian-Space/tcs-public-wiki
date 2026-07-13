@@ -10,14 +10,18 @@
   --md-primary-fg-color--light: #1a2540;
   --md-primary-fg-color--dark: #05090f;
 
-  /* Background & Content */
-  --md-primary-bg-color: #ffffff;
-  --md-default-bg-color: #ffffff;
-  --md-default-fg-color: #1a1f36;
+  /* Background & Content — DARK AS DEFAULT */
+  --md-primary-bg-color: #050912;
+  --md-default-bg-color: #050912;
+  --md-default-fg-color: #e6ecf5;
 
   /* Accent: Gold/Orange */
   --md-accent-fg-color: #FF9D3D;
   --md-accent-fg-color--transparent: rgba(255, 157, 61, 0.12);
+
+  /* Code blocks dark */
+  --md-code-bg-color: #0f1729;
+  --md-code-fg-color: #e6ecf5;
 
   /* Extended palette */
   --tcs-steel: #6b7280;
@@ -74,23 +78,23 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-weight: 800;
-  font-size: 2.75rem;
+  font-size: 3.25rem;
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 2.25rem;
   margin-top: 1.5rem;
   margin-bottom: 1rem;
 }
 
 h3 {
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   margin-top: 1.25rem;
   margin-bottom: 0.75rem;
 }
 
 h4 {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
 }
@@ -99,6 +103,28 @@ code, pre {
   font-family: JetBrains Mono, monospace;
   font-size: 0.875rem;
   font-weight: 400;
+}
+
+/* Body text scaling for better readability */
+.md-typeset {
+  font-size: 1.05rem;
+  line-height: 1.75;
+}
+
+.md-typeset p {
+  margin-bottom: 1.25rem;
+}
+
+.md-typeset li {
+  margin-bottom: 0.5rem;
+}
+
+.md-typeset table {
+  font-size: 0.95rem;
+}
+
+.md-typeset td, .md-typeset th {
+  padding: 1rem;
 }
 
 /* ============================================================================
@@ -156,23 +182,36 @@ code, pre {
   background-position: center;
 }
 
-/* Animated gradient pulse overlay */
+/* Animated gradient pulse overlay — enhanced visibility */
 .tcs-hero::after {
   content: '';
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
   background:
-    radial-gradient(circle at 50% 50%, rgba(255, 157, 61, 0.08) 0%, transparent 70%);
+    radial-gradient(circle at 50% 50%, rgba(255, 157, 61, 0.15) 0%, transparent 70%);
   background-size: 200% 200%;
   background-position: 0% 0%;
-  animation: pulse-gradient 8s ease-in-out infinite;
+  animation: pulse-gradient 6s ease-in-out infinite;
   pointer-events: none;
 }
 
 @keyframes pulse-gradient {
-  0% { background-position: 0% 0%; }
-  50% { background-position: 100% 100%; }
-  100% { background-position: 0% 0%; }
+  0% {
+    background-position: 0% 0%;
+    opacity: 0.6;
+  }
+  50% {
+    background-position: 100% 100%;
+    opacity: 1;
+  }
+  100% {
+    background-position: 0% 0%;
+    opacity: 0.6;
+  }
 }
 
 /* Hero content positioning */
@@ -522,6 +561,58 @@ td {
 @media (prefers-color-scheme: dark) {
   td {
     border-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* ============================================================================
+   MERMAID DIAGRAMS (LARGER & ZOOMABLE)
+   ============================================================================ */
+
+.md-typeset .mermaid,
+.md-typeset div.mermaid,
+.md-typeset pre.mermaid {
+  min-height: 500px;
+  max-width: 100%;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: rgba(10, 20, 40, 0.4);
+  border-radius: 12px;
+  border: 2px solid rgba(255, 157, 61, 0.25);
+  cursor: zoom-in;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.md-typeset .mermaid svg,
+.md-typeset div.mermaid svg,
+.md-typeset pre.mermaid svg {
+  max-width: 100%;
+  height: auto;
+  min-height: 450px;
+}
+
+.md-typeset .mermaid:hover,
+.md-typeset div.mermaid:hover,
+.md-typeset pre.mermaid:hover {
+  box-shadow: 0 12px 48px rgba(255, 157, 61, 0.25);
+  border-color: rgba(255, 157, 61, 0.5);
+  background: rgba(10, 20, 40, 0.6);
+}
+
+@media (prefers-color-scheme: light) {
+  .md-typeset .mermaid,
+  .md-typeset div.mermaid,
+  .md-typeset pre.mermaid {
+    background: rgba(15, 23, 41, 0.08);
+    border-color: rgba(255, 157, 61, 0.3);
+  }
+
+  .md-typeset .mermaid:hover,
+  .md-typeset div.mermaid:hover,
+  .md-typeset pre.mermaid:hover {
+    background: rgba(15, 23, 41, 0.12);
   }
 }
 

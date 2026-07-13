@@ -27,7 +27,7 @@ The Canadian Space is an automated aerospace news platform built to bring storie
 <div class="tcs-stats" markdown>
 
 <div class="tcs-stat" markdown>
-:material-workflow: **7 workflows**  
+:material-graph-outline: **7 workflows**  
 Automated publishers
 </div>
 
@@ -37,12 +37,12 @@ Gemini, Haiku, Grok in rotation
 </div>
 
 <div class="tcs-stat" markdown>
-:material-clock-24h: **24/7**  
+:material-hours-24: **24/7**  
 Publishing cadence
 </div>
 
 <div class="tcs-stat" markdown>
-:material-open-source-initiative: **100% open**  
+:material-source-branch: **100% open**  
 Open methodology
 </div>
 

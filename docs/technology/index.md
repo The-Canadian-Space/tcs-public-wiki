@@ -28,7 +28,6 @@ graph LR
     B -->|"Route to LLM"| C["LLM Models<br/>(Gemini, Claude)<br/>via OpenRouter"]
     C -->|"Author + edit"| D["WordPress<br/>(blog)"]
     D -->|"Publish"| E["Readers<br/>(thecanadian.space)"]
-    F["Cost Tracking"] -.->|"monitors"| B
     style B fill:#0A1428,color:#fff
     style C fill:#FF9D3D,color:#000
 ```

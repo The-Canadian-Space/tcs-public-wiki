@@ -42,26 +42,17 @@ We made a deliberate choice to self-host instead of using a fully managed platfo
 **Control**
 You see exactly what we're running, and we control our own destiny. No surprise pricing tiers, no "your feature request is on the roadmap," no waiting for third-party approval to add a new data source.
 
-**Cost transparency**
-Scaling on managed platforms gets expensive fast. Self-hosting means predictable infrastructure costs, and every dollar is accounted for in our cost tracker (more on that below).
-
 **Learning**
 Running our own infrastructure keeps us sharp. We understand caching, queueing, error handling, and production operations—not just the happy path.
 
 **Openness**
 Open-source at the core (n8n, Docker, Caddy) means you can audit what we're doing, contribute improvements, and fork if you want to build your own version.
 
-## Cost transparency
-
-We track every n8n execution, every LLM token, and every API call. Our internal **Cost Sentinel** report runs weekly and logs total spending broken down by source: OpenRouter charges for LLM calls, OVH for the VPS, Newfold for WordPress hosting, and miscellaneous services.
-
-We don't publish hard costs here (business reasons), but we believe in publishing the *process*. You can trust that we're watching the meter and optimizing constantly.
-
 ## Disaster recovery & redundancy
 
 Our n8n workflows are version-controlled on GitHub. WordPress backups are automated. If the VPS goes down, we can spin up a new one and restore from our images in under an hour.
 
-For critical workflows (Daily Broadcast, cost tracking), we've built fallback routes: if Gemini is unavailable, Claude steps in. If one data source is down, others keep pulling.
+For critical workflows (Daily Broadcast, editorial routing), we've built fallback routes: if Gemini is unavailable, Claude steps in. If one data source is down, others keep pulling.
 
 ---
 
