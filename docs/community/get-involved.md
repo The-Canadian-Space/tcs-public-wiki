@@ -61,6 +61,10 @@ Our n8n workflows, scrapers, and data pipelines are designed to be remixable. If
 
 ...you're welcome to. Most of our code is open-source. Check the repo for license details.
 
+## Support (optional)
+
+Reading is enough. If you want more, Chris has a [personal Patreon](https://www.patreon.com/c/Godimas101) where he shares hand-authored writing (not TCS content — this is his personal life blog). No paywall on TCS itself, ever.
+
 ---
 
 !!! tip "GitHub is our front door"

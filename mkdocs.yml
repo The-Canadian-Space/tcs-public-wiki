@@ -156,6 +156,9 @@ extra:
     - icon: fontawesome/brands/instagram
       link: https://www.instagram.com/thecanadianspace/
       name: The Canadian Space on Instagram
+    - icon: fontawesome/brands/patreon
+      link: https://www.patreon.com/c/Godimas101
+      name: Chris on Patreon (personal blog)
     - icon: fontawesome/brands/github
       link: https://github.com/The-Canadian-Space
       name: The Canadian Space on GitHub

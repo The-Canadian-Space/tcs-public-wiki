@@ -38,6 +38,12 @@ Follow us on:
 - **[Instagram](https://www.instagram.com/thecanadianspace/)** — @thecanadianspace
 - **[GitHub](https://github.com/The-Canadian-Space)** — The-Canadian-Space
 
+## Support Chris personally
+
+The Canadian Space is free to read and always will be. If you'd like to support Chris directly (this is Chris personally, not TCS), his Patreon is where he shares personal writing, work-in-progress notes, and thanks-for-existing posts.
+
+- **[Patreon — Godimas101](https://www.patreon.com/c/Godimas101)** — personal blog + support
+
 ---
 
 !!! note "Response time expectations"

@@ -1,7 +1,9 @@
-# Release notes & updates
+# Big moments
 
-This is the changelog for *The Canadian Space*: feature drops, infrastructure milestones, and the story of how we evolved.
+This blog announces the big things: new games in our coverage, site redesigns, feature launches, and milestones.
 
-Think of this as a technical blog for the people who care how things work—you'll find announcements about new data sources, workflow redesigns, editorial upgrades, and behind-the-scenes decisions.
+It's the front-page news of *The Canadian Space*, from us to you.
 
-The blog post archive appears below. For daily aerospace news, head over to [thecanadian.space](https://thecanadian.space/).
+If you want ongoing operational notes—workflow tuning, infrastructure changes, weekly rhythm—those live in our internal engineering log, not here.
+
+The archive appears below. For daily aerospace news, head over to [thecanadian.space](https://thecanadian.space/).

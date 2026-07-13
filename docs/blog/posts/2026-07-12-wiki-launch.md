@@ -18,6 +18,8 @@ For two years, we've been building *The Canadian Space* in the open. We publish 
 
 Today, we're making that transparency official with a public wiki.
 
+This blog covers the big moments: game patch notes, TCS website redesigns, new mods shipping, and milestones like this one. If you want per-workflow-tuning details and infrastructure updates, that's a separate internal engineering log we keep for ourselves.
+
 ## What's in here
 
 This wiki is your behind-the-scenes tour of TCS: how we source news (SNAPI, Launch Library 2, custom scrapers), how we route it through n8n on a self-hosted VPS, which LLM models author your briefings, and why we made the choices we did.
