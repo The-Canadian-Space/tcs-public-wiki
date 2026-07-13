@@ -1,38 +1,31 @@
-# The Canadian Space — Public Wiki
+# tcs-public-wiki · The Canadian Space
 
-This is the **public marketing-forward wiki** for The Canadian Space (TCS), published to [wiki.thecanadian.space](https://wiki.thecanadian.space/). 
+Public-facing wiki for TCS, built with MkDocs Material and published to [wiki.thecanadian.space](https://wiki.thecanadian.space/). This repo builds the site.
 
-It's built with [MkDocs Material](https://squidfunk.github.io/mkdocs-material/) and explains our mission, editorial model, technology stack, and the 7 AI-assisted workflows that power daily aerospace news delivery.
+## Learn more
 
-## Contrast with internal docs
+For architecture, design decisions, and how this repo fits into TCS as a whole, see the wiki:
 
-The internal documentation repo ([tcs-docs](https://github.com/The-Canadian-Space/tcs-docs), behind Cloudflare Access) contains operational procedures, cost tracking, and technical deep-dives. This wiki is public, visually expressive, and tells the story of TCS to potential collaborators, journalists, and aerospace enthusiasts.
+- **[wiki.thecanadian.space](https://wiki.thecanadian.space)**
 
-## Local development
+## Work in this repo
+
+Tickets live on the [TCS Timeline Project](https://github.com/orgs/The-Canadian-Space/projects/1). Open one before starting work; closing it auto-generates an engineering-log entry.
+
+For LLM/agent context, see [AGENTS.md](AGENTS.md).
+
+## Local dev
 
 ```bash
-pip install -r requirements.txt
 mkdocs serve
 ```
 
-Visit `http://localhost:8000/`.
+Opens at `http://localhost:8000`.
 
-## Build
+## CI / deploy
 
-```bash
-mkdocs build --strict
-```
+Push to `main` → GitHub Actions builds site → rsync to VPS → Caddy serves.
 
-The `site/` directory contains the static HTML ready for deployment.
+---
 
-## Deploy
-
-Push to `main` and GitHub Actions handles the rest:
-- Builds the site on `ubuntu-latest`
-- Installs MkDocs Material + Cairo/Pango deps (for OG card generation)
-- Uploads site artifact
-- Deploys via rsync to the VPS
-
-## Documentation for LLM agents
-
-See [AGENTS.md](./AGENTS.md) — the canonical entry point for any LLM working on this repo. It documents voice, working principles, what to never leak, and how to update the tech stack section.
+*Part of [The Canadian Space](https://thecanadian.space) — automated aerospace news for Canada.*
