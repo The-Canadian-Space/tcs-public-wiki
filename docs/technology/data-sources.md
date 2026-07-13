@@ -7,20 +7,28 @@ Your daily aerospace briefing starts as data: structured API responses, web arti
 <div class="grid cards" markdown>
 
 - :fontawesome-solid-rocket: **SpaceFlightNews API (SNAPI)**
-  
-  Real-time aggregated news curated by aerospace industry experts. Covers commercial, government, and international space activity. Structured, reliable, and our bread and butter.
+
+    ---
+
+    Real-time aggregated news curated by aerospace industry experts. Covers commercial, government, and international space activity. Structured, reliable, and our bread and butter.
 
 - :material-satellite: **Launch Library 2 API (LL2)**
-  
-  Comprehensive launch schedule and mission database maintained by The Space Devs, a volunteer community. Powers your launch countdowns and mission timelines.
+
+    ---
+
+    Comprehensive launch schedule and mission database maintained by The Space Devs, a volunteer community. Powers your launch countdowns and mission timelines.
 
 - :material-book-open: **Wikipedia**
-  
-  Historical context, technical specifications, and fact-checking. When we mention a rocket's performance or a historical mission, Wikipedia is often where we verify it.
+
+    ---
+
+    Historical context, technical specifications, and fact-checking. When we mention a rocket's performance or a historical mission, Wikipedia is often where we verify it.
 
 - :material-rss: **RSS feeds**
-  
-  Curated feeds from SpaceQ and other aerospace news outlets. Catches niche stories and regional coverage that broader aggregators miss.
+
+    ---
+
+    Curated feeds from SpaceQ and other aerospace news outlets. Catches niche stories and regional coverage that broader aggregators miss.
 
 </div>
 
@@ -29,8 +37,10 @@ Your daily aerospace briefing starts as data: structured API responses, web arti
 <div class="grid cards" markdown>
 
 - :material-spider-web: **Crawl4AI**
-  
-  Custom web scraper for sources without public APIs. Designed to be respectful: respects robots.txt, backs off on rate-limit responses, caches aggressively to avoid hammering servers.
+
+    ---
+
+    Custom web scraper for sources without public APIs. Designed to be respectful: respects robots.txt, backs off on rate-limit responses, caches aggressively to avoid hammering servers.
 
 </div>
 

@@ -7,16 +7,22 @@ We believe in learning in public. So here's how we do it.
 <div class="grid cards" markdown>
 
 - :material-server: **[Tech Stack](tech-stack.md)**
-  
-  The specific tools, models, and platforms we use: n8n, Docker, Gemini, Claude, WordPress, and more.
+
+    ---
+
+    The specific tools, models, and platforms we use: n8n, Docker, Gemini, Claude, WordPress, and more.
 
 - :material-network: **[Infrastructure](infrastructure.md)**
-  
-  A deep dive into our self-hosted OVH setup: why we chose it, how it's laid out, and why cost and control matter.
+
+    ---
+
+    A deep dive into our self-hosted OVH setup: why we chose it, how it's laid out, and why cost and control matter.
 
 - :material-database: **[Data Sources](data-sources.md)**
-  
-  Where the news comes from: APIs, scrapers, Wikipedia, RSS feeds—and how we handle it ethically.
+
+    ---
+
+    Where the news comes from: APIs, scrapers, Wikipedia, RSS feeds—and how we handle it ethically.
 
 </div>
 

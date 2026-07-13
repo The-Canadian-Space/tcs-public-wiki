@@ -27,13 +27,19 @@ Every article—whether it's a daily roundup, a weekly deep dive, or a monthly s
 
 - :material-transit-connection-horizontal:{ .lg .middle } **[The Editorial Pipeline](pipeline.md)**
 
+    ---
+
     Walk through each stage: discovery, curation, drafting, editing, fact-checking, publishing, and distribution.
 
 - :material-robot-industrial:{ .lg .middle } **[Meet Robo Chris](robo-chris.md)**
 
+    ---
+
     The curator persona behind your daily briefing—the AI system that scans, weighs, and proposes, while Chris (human) decides.
 
 - :material-shield-check:{ .lg .middle } **[Quality Assurance](quality-assurance.md)**
+
+    ---
 
     Human-in-the-loop reviews, automated fact-checking, source attribution, and editorial oversight.
 

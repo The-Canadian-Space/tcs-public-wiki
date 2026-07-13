@@ -12,13 +12,19 @@ Think of Wednesday as the editorial board meeting. Everything that week gets cul
 
 - :material-newspaper:{ .lg .middle } **[Daily Broadcast](daily-broadcast.md)**
 
+    ---
+
     Every morning: your aerospace news roundup. 5–10 curated stories from feeds and APIs, with Chris's editorial touch.
 
 - :material-calendar-week:{ .lg .middle } **[Weekly Spotlights](weekly-spotlights.md)**
 
+    ---
+
     Mondays (SpaceX Report) and Fridays (NASA Overview). Deep dives into the week's biggest story for each.
 
 - :material-calendar-month:{ .lg .middle } **[Monthly Deep Dives](monthly-deep-dives.md)**
+
+    ---
 
     Four specialized monthly workflows that rotate by week: Canada From Orbit, Rocket Lab Roundup, Blue Origin, and Commercial Space.
 

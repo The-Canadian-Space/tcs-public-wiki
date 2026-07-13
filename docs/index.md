@@ -55,22 +55,28 @@ Open methodology
 <div class="grid cards" markdown>
 
 - :material-information-outline:{ .lg .middle } **What is TCS?**
-  
-  Understand our mission, content categories, and editorial approach.
-  
-  [Learn more →](what-is-tcs/index.md)
+
+    ---
+
+    Understand our mission, content categories, and editorial approach.
+
+    [Learn more →](what-is-tcs/index.md)
 
 - :material-cog-outline:{ .lg .middle } **How it works**
-  
-  Explore the workflows, AI-in-the-loop model, and the tech stack behind the scenes.
-  
-  [Learn more →](how-it-works/index.md)
+
+    ---
+
+    Explore the workflows, AI-in-the-loop model, and the tech stack behind the scenes.
+
+    [Learn more →](how-it-works/index.md)
 
 - :material-tools:{ .lg .middle } **Technology**
-  
-  Dive into the tools, APIs, and platforms that power automated publishing.
-  
-  [Learn more →](technology/tech-stack.md)
+
+    ---
+
+    Dive into the tools, APIs, and platforms that power automated publishing.
+
+    [Learn more →](technology/tech-stack.md)
 
 </div>
 
