@@ -1,0 +1,161 @@
+site_name: The Canadian Space
+site_description: aerospace news, automated end to end — the wiki
+site_url: https://wiki.thecanadian.space/
+repo_name: The-Canadian-Space/tcs-public-wiki
+repo_url: https://github.com/The-Canadian-Space/tcs-public-wiki
+edit_uri: edit/main/docs/
+
+copyright: Copyright &copy; Chris Carpenter — The Canadian Space
+
+theme:
+  name: material
+  language: en
+  # custom_dir: overrides
+  features:
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.tabs.link
+    - content.action.edit
+    - toc.follow
+    - announce.dismiss
+  palette:
+    - scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/lightbulb-outline
+        name: Switch to dark mode
+    - scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/lightbulb
+        name: Switch to light mode
+  font:
+    text: Inter
+    code: JetBrains Mono
+  icon:
+    repo: fontawesome/brands/github
+    logo: material/rocket-launch
+
+extra_css:
+  - stylesheets/deep-space.css
+
+extra_javascript:
+  - javascripts/animations.js
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.betterem
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+plugins:
+  - search
+  - tags
+  - glightbox
+  - blog:
+      blog_dir: blog
+      post_url_date_format: yyyy/MM/dd
+      post_url_format: "{date}/{slug}"
+      archive: true
+      categories: true
+      pagination_per_page: 5
+  - social:
+      cards: true
+      cards_layout_options:
+        background_color: "#0A1428"
+        color: "#FF9D3D"
+  - offline
+
+nav:
+  - Home: index.md
+  - What is TCS:
+      - Overview: what-is-tcs/index.md
+      - Mission: what-is-tcs/mission.md
+      - Content categories: what-is-tcs/content-categories.md
+      - Editorial philosophy: what-is-tcs/editorial-philosophy.md
+  - How it works:
+      - Overview: how-it-works/index.md
+      - Editorial pipeline: how-it-works/pipeline.md
+      - Meet Robo Chris: how-it-works/robo-chris.md
+      - Quality assurance: how-it-works/quality-assurance.md
+  - Technology:
+      - Overview: technology/index.md
+      - Tech stack: technology/tech-stack.md
+      - Infrastructure: technology/infrastructure.md
+      - Data sources: technology/data-sources.md
+  - Workflows:
+      - Overview: workflows/index.md
+      - Daily broadcast: workflows/daily-broadcast.md
+      - Weekly spotlights: workflows/weekly-spotlights.md
+      - Monthly deep dives: workflows/monthly-deep-dives.md
+  - Evolution:
+      - Timeline: evolution/timeline.md
+  - Blog: blog/index.md
+  - Community:
+      - Get involved: community/get-involved.md
+      - Credits: community/credits.md
+      - Contact: community/contact.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/The-Canadian-Space
+      name: GitHub
+    - icon: material/web
+      link: https://thecanadian.space/
+      name: Main site
+    - icon: material/rss
+      link: https://thecanadian.space/feed/
+      name: RSS feed
+  # analytics:
+  #   provider: google
+  #   property: G_XXXXXXXXXX
