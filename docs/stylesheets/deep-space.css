@@ -1,54 +1,125 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
 
 /* ============================================================================
-   DEEP SPACE PALETTE & COLOR VARIABLES
+   THE CANADIAN SPACE — Public Wiki styling
+   ----------------------------------------------------------------------------
+   Palette lives under BOTH mkdocs.yml palette schemes:
+     [data-md-color-scheme="slate"]    = dark (default on first load)
+     [data-md-color-scheme="default"]  = light (toggle)
+
+   Every Material variable that Material would otherwise set at low alpha
+   (which is the cause of "washed out" headings and near-invisible links)
+   is overridden here at full opacity. That is the whole point of this file.
    ============================================================================ */
 
+/* ---------------------------------------------------------------------------
+   Shared tokens
+   --------------------------------------------------------------------------- */
 :root {
-  /* Primary: Deep Navy */
-  --md-primary-fg-color: #0A1428;
-  --md-primary-fg-color--light: #1a2540;
-  --md-primary-fg-color--dark: #05090f;
+  --tcs-navy-950: #060b18;
+  --tcs-navy-900: #0a1224;
+  --tcs-navy-800: #101a32;
+  --tcs-navy-700: #172441;
+  --tcs-navy-600: #223055;
 
-  /* Background & Content — DARK AS DEFAULT */
-  --md-primary-bg-color: #050912;
-  --md-default-bg-color: #050912;
-  --md-default-fg-color: #e6ecf5;
+  --tcs-gold-500: #ffb84d;  /* bright — links on dark */
+  --tcs-gold-600: #ff9d3d;  /* CTA / accent */
+  --tcs-gold-700: #d17b1a;  /* mid — for hover */
+  --tcs-gold-800: #a35a00;  /* dark — links on light (AA on white) */
 
-  /* Accent: Gold/Orange */
-  --md-accent-fg-color: #FF9D3D;
-  --md-accent-fg-color--transparent: rgba(255, 157, 61, 0.12);
+  --tcs-ink-050: #f6f8fc;
+  --tcs-ink-100: #eaf0fb;
+  --tcs-ink-200: #cfd8ea;
+  --tcs-ink-700: #253150;
 
-  /* Code blocks dark */
-  --md-code-bg-color: #0f1729;
-  --md-code-fg-color: #e6ecf5;
-
-  /* Extended palette */
-  --tcs-steel: #6b7280;
-  --tcs-nebula: #7c3aed;
-  --tcs-starfield-gold: #ffb84d;
   --tcs-success: #10b981;
-  --tcs-planned: #6b7280;
-
-  /* Typography */
-  --md-typescale-xxl: 3.5rem / 1.2;
-  --md-typescale-xl: 2.5rem / 1.3;
-  --md-typescale-lg: 1.5rem / 1.4;
+  --tcs-warn:    #ff9d3d;
+  --tcs-neutral: #6b7280;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --md-hue: 220;
-    --md-default-bg-color: #050912;
-    --md-default-fg-color: #e6ecf5;
-    --md-default-fg-color--light: #b8c5d6;
-    --md-primary-fg-color: #0A1428;
-    --md-primary-fg-color--light: #1a2540;
-    --md-primary-bg-color: #050912;
-    --md-accent-fg-color: #ffb84d;
-    --md-code-bg-color: #0f1729;
-    --md-code-fg-color: #e6ecf5;
-  }
+/* ---------------------------------------------------------------------------
+   DARK SCHEME  (slate)  — the default on first load
+   --------------------------------------------------------------------------- */
+[data-md-color-scheme="slate"] {
+  --md-hue: 220;
+
+  /* Backgrounds */
+  --md-default-bg-color:         var(--tcs-navy-950);
+  --md-default-bg-color--light:  var(--tcs-navy-900);
+  --md-default-bg-color--lighter: var(--tcs-navy-800);
+  --md-default-bg-color--lightest: var(--tcs-navy-700);
+
+  /* Foregrounds — SOLID colors, not the low-alpha defaults Material ships */
+  --md-default-fg-color:         #ffffff;                 /* body text */
+  --md-default-fg-color--light:  var(--tcs-ink-100);      /* h1, h2, h3 */
+  --md-default-fg-color--lighter: var(--tcs-gold-500);    /* meta, dim text — GOLD, was low-alpha grey */
+  --md-default-fg-color--lightest: rgba(255, 255, 255, 0.65);
+
+  /* Primary (header bar) */
+  --md-primary-fg-color:         var(--tcs-navy-900);
+  --md-primary-fg-color--light:  var(--tcs-navy-700);
+  --md-primary-fg-color--dark:   var(--tcs-navy-950);
+  --md-primary-bg-color:         #ffffff;
+  --md-primary-bg-color--light:  rgba(255, 255, 255, 0.85);
+
+  /* Accent */
+  --md-accent-fg-color:          var(--tcs-gold-500);
+  --md-accent-fg-color--transparent: rgba(255, 184, 77, 0.12);
+  --md-accent-bg-color:          var(--tcs-navy-950);
+  --md-accent-bg-color--light:   rgba(255, 184, 77, 0.15);
+
+  /* Links */
+  --md-typeset-a-color:          var(--tcs-gold-500);
+
+  /* Code */
+  --md-code-bg-color:            #0d1729;
+  --md-code-fg-color:            var(--tcs-ink-050);
+  --md-code-hl-color:            rgba(255, 184, 77, 0.20);
+
+  /* Admonition */
+  --md-admonition-bg-color:      var(--tcs-navy-800);
+  --md-admonition-fg-color:      var(--tcs-ink-050);
+
+  /* Mark */
+  --md-typeset-mark-color:       rgba(255, 184, 77, 0.30);
+}
+
+/* ---------------------------------------------------------------------------
+   LIGHT SCHEME  (default)
+   --------------------------------------------------------------------------- */
+[data-md-color-scheme="default"] {
+  --md-hue: 220;
+
+  --md-default-bg-color:         #fbfcfe;
+  --md-default-bg-color--light:  #f3f6fb;
+  --md-default-bg-color--lighter: #e8eef8;
+  --md-default-bg-color--lightest: #dde5f2;
+
+  --md-default-fg-color:         var(--tcs-navy-900);   /* body text — dark navy */
+  --md-default-fg-color--light:  var(--tcs-navy-800);   /* headings */
+  --md-default-fg-color--lighter: var(--tcs-gold-800);  /* meta / dim — AA on white */
+  --md-default-fg-color--lightest: #6b7280;
+
+  --md-primary-fg-color:         var(--tcs-navy-900);
+  --md-primary-fg-color--light:  var(--tcs-navy-700);
+  --md-primary-fg-color--dark:   var(--tcs-navy-950);
+  --md-primary-bg-color:         #ffffff;
+  --md-primary-bg-color--light:  rgba(255, 255, 255, 0.85);
+
+  --md-accent-fg-color:          var(--tcs-gold-700);   /* darker gold — AA on white */
+  --md-accent-fg-color--transparent: rgba(209, 123, 26, 0.12);
+  --md-accent-bg-color:          #ffffff;
+
+  --md-typeset-a-color:          var(--tcs-gold-800);
+
+  --md-code-bg-color:            #f3f6fb;
+  --md-code-fg-color:            var(--tcs-navy-800);
+  --md-code-hl-color:            rgba(209, 123, 26, 0.15);
+
+  --md-admonition-bg-color:      #f3f6fb;
+  --md-admonition-fg-color:      var(--tcs-navy-900);
+
+  --md-typeset-mark-color:       rgba(255, 184, 77, 0.35);
 }
 
 /* ============================================================================
@@ -56,79 +127,152 @@
    ============================================================================ */
 
 html {
-  font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, sans-serif;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   font-size: 16px;
-  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  color: var(--md-default-fg-color);
   background-color: var(--md-default-bg-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  color: var(--md-default-fg-color);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: Poppins, Inter, sans-serif;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
-}
-
-h1 {
-  font-weight: 800;
-  font-size: 3.25rem;
-}
-
-h2 {
-  font-size: 2.25rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-h3 {
-  font-size: 1.75rem;
-  margin-top: 1.25rem;
-  margin-bottom: 0.75rem;
-}
-
-h4 {
-  font-size: 1.4rem;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-code, pre {
-  font-family: JetBrains Mono, monospace;
-  font-size: 0.875rem;
-  font-weight: 400;
-}
-
-/* Body text scaling for better readability */
+/* Body copy — comfortable, not tiny */
 .md-typeset {
-  font-size: 1.05rem;
-  line-height: 1.75;
+  font-size: 1.0625rem;   /* ~17px */
+  line-height: 1.7;
+  color: var(--md-default-fg-color);
 }
 
 .md-typeset p {
-  margin-bottom: 1.25rem;
+  color: var(--md-default-fg-color);
+  margin-bottom: 1.15rem;
 }
 
-.md-typeset li {
+.md-typeset li { color: var(--md-default-fg-color); margin-bottom: 0.4rem; }
+
+/* Headings — Poppins, always SOLID color, always visible */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.md-typeset h5,
+.md-typeset h6 {
+  font-family: Poppins, Inter, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: var(--md-default-fg-color) !important;   /* override Material's low-alpha default */
+}
+
+.md-typeset h1 {
+  font-weight: 800;
+  font-size: 2.75rem;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.md-typeset h2 {
+  font-size: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--md-default-bg-color--lightest);
+}
+
+.md-typeset h3 {
+  font-size: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.md-typeset h4 {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
   margin-bottom: 0.5rem;
+  color: var(--md-default-fg-color--light) !important;
 }
 
-.md-typeset table {
-  font-size: 0.95rem;
+/* Body links — VISIBLE, gold, underlined on hover */
+.md-typeset a {
+  color: var(--md-typeset-a-color);
+  font-weight: 500;
+  text-decoration: none;
+  border-bottom: 1px dotted transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.md-typeset a:hover,
+.md-typeset a:focus {
+  color: var(--md-accent-fg-color);
+  border-bottom-color: currentColor;
 }
 
-.md-typeset td, .md-typeset th {
-  padding: 1rem;
+/* Strong = TCS gold in dark, deep navy in light (visual anchor) */
+[data-md-color-scheme="slate"] .md-typeset strong { color: #ffffff; }
+[data-md-color-scheme="default"] .md-typeset strong { color: var(--tcs-navy-900); }
+
+/* Code inline */
+.md-typeset code {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  background: var(--md-code-bg-color);
+  color: var(--md-code-fg-color);
+}
+
+/* Code blocks */
+.md-typeset pre {
+  background-color: var(--md-code-bg-color) !important;
+  border-radius: 8px;
+  border: 1px solid var(--md-default-bg-color--lightest);
+  overflow-x: auto;
 }
 
 /* ============================================================================
-   HERO SECTION (.tcs-hero)
+   HEADER BAR + TABS  (top nav)
+   ============================================================================ */
+
+.md-header {
+  background-color: var(--md-primary-fg-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+.md-header__title,
+.md-header__button,
+.md-header__topic {
+  color: #ffffff;
+}
+.md-search__input {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+.md-search__input::placeholder { color: rgba(255, 255, 255, 0.55); }
+
+/* Tabs (top-level nav) */
+.md-tabs {
+  background-color: var(--md-primary-fg-color--light);
+}
+.md-tabs__link {
+  color: rgba(255, 255, 255, 0.82) !important;
+  opacity: 1 !important;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.md-tabs__link:hover,
+.md-tabs__link--active {
+  color: var(--tcs-gold-500) !important;
+}
+
+/* Sidebar nav */
+.md-nav__title { color: var(--md-default-fg-color--light); font-weight: 600; }
+.md-nav__link { color: var(--md-default-fg-color); }
+.md-nav__link:hover,
+.md-nav__link--active { color: var(--md-accent-fg-color); }
+
+/* ============================================================================
+   HERO
    ============================================================================ */
 
 .tcs-hero {
@@ -141,551 +285,327 @@ code, pre {
   min-height: 460px;
   padding: 5rem 2rem;
   margin: 0 0 3rem 0;
-  border-radius: 12px;
-  color: #f0f4ff;
+  border-radius: 14px;
+  color: #f7faff;
   text-align: center;
-
-  /* Layered space background */
   background:
-    radial-gradient(circle at 20% 40%, rgba(255, 157, 61, 0.15) 0%, transparent 55%),
-    radial-gradient(circle at 80% 60%, rgba(124, 58, 237, 0.20) 0%, transparent 60%),
-    linear-gradient(135deg, #05090f 0%, #0A1428 50%, #1a2540 100%);
-  background-size:
-    100% 100%,
-    100% 100%,
-    150% 150%;
-  background-position: 0 0, 0 0, 0 0;
+    radial-gradient(circle at 20% 40%, rgba(255, 157, 61, 0.18) 0%, transparent 55%),
+    radial-gradient(circle at 80% 60%, rgba(124, 58, 237, 0.22) 0%, transparent 60%),
+    linear-gradient(135deg, #050a18 0%, #0d1425 45%, #1a2540 100%);
 }
 
-@media (prefers-color-scheme: dark) {
-  .tcs-hero {
-    background:
-      radial-gradient(circle at 20% 40%, rgba(255, 157, 61, 0.12) 0%, transparent 55%),
-      radial-gradient(circle at 80% 60%, rgba(124, 58, 237, 0.15) 0%, transparent 60%),
-      linear-gradient(135deg, #050912 0%, #0a1428 50%, #1a2540 100%);
-    background-size:
-      100% 100%,
-      100% 100%,
-      150% 150%;
-  }
-}
-
-/* Starfield SVG background */
 .tcs-hero::before {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
   opacity: 0.7;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Cdefs%3E%3ClinearGradient id='starGlow' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='0.8'/%3E%3Cstop offset='100%25' stop-color='%23ffb84d' stop-opacity='0.3'/%3E%3C/linearGradient%3E%3C/defs%3E%3C!-- Orbital ellipse 1 --%3E%3Cellipse cx='400' cy='200' rx='220' ry='140' fill='none' stroke='%23ffb84d' stroke-width='1' opacity='0.2' stroke-dasharray='10,5'/%3E%3C!-- Orbital ellipse 2 --%3E%3Cellipse cx='400' cy='200' rx='280' ry='180' fill='none' stroke='%237c3aed' stroke-width='1' opacity='0.15' stroke-dasharray='8,6' transform='rotate(45 400 200)'/%3E%3C!-- Orbital ellipse 3 --%3E%3Cellipse cx='400' cy='200' rx='160' ry='100' fill='none' stroke='%236b7280' stroke-width='1' opacity='0.12' stroke-dasharray='12,4' transform='rotate(-30 400 200)'/%3E%3C!-- Stars --%3E%3Ccircle cx='50' cy='30' r='1.2' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='120' cy='80' r='0.8' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='200' cy='40' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='280' cy='120' r='0.6' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='350' cy='60' r='1.1' fill='%23ffb84d' opacity='0.7'/%3E%3Ccircle cx='420' cy='30' r='0.9' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='500' cy='90' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='580' cy='50' r='0.7' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='680' cy='100' r='1.2' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='750' cy='40' r='0.8' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='80' cy='180' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='150' cy='220' r='0.6' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='280' cy='200' r='1.1' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='380' cy='250' r='0.9' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='480' cy='210' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='600' cy='240' r='0.7' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='720' cy='190' r='1.2' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='110' cy='320' r='0.8' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='200' cy='360' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='340' cy='300' r='0.6' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='420' cy='350' r='1.1' fill='%23ffb84d' opacity='0.7'/%3E%3Ccircle cx='540' cy='330' r='0.9' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='660' cy='370' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='750' cy='310' r='0.7' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='60' cy='280' r='1.2' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='300' cy='380' r='0.8' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='500' cy='370' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='700' cy='280' r='0.6' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='160' cy='150' r='1.1' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='450' cy='140' r='0.9' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='250' cy='270' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='620' cy='120' r='0.7' fill='%23ffffff' opacity='0.5'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Cellipse cx='400' cy='200' rx='220' ry='140' fill='none' stroke='%23ffb84d' stroke-width='1' opacity='0.20' stroke-dasharray='10,5'/%3E%3Cellipse cx='400' cy='200' rx='280' ry='180' fill='none' stroke='%237c3aed' stroke-width='1' opacity='0.16' stroke-dasharray='8,6' transform='rotate(45 400 200)'/%3E%3Cellipse cx='400' cy='200' rx='160' ry='100' fill='none' stroke='%236b7280' stroke-width='1' opacity='0.13' stroke-dasharray='12,4' transform='rotate(-30 400 200)'/%3E%3Ccircle cx='50' cy='30' r='1.2' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='120' cy='80' r='0.8' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='200' cy='40' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='280' cy='120' r='0.6' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='350' cy='60' r='1.1' fill='%23ffb84d' opacity='0.75'/%3E%3Ccircle cx='420' cy='30' r='0.9' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='500' cy='90' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='580' cy='50' r='0.7' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='680' cy='100' r='1.2' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='750' cy='40' r='0.8' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='80' cy='180' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='150' cy='220' r='0.6' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='280' cy='200' r='1.1' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='380' cy='250' r='0.9' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='480' cy='210' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='600' cy='240' r='0.7' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='720' cy='190' r='1.2' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='110' cy='320' r='0.8' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='200' cy='360' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='340' cy='300' r='0.6' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='420' cy='350' r='1.1' fill='%23ffb84d' opacity='0.75'/%3E%3Ccircle cx='540' cy='330' r='0.9' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='660' cy='370' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='750' cy='310' r='0.7' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='60' cy='280' r='1.2' fill='%23ffffff' opacity='0.9'/%3E%3Ccircle cx='300' cy='380' r='0.8' fill='%23ffffff' opacity='0.6'/%3E%3Ccircle cx='500' cy='370' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='700' cy='280' r='0.6' fill='%23ffffff' opacity='0.5'/%3E%3Ccircle cx='160' cy='150' r='1.1' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='450' cy='140' r='0.9' fill='%23ffffff' opacity='0.7'/%3E%3Ccircle cx='250' cy='270' r='1' fill='%23ffffff' opacity='0.8'/%3E%3Ccircle cx='620' cy='120' r='0.7' fill='%23ffffff' opacity='0.5'/%3E%3C/svg%3E");
   background-size: cover;
   background-position: center;
 }
 
-/* Animated gradient pulse overlay — enhanced visibility */
 .tcs-hero::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   z-index: 0;
-  background:
-    radial-gradient(circle at 50% 50%, rgba(255, 157, 61, 0.15) 0%, transparent 70%);
-  background-size: 200% 200%;
-  background-position: 0% 0%;
-  animation: pulse-gradient 6s ease-in-out infinite;
   pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, rgba(255, 184, 77, 0.20) 0%, transparent 60%);
+  background-size: 200% 200%;
+  animation: tcs-pulse 7s ease-in-out infinite;
 }
 
-@keyframes pulse-gradient {
-  0% {
-    background-position: 0% 0%;
-    opacity: 0.6;
-  }
-  50% {
-    background-position: 100% 100%;
-    opacity: 1;
-  }
-  100% {
-    background-position: 0% 0%;
-    opacity: 0.6;
-  }
+@keyframes tcs-pulse {
+  0%, 100% { background-position: 0% 0%; opacity: 0.55; }
+  50%      { background-position: 100% 100%; opacity: 1;    }
 }
 
-/* Hero content positioning */
-.tcs-hero > * {
-  position: relative;
-  z-index: 2;
-}
+.tcs-hero > * { position: relative; z-index: 2; }
 
 .tcs-hero h1 {
-  font-size: 3.5rem;
+  font-size: 3.25rem;
   font-weight: 800;
   margin: 0 0 1rem 0;
-  color: #ffffff;
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+  color: #ffffff !important;
+  text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+  letter-spacing: -0.02em;
 }
-
 .tcs-hero-tagline {
-  font-size: 1.5rem;
-  opacity: 0.9;
+  font-size: 1.35rem;
   margin: 0 0 2.5rem 0;
+  color: #dfe7f5;
   font-weight: 400;
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
-/* Responsive hero */
 @media (max-width: 600px) {
-  .tcs-hero {
-    min-height: 340px;
-    padding: 3rem 1.5rem;
-    margin: 0 0 2rem 0;
-  }
-
-  .tcs-hero h1 {
-    font-size: 2.25rem;
-  }
-
-  .tcs-hero-tagline {
-    font-size: 1.125rem;
-    margin: 0 0 1.75rem 0;
-  }
+  .tcs-hero { min-height: 320px; padding: 3rem 1.25rem; }
+  .tcs-hero h1 { font-size: 2.15rem; }
+  .tcs-hero-tagline { font-size: 1.1rem; margin-bottom: 1.75rem; }
 }
 
 /* ============================================================================
-   CTA BUTTONS (.tcs-cta-group, .tcs-cta)
+   CTA BUTTONS
    ============================================================================ */
 
-.tcs-cta-group {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 2rem 0;
-}
+.tcs-cta-group { display: flex; gap: 0.85rem; justify-content: center; flex-wrap: wrap; margin: 0.5rem 0; }
 
 .tcs-cta {
   display: inline-block;
-  padding: 0.85rem 2rem;
-  background-color: var(--md-accent-fg-color);
-  color: var(--md-primary-fg-color);
-  border: none;
+  padding: 0.85rem 1.85rem;
+  background-color: var(--tcs-gold-600);
+  color: var(--tcs-navy-950) !important;
+  border-bottom: 0 !important;     /* override the body-link dotted underline */
   border-radius: 8px;
   font-family: Inter, sans-serif;
   font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 14px rgba(255, 157, 61, 0.3);
-  white-space: nowrap;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+  box-shadow: 0 4px 14px rgba(255, 157, 61, 0.35);
 }
-
 .tcs-cta:hover,
 .tcs-cta:focus {
   transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(255, 157, 61, 0.5);
-  background-color: var(--tcs-starfield-gold);
-  outline: none;
+  box-shadow: 0 8px 24px rgba(255, 157, 61, 0.55);
+  background-color: var(--tcs-gold-500);
+  color: var(--tcs-navy-950) !important;
+  border-bottom: 0 !important;
 }
-
-.tcs-cta:active {
-  transform: translateY(-1px);
-}
-
 .tcs-cta.secondary {
-  background-color: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  color: #f0f4ff;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.45);
+  color: #f7faff !important;
   box-shadow: none;
 }
-
 .tcs-cta.secondary:hover,
 .tcs-cta.secondary:focus {
-  border-color: var(--md-accent-fg-color);
-  background-color: rgba(255, 157, 61, 0.1);
-  box-shadow: 0 4px 14px rgba(255, 157, 61, 0.2);
-}
-
-@media (prefers-color-scheme: dark) {
-  .tcs-cta.secondary {
-    border-color: rgba(255, 255, 255, 0.3);
-  }
-
-  .tcs-cta.secondary:hover {
-    border-color: var(--md-accent-fg-color);
-    background-color: rgba(255, 157, 61, 0.12);
-  }
+  border-color: var(--tcs-gold-500);
+  background: rgba(255, 184, 77, 0.12);
+  color: var(--tcs-gold-500) !important;
 }
 
 /* ============================================================================
-   STATS CARDS (.tcs-stats, .tcs-stat)
+   STAT CARDS
    ============================================================================ */
 
 .tcs-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
+  gap: 1.25rem;
+  margin: 2rem 0 2.5rem;
 }
-
 .tcs-stat {
+  padding: 1.25rem 1rem;
   text-align: center;
-  padding: 1.5rem;
-  background-color: rgba(10, 20, 40, 0.04);
-  border: 1px solid rgba(107, 114, 128, 0.15);
   border-radius: 10px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: var(--md-default-bg-color--light);
+  border: 1px solid var(--md-default-bg-color--lightest);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
-
 .tcs-stat:hover {
-  background-color: rgba(10, 20, 40, 0.08);
-  border-color: var(--md-accent-fg-color);
   transform: translateY(-3px);
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
-
-@media (prefers-color-scheme: dark) {
-  .tcs-stat {
-    background-color: rgba(255, 255, 255, 0.03);
-    border-color: rgba(255, 255, 255, 0.08);
-  }
-
-  .tcs-stat:hover {
-    background-color: rgba(255, 255, 255, 0.08);
-    border-color: var(--md-accent-fg-color);
-  }
-}
-
-.tcs-stat-number {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--md-accent-fg-color);
+.tcs-stat strong {
+  display: block;
   font-family: Poppins, Inter, sans-serif;
-  line-height: 1;
-  margin: 0;
-}
-
-.tcs-stat-label {
-  font-size: 0.9rem;
-  color: var(--tcs-steel);
-  margin-top: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  font-weight: 600;
-}
-
-@media (prefers-color-scheme: dark) {
-  .tcs-stat-label {
-    color: var(--md-default-fg-color--light);
-  }
+  font-size: 1.5rem;
+  color: var(--md-accent-fg-color) !important;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.35rem;
 }
 
 /* ============================================================================
-   STATUS BADGES (.tcs-status)
+   STATUS BADGES
    ============================================================================ */
 
 .tcs-status {
   display: inline-block;
   padding: 0.15rem 0.6rem;
   border-radius: 3px;
-  font-family: JetBrains Mono, monospace;
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #ffffff;
-  margin: 0 0.25rem;
+  color: #ffffff !important;
 }
-
-.tcs-status.live {
-  background-color: #10b981;
-}
-
-.tcs-status.planned {
-  background-color: #6b7280;
-}
-
-.tcs-status.experimental {
-  background-color: var(--md-accent-fg-color);
-  color: var(--md-primary-fg-color);
-}
+.tcs-status.live         { background-color: var(--tcs-success); }
+.tcs-status.planned      { background-color: var(--tcs-neutral); }
+.tcs-status.experimental { background-color: var(--tcs-gold-600); color: var(--tcs-navy-950) !important; }
 
 /* ============================================================================
-   CARD GRID ENHANCEMENTS
+   GRID CARDS  (Material's built-in "grid cards" pattern)
+   Make them into visible, distinct containers — not text floating in space.
    ============================================================================ */
 
-.grid.cards .card {
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+.md-typeset .grid.cards > ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
 }
-
-.grid.cards .card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 28px rgba(10, 20, 40, 0.15);
+.md-typeset .grid.cards > ul > li {
+  background: var(--md-default-bg-color--light);
+  border: 1px solid var(--md-default-bg-color--lightest);
+  border-radius: 10px;
+  padding: 1.5rem 1.35rem;
+  margin: 0;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-4px);
   border-color: var(--md-accent-fg-color);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.28);
 }
-
-@media (prefers-color-scheme: dark) {
-  .grid.cards .card:hover {
-    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
-  }
+.md-typeset .grid.cards > ul > li > p:first-child {
+  font-family: Poppins, Inter, sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color) !important;
+  margin: 0 0 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-
-/* ============================================================================
-   SCROLL REVEAL (.tcs-reveal)
-   ============================================================================ */
-
-.tcs-reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+.md-typeset .grid.cards > ul > li > p:first-child .twemoji {
+  color: var(--md-accent-fg-color);
 }
-
-.tcs-reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+.md-typeset .grid.cards > ul > li hr {
+  border: none;
+  border-top: 1px solid var(--md-default-bg-color--lightest);
+  margin: 0.25rem 0 0.5rem;
 }
-
-/* ============================================================================
-   PAGE TRANSITION
-   ============================================================================ */
-
-body.tcs-transitioning main {
-  opacity: 0.3;
-  transition: opacity 0.2s ease;
+.md-typeset .grid.cards > ul > li p { margin: 0; }
+.md-typeset .grid.cards > ul > li a {
+  align-self: flex-start;
+  margin-top: auto;
+  font-weight: 600;
 }
 
 /* ============================================================================
-   ACCESSIBILITY
+   ADMONITIONS
    ============================================================================ */
 
-@media (prefers-reduced-motion: reduce) {
-  .tcs-hero::after {
-    animation: none;
-  }
-
-  .tcs-reveal,
-  .tcs-cta,
-  .tcs-stat,
-  .grid.cards .card {
-    transition: none;
-  }
-
-  .tcs-reveal {
-    opacity: 1;
-    transform: none;
-  }
-
-  .tcs-reveal.visible {
-    opacity: 1;
-    transform: none;
-  }
-}
-
-/* ============================================================================
-   SECTION HEADERS & CONTENT SPACING
-   ============================================================================ */
-
-main > section {
-  margin-bottom: 3rem;
-}
-
-main > section:first-of-type {
-  margin-top: 0;
-}
-
-/* ============================================================================
-   ADMONITIONS & CALLOUTS
-   ============================================================================ */
-
-.admonition {
+.md-typeset .admonition,
+.md-typeset details {
   border-radius: 8px;
-  transition: all 0.3s ease;
+  background: var(--md-admonition-bg-color);
+  border-left: 4px solid var(--md-accent-fg-color);
+  color: var(--md-admonition-fg-color);
 }
-
-.admonition:hover {
-  box-shadow: 0 4px 12px rgba(10, 20, 40, 0.1);
-}
-
-@media (prefers-color-scheme: dark) {
-  .admonition:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  }
-}
-
-/* ============================================================================
-   CODE BLOCKS
-   ============================================================================ */
-
-pre {
-  background-color: var(--md-code-bg-color) !important;
-  border-radius: 8px;
-  padding: 1rem !important;
-  overflow-x: auto;
-  border: 1px solid rgba(107, 114, 128, 0.15);
-}
-
-@media (prefers-color-scheme: dark) {
-  pre {
-    border-color: rgba(255, 255, 255, 0.08);
-  }
+.md-typeset .admonition-title,
+.md-typeset summary {
+  color: var(--md-default-fg-color) !important;
+  font-weight: 700;
 }
 
 /* ============================================================================
    TABLES
    ============================================================================ */
 
-table {
+.md-typeset table:not([class]) {
   border-radius: 8px;
   overflow: hidden;
+  border: 1px solid var(--md-default-bg-color--lightest);
+  background: var(--md-default-bg-color--light);
 }
-
-th {
-  background-color: rgba(10, 20, 40, 0.05);
-  color: var(--md-primary-fg-color);
-  font-weight: 600;
+.md-typeset table:not([class]) th {
+  background: var(--md-default-bg-color--lighter);
+  color: var(--md-default-fg-color);
+  font-weight: 700;
+  border-bottom: 1px solid var(--md-default-bg-color--lightest);
 }
-
-@media (prefers-color-scheme: dark) {
-  th {
-    background-color: rgba(255, 255, 255, 0.08);
-    color: var(--md-default-fg-color);
-  }
+.md-typeset table:not([class]) td {
+  border-bottom: 1px solid var(--md-default-bg-color--lightest);
+  color: var(--md-default-fg-color);
 }
-
-td {
-  border-color: rgba(107, 114, 128, 0.2);
-}
-
-@media (prefers-color-scheme: dark) {
-  td {
-    border-color: rgba(255, 255, 255, 0.1);
-  }
-}
+.md-typeset table:not([class]) tr:last-child td { border-bottom: none; }
 
 /* ============================================================================
-   MERMAID DIAGRAMS (LARGER & ZOOMABLE)
+   MERMAID  — large, dark card, click-to-zoom pointer
    ============================================================================ */
 
 .md-typeset .mermaid,
-.md-typeset div.mermaid,
-.md-typeset pre.mermaid {
-  min-height: 500px;
+.md-typeset pre.mermaid,
+.md-typeset div.mermaid {
   max-width: 100%;
-  margin: 3rem auto;
-  padding: 2rem;
-  background: rgba(10, 20, 40, 0.4);
-  border-radius: 12px;
-  border: 2px solid rgba(255, 157, 61, 0.25);
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: var(--md-default-bg-color--light);
+  border-radius: 10px;
+  border: 1px solid var(--md-default-bg-color--lightest);
   cursor: zoom-in;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease;
+  overflow: auto;
 }
-
-.md-typeset .mermaid svg,
-.md-typeset div.mermaid svg,
-.md-typeset pre.mermaid svg {
-  max-width: 100%;
-  height: auto;
-  min-height: 450px;
-}
-
 .md-typeset .mermaid:hover,
-.md-typeset div.mermaid:hover,
-.md-typeset pre.mermaid:hover {
-  box-shadow: 0 12px 48px rgba(255, 157, 61, 0.25);
-  border-color: rgba(255, 157, 61, 0.5);
-  background: rgba(10, 20, 40, 0.6);
+.md-typeset pre.mermaid:hover,
+.md-typeset div.mermaid:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.25);
 }
-
-@media (prefers-color-scheme: light) {
-  .md-typeset .mermaid,
-  .md-typeset div.mermaid,
-  .md-typeset pre.mermaid {
-    background: rgba(15, 23, 41, 0.08);
-    border-color: rgba(255, 157, 61, 0.3);
-  }
-
-  .md-typeset .mermaid:hover,
-  .md-typeset div.mermaid:hover,
-  .md-typeset pre.mermaid:hover {
-    background: rgba(15, 23, 41, 0.12);
-  }
+.md-typeset .mermaid svg,
+.md-typeset pre.mermaid svg,
+.md-typeset div.mermaid svg {
+  max-width: 100%;
+  height: auto !important;
+  min-height: 320px;
+  display: block;
+  margin: 0 auto;
 }
 
 /* ============================================================================
-   LINKS
+   SCROLL REVEAL + PAGE TRANSITION
    ============================================================================ */
 
-a {
-  color: var(--md-accent-fg-color);
-  text-decoration: none;
-  transition: all 0.2s ease;
+.tcs-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-a:hover {
-  text-decoration: underline;
-  opacity: 0.8;
+.tcs-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
 }
+body.tcs-transitioning main { opacity: 0.35; transition: opacity 0.2s ease; }
 
-a:focus {
-  outline: 2px solid var(--md-accent-fg-color);
-  outline-offset: 2px;
-  border-radius: 3px;
+/* ============================================================================
+   ACCESSIBILITY — reduce motion
+   ============================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .tcs-hero::after { animation: none; }
+  .tcs-reveal, .tcs-cta, .tcs-stat, .grid.cards > ul > li {
+    transition: none;
+  }
+  .tcs-reveal { opacity: 1; transform: none; }
 }
 
 /* ============================================================================
-   RESPONSIVE UTILITIES
+   RESPONSIVE
    ============================================================================ */
 
 @media (max-width: 960px) {
-  .tcs-stats {
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    margin: 1.5rem 0;
-  }
-
-  .tcs-stat {
-    padding: 1rem;
-  }
-
-  .tcs-stat-number {
-    font-size: 2rem;
-  }
-
-  .tcs-cta-group {
-    gap: 0.75rem;
-  }
-
-  .tcs-cta {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.95rem;
-  }
+  .tcs-stats { gap: 1rem; }
+  .tcs-cta-group { gap: 0.75rem; }
 }
 
 @media (max-width: 600px) {
-  .tcs-stats {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-
-  .tcs-cta-group {
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-
-  .tcs-cta {
-    width: 100%;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
-  h3 {
-    font-size: 1.25rem;
-  }
+  .md-typeset { font-size: 1rem; }
+  .md-typeset h1 { font-size: 2.15rem; }
+  .md-typeset h2 { font-size: 1.55rem; }
+  .md-typeset h3 { font-size: 1.25rem; }
+  .tcs-cta-group { flex-direction: column; }
+  .tcs-cta { width: 100%; text-align: center; }
+  .tcs-stats { grid-template-columns: 1fr; }
 }
