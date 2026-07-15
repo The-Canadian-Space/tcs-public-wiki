@@ -92,3 +92,11 @@ For questions about cost tracking, LLM token spend, n8n execution logs, disaster
 ## Questions?
 
 Ask Chris directly. This repo is fresh and working principles may evolve.
+
+## How to verify (before flagging In QA or closing)
+
+- **`mkdocs serve` locally.** Open [http://localhost:8000](http://localhost:8000) and click through every page you touched. Broken links = broken ticket.
+- **Check on real browsers.** MkDocs Material renders differently on mobile — verify at least Chrome desktop + a mobile viewport for any layout change.
+- **Search still works.** MkDocs Material's search indexes on build — if you renamed a page or heading, test a search query for the old text and confirm the redirect (or add one).
+- **Link integrity.** For internal `[label](path.md)` links — mkdocs will warn on broken ones at build time. Warnings = bugs.
+
