@@ -38,11 +38,11 @@ Why does this matter? Keeping track of everything happening in the sector is a c
 
 ```mermaid
 graph LR
-  Sources["🌐 Data Sources<br/>NASA, SNAPI<br/>RSS, Wikipedia"] --> Curation["🤖 AI Curation<br/>Robo Chris<br/>sourcing"]
-  Curation --> Author["✍️ AI Authoring<br/>Gemini/Haiku<br/>draft article"]
-  Author --> Review["👤 Human Review<br/>Chris<br/>fact-check & edit"]
-  Review --> Publish["📡 Auto-publish<br/>WordPress API<br/>to blog"]
-  Publish --> Reader["👁️ You<br/>Read on<br/>thecanadian.space"]
+  Sources["🌐 Data Sources\nNASA, SNAPI\nRSS, Wikipedia"] --> Curation["🤖 AI Curation\nRobo Chris\nsourcing"]
+  Curation --> Author["✍️ AI Authoring\nGemini/Haiku\ndraft article"]
+  Author --> Review["👤 Human Review\nChris\nfact-check & edit"]
+  Review --> Publish["📡 Auto-publish\nWordPress API\nto blog"]
+  Publish --> Reader["👁️ You\nRead on\nthecanadian.space"]
   style Sources fill:#0A1428,color:#fff
   style Curation fill:#0A1428,color:#fff
   style Author fill:#FF9D3D,color:#000
