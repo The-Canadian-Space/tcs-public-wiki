@@ -1,10 +1,8 @@
 # What is The Canadian Space?
 
-The Canadian Space is an automated aerospace news platform that delivers aerospace stories from a distinctly Canadian editorial lens. Built by one person, published 24/7 by machines and humans working together, TCS brings clarity to the chaos of space news—no hype, no clickbait, just stories that matter to Canada and the world beyond our atmosphere.
+Every day, we pull from dozens of aerospace data sources (NASA feeds, CSA articles, SpaceFlightNews API, Launch Library 2, Rocket Lab updates, Blue Origin announcements, and more). An AI author drafts the narrative. A human journalist fact-checks and publishes. A second AI pass reviews for accuracy. And then the story goes live on [thecanadian.space](https://thecanadian.space){ target="_blank" rel="noopener" }—automatically, on schedule, ready for you. Our mission is to deliver up-to-date and exciting happenings across the sector, with a particular focus on the budding Canadian commercial launch program.
 
-Every day, we pull from dozens of aerospace data sources (NASA feeds, SpaceFlightNews API, Launch Library 2, Rocket Lab updates, Blue Origin announcements, and more). An AI author drafts the narrative. A human journalist fact-checks and publishes. A second AI pass reviews for accuracy. And then the story goes live on [thecanadian.space](https://thecanadian.space){ target="_blank" rel="noopener" }—automatically, on schedule, ready for you.
-
-Why does this matter? Aerospace news usually lives in silos: industry press for professionals, NASA.gov for spaceflight nerds, Reddit threads for enthusiasts. TCS glues them together with a Canadian voice, transparent about how we do it, and built to scale.
+Why does this matter? Keeping track of everything happening in the sector is a challenge, so we do the legwork for you. TCS researches, discovers, and creates stories with a Canadian voice. We are transparent about how we do it, and built to scale.
 
 <div class="grid cards" markdown>
 

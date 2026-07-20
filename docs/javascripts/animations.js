@@ -192,110 +192,99 @@
   }
 
   /**
-   * Attach click-to-zoom modal handlers to Mermaid diagrams
-   * Uses glightbox plugin (already loaded by mkdocs-material) for lightbox display
+   * Attach click-to-zoom modal handlers to Mermaid diagrams via event delegation.
+   *
+   * MERMAID_CLICK_V2 (2026-07-19): rewritten from per-element listeners to
+   * document-level delegation. The V1 approach attached listeners in a forEach
+   * loop on DOMContentLoaded, but three failure modes hit at once:
+   *   1. Mermaid replaces / mutates the container node when it renders SVG,
+   *      orphaning the attached listener.
+   *   2. Material's navigation.instant SPA-nav swaps the DOM without re-firing
+   *      DOMContentLoaded — subsequent pages had no handlers at all.
+   *   3. MutationObserver could re-attach handlers multiple times, but only
+   *      to the same container reference — which was already orphaned in (1).
+   *
+   * Delegation attaches ONCE to document, checks `.closest(...)` at click time,
+   * and works regardless of when the SVG renders or how many times the DOM swaps.
+   * Cursor affordance still comes from CSS (`.md-typeset .mermaid { cursor: zoom-in }`).
    */
   function initMermaidModals() {
-    const mermaidElements = document.querySelectorAll('.mermaid, pre.mermaid, div.mermaid');
+    // Only attach once — subsequent calls (e.g. from document$.subscribe)
+    // would double up the handler.
+    if (document.body.dataset.mermaidClickBound === 'true') return;
+    document.body.dataset.mermaidClickBound = 'true';
 
-    if (!mermaidElements.length) return; // Exit if no mermaid diagrams
+    document.addEventListener('click', (e) => {
+      const container = e.target.closest('.mermaid, pre.mermaid, div.mermaid');
+      if (!container) return;
+      const svg = container.querySelector('svg');
+      if (!svg) return; // mermaid hasn't rendered yet — let the click pass through
 
-    // Set up a MutationObserver to handle async-rendered SVGs
-    mermaidElements.forEach((container, index) => {
-      const setupMermaidClick = () => {
-        const svg = container.querySelector('svg');
-        if (!svg) return; // SVG not yet rendered
+      e.preventDefault();
+      e.stopPropagation();
 
-        // Clone SVG and convert to data URL for glightbox
-        container.style.cursor = 'zoom-in';
-        container.addEventListener('click', (e) => {
-          e.preventDefault();
-          e.stopPropagation();
+      // Serialize the SVG to a data URL
+      const svgClone = svg.cloneNode(true);
+      svgClone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+      svgClone.style.margin = '1.5rem';
+      svgClone.style.maxWidth = '95vw';
+      svgClone.style.maxHeight = '95vh';
 
-          // Serialize the SVG to a data URL
-          const svgClone = svg.cloneNode(true);
-          svgClone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+      const svgString = new XMLSerializer().serializeToString(svgClone);
+      const blob = new Blob([svgString], { type: 'image/svg+xml' });
+      const url = URL.createObjectURL(blob);
 
-          // Add padding/styling to the clone
-          svgClone.style.margin = '1.5rem';
-          svgClone.style.maxWidth = '95vw';
-          svgClone.style.maxHeight = '95vh';
+      // Open with glightbox if available, else use native dialog fallback
+      if (window.GLightbox) {
+        window.GLightbox({
+          elements: [{ href: url, type: 'image' }],
+        }).openAt(0);
+        setTimeout(() => URL.revokeObjectURL(url), 5000);
+      } else {
+        // Fallback: native modal dialog
+        const dialog = document.createElement('dialog');
+        dialog.style.cssText = `
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          max-width: 95vw;
+          max-height: 95vh;
+          padding: 2rem;
+          background: var(--md-default-bg-color);
+          border: 2px solid var(--md-accent-fg-color);
+          border-radius: 12px;
+          z-index: 1000;
+          overflow: auto;
+        `;
 
-          const svgString = new XMLSerializer().serializeToString(svgClone);
-          const blob = new Blob([svgString], { type: 'image/svg+xml' });
-          const url = URL.createObjectURL(blob);
+        const closeBtn = document.createElement('button');
+        closeBtn.innerHTML = '&times;';
+        closeBtn.style.cssText = `
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          background: transparent;
+          border: none;
+          font-size: 2rem;
+          color: var(--md-accent-fg-color);
+          cursor: pointer;
+        `;
+        closeBtn.addEventListener('click', () => dialog.close());
 
-          // Open with glightbox if available, else use native dialog
-          if (window.GLightbox) {
-            window.GLightbox({
-              elements: [{ href: url, type: 'image' }],
-            }).openAt(0);
+        const svgContainer = document.createElement('div');
+        svgContainer.appendChild(svgClone);
+        dialog.appendChild(closeBtn);
+        dialog.appendChild(svgContainer);
+        document.body.appendChild(dialog);
+        dialog.showModal();
 
-            // Clean up blob URL after a delay
-            setTimeout(() => URL.revokeObjectURL(url), 5000);
-          } else {
-            // Fallback: native modal dialog
-            const dialog = document.createElement('dialog');
-            dialog.style.cssText = `
-              position: fixed;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              max-width: 95vw;
-              max-height: 95vh;
-              padding: 2rem;
-              background: var(--md-default-bg-color);
-              border: 2px solid var(--md-accent-fg-color);
-              border-radius: 12px;
-              z-index: 1000;
-              overflow: auto;
-            `;
-
-            const closeBtn = document.createElement('button');
-            closeBtn.innerHTML = '&times;';
-            closeBtn.style.cssText = `
-              position: absolute;
-              top: 1rem;
-              right: 1rem;
-              background: transparent;
-              border: none;
-              font-size: 2rem;
-              color: var(--md-accent-fg-color);
-              cursor: pointer;
-            `;
-            closeBtn.addEventListener('click', () => dialog.close());
-
-            const svgContainer = document.createElement('div');
-            svgContainer.appendChild(svgClone);
-            dialog.appendChild(closeBtn);
-            dialog.appendChild(svgContainer);
-            document.body.appendChild(dialog);
-            dialog.showModal();
-
-            dialog.addEventListener('close', () => {
-              dialog.remove();
-              URL.revokeObjectURL(url);
-            });
-          }
+        dialog.addEventListener('close', () => {
+          dialog.remove();
+          URL.revokeObjectURL(url);
         });
-      };
-
-      // Immediate attempt (in case SVG is already rendered)
-      setupMermaidClick();
-
-      // Also watch for future SVG injection via MutationObserver
-      const observer = new MutationObserver(() => {
-        if (container.querySelector('svg')) {
-          setupMermaidClick();
-          observer.disconnect();
-        }
-      });
-
-      observer.observe(container, { childList: true, subtree: true });
-
-      // Timeout safety: stop observing after 5 seconds
-      setTimeout(() => observer.disconnect(), 5000);
-    });
+      }
+    }, true); // useCapture so we run before other click handlers
   }
 
   /**

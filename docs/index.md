@@ -22,7 +22,9 @@ hide:
 
 ---
 
-The Canadian Space is an automated aerospace news platform built to bring stories from orbit down to horizon. Every day, we curate the latest in space exploration, commercial launch activity, and Canada's role in the cosmos—then let AI draft what you'll read, while a human journalist (that's me) fact-checks and publishes. No clickbait. No hype. Just clear, Canadian-perspective aerospace news on a schedule you can count on.
+We are entering a new era of space exploration, development, and adventure. Our generation's Apollo program is truly here — and it is truly massive. NASA is back in the game, the commercial aerospace sector is booming, there are new developments happening every day, and new discoveries just coming over the horizon. And frankly, it's a lot to keep track of!
+
+The Canadian Space was built to do exactly that. We aggregate stories from across the aerospace sector into focused, bite-sized pieces. Our readers can expect daily highlights, weekly drill-downs, and monthly deep-dives — all from a Canadian perspective.
 
 <div class="tcs-stats" markdown>
 
@@ -84,7 +86,9 @@ Open methodology
 
 ## Meet the crew {: .tcs-reveal }
 
-The Canadian Space is built by **Chris**, a Toronto-based QA/automation engineer who got tired of aerospace news existing only in silos. Robo Chris (the AI mascot and curation persona) sources stories from NASA, SpaceX, Blue Origin, Rocket Lab, and dozens of global feeds—then passes them to a human editorial review before anything hits the blog.
+My name is **Chris** — huge fan of sci-fi, video games, and pretty much anything space. I originally built the backbone of what would become The Canadian Space as a personal toolkit: an automated way to stay on top of everything without having to sift through hundreds of Twitter feeds, broadcasts, and news sites myself.
+
+After I'd been using it for a while, my lovely girlfriend pointed out that other folks might get value from the same toolkit. A bit of encouragement on her side and a heck of a lot of work on mine later — and this little hobby project turned into The Canadian Space.
 
 [Meet Robo Chris →](https://thecanadian.space/meet-robo-chris/){ target="_blank" rel="noopener" }
 
