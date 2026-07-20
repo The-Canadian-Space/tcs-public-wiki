@@ -211,14 +211,49 @@
   function initMermaidModals() {
     // Only attach once — subsequent calls (e.g. from document$.subscribe)
     // would double up the handler.
-    if (document.body.dataset.mermaidClickBound === 'true') return;
+    if (document.body.dataset.mermaidClickBound === 'true') {
+      console.log('[TCS mermaid] already bound, skipping re-init');
+      return;
+    }
     document.body.dataset.mermaidClickBound = 'true';
+
+    // MERMAID_CLICK_DEBUG_V1 (2026-07-19): diagnostic logging while
+    // debugging "clicking does nothing" — silent-fail with no console errors.
+    // Remove this block once click-to-zoom is confirmed working end-to-end.
+    const debugCounts = document.querySelectorAll('.mermaid, pre.mermaid, div.mermaid');
+    console.log('[TCS mermaid] init: attached document click handler. Currently on page:', debugCounts.length, 'container(s)');
+    if (debugCounts.length) {
+      console.log('[TCS mermaid] first container classes:', debugCounts[0].className, ', tag:', debugCounts[0].tagName);
+      console.log('[TCS mermaid] first container has SVG?', !!debugCounts[0].querySelector('svg'));
+    }
+    console.log('[TCS mermaid] GLightbox available?', typeof window.GLightbox !== 'undefined');
 
     document.addEventListener('click', (e) => {
       const container = e.target.closest('.mermaid, pre.mermaid, div.mermaid');
-      if (!container) return;
+      if (!container) {
+        // Diagnostic: if the click target LOOKS mermaid-ish but no container
+        // matched, log so we can see what selector we should be using.
+        const svgClicked = e.target.closest('svg');
+        const preClicked = e.target.closest('pre');
+        if (svgClicked || preClicked) {
+          console.log('[TCS mermaid] click on svg/pre but no .mermaid container in ancestor chain', {
+            target: e.target,
+            targetTag: e.target.tagName,
+            targetClass: e.target.className,
+            nearestSvg: svgClicked,
+            nearestPre: preClicked,
+            svgParentClass: svgClicked && svgClicked.parentElement ? svgClicked.parentElement.className : null,
+          });
+        }
+        return;
+      }
+      console.log('[TCS mermaid] click matched container', container.tagName, container.className);
       const svg = container.querySelector('svg');
-      if (!svg) return; // mermaid hasn't rendered yet — let the click pass through
+      if (!svg) {
+        console.warn('[TCS mermaid] container matched but no SVG child — mermaid did not render into this container', container);
+        return;
+      }
+      console.log('[TCS mermaid] opening modal for SVG', svg);
 
       e.preventDefault();
       e.stopPropagation();
