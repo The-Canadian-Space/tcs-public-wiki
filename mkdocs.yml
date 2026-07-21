@@ -97,6 +97,9 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.tilde
 
+hooks:
+  - hooks/cache_bust.py
+
 plugins:
   - search
   - tags
