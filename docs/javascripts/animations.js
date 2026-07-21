@@ -85,6 +85,9 @@
         const body = document.body;
         body.classList.add('tcs-transitioning');
 
+        // Re-render mermaid diagrams on the newly-swapped content.
+        renderMermaidFromSource();
+
         // Remove transitioning class after animation completes
         setTimeout(() => {
           body.classList.remove('tcs-transitioning');
@@ -192,68 +195,66 @@
   }
 
   /**
-   * Attach click-to-zoom modal handlers to Mermaid diagrams via event delegation.
+   * Render Mermaid diagrams whose containers are empty.
    *
-   * MERMAID_CLICK_V2 (2026-07-19): rewritten from per-element listeners to
-   * document-level delegation. The V1 approach attached listeners in a forEach
-   * loop on DOMContentLoaded, but three failure modes hit at once:
-   *   1. Mermaid replaces / mutates the container node when it renders SVG,
-   *      orphaning the attached listener.
-   *   2. Material's navigation.instant SPA-nav swaps the DOM without re-firing
-   *      DOMContentLoaded — subsequent pages had no handlers at all.
-   *   3. MutationObserver could re-attach handlers multiple times, but only
-   *      to the same container reference — which was already orphaned in (1).
+   * Material 9.x's built-in mermaid pipeline transforms the server-rendered
+   * <pre class="mermaid"><code>…source…</code></pre> into an empty
+   * <div class="mermaid"></div> but fails to insert the rendered SVG back —
+   * the diagram never appears, no error surfaces, and the empty container is
+   * left with cursor:zoom-in from our CSS (looks clickable, does nothing).
    *
-   * Delegation attaches ONCE to document, checks `.closest(...)` at click time,
-   * and works regardless of when the SVG renders or how many times the DOM swaps.
-   * Cursor affordance still comes from CSS (`.md-typeset .mermaid { cursor: zoom-in }`).
+   * Workaround: fetch the raw HTML for the current URL, pull the <pre.mermaid>
+   * sources, and render them via the mermaid API that Material's bundle
+   * already loaded. Guarded on empty containers — if Material ever fixes its
+   * pipeline, this becomes a no-op.
    */
-  function initMermaidModals() {
-    // Only attach once — subsequent calls (e.g. from document$.subscribe)
-    // would double up the handler.
-    if (document.body.dataset.mermaidClickBound === 'true') {
-      console.log('[TCS mermaid] already bound, skipping re-init');
+  async function renderMermaidFromSource() {
+    if (!window.mermaid || typeof window.mermaid.render !== 'function') return;
+    const emptyContainers = Array.from(
+      document.querySelectorAll('div.mermaid, pre.mermaid')
+    ).filter((el) => !el.querySelector('svg'));
+    if (emptyContainers.length === 0) return;
+
+    let html;
+    try {
+      const resp = await fetch(window.location.href, { cache: 'reload' });
+      html = await resp.text();
+    } catch (e) {
+      console.warn('[TCS mermaid] source fetch failed:', e.message);
       return;
     }
-    document.body.dataset.mermaidClickBound = 'true';
 
-    // MERMAID_CLICK_DEBUG_V1 (2026-07-19): diagnostic logging while
-    // debugging "clicking does nothing" — silent-fail with no console errors.
-    // Remove this block once click-to-zoom is confirmed working end-to-end.
-    const debugCounts = document.querySelectorAll('.mermaid, pre.mermaid, div.mermaid');
-    console.log('[TCS mermaid] init: attached document click handler. Currently on page:', debugCounts.length, 'container(s)');
-    if (debugCounts.length) {
-      console.log('[TCS mermaid] first container classes:', debugCounts[0].className, ', tag:', debugCounts[0].tagName);
-      console.log('[TCS mermaid] first container has SVG?', !!debugCounts[0].querySelector('svg'));
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const sources = Array.from(
+      doc.querySelectorAll('pre.mermaid > code')
+    ).map((c) => c.textContent);
+
+    for (let i = 0; i < emptyContainers.length && i < sources.length; i++) {
+      try {
+        const { svg } = await window.mermaid.render(
+          `tcs-mermaid-${i}-${Date.now()}`,
+          sources[i]
+        );
+        emptyContainers[i].innerHTML = svg;
+      } catch (e) {
+        console.warn(`[TCS mermaid] render #${i} failed:`, e.message);
+      }
     }
-    console.log('[TCS mermaid] GLightbox available?', typeof window.GLightbox !== 'undefined');
+  }
+
+  /**
+   * Attach click-to-zoom modal handler to Mermaid diagrams via event delegation.
+   * One document-level listener so we survive Material's SPA nav swaps.
+   */
+  function initMermaidModals() {
+    if (document.body.dataset.mermaidClickBound === 'true') return;
+    document.body.dataset.mermaidClickBound = 'true';
 
     document.addEventListener('click', (e) => {
       const container = e.target.closest('.mermaid, pre.mermaid, div.mermaid');
-      if (!container) {
-        // Diagnostic: if the click target LOOKS mermaid-ish but no container
-        // matched, log so we can see what selector we should be using.
-        const svgClicked = e.target.closest('svg');
-        const preClicked = e.target.closest('pre');
-        if (svgClicked || preClicked) {
-          console.log('[TCS mermaid] click on svg/pre but no .mermaid container in ancestor chain', {
-            target: e.target,
-            targetTag: e.target.tagName,
-            targetClass: e.target.className,
-            nearestSvg: svgClicked,
-            nearestPre: preClicked,
-            svgParentClass: svgClicked && svgClicked.parentElement ? svgClicked.parentElement.className : null,
-          });
-        }
-        return;
-      }
-      console.log('[TCS mermaid] click matched container', container.tagName, container.className);
+      if (!container) return;
       const svg = container.querySelector('svg');
-      if (!svg) {
-        console.warn('[TCS mermaid] container matched but no SVG child — mermaid did not render into this container', container);
-        return;
-      }
-      console.log('[TCS mermaid] opening modal for SVG', svg);
+      if (!svg) return;
 
       e.preventDefault();
       e.stopPropagation();
@@ -332,6 +333,7 @@
     initPageTransitions();
     initHeroStarfieldTwinkle();
     initMermaidModals();
+    renderMermaidFromSource();
   }
 
   // Trigger initialization
