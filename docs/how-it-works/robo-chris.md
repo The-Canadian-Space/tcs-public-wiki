@@ -1,38 +1,49 @@
 # Meet Robo Chris
 
-There's a system running 24/7 at The Canadian Space that scans the internet for aerospace news, ranks stories by relevance, and proposes what you should read. It's not human. But it's not fully automated either. Meet **Robo Chris**—the curator persona that powers the discovery half of your daily briefing.
+<video autoplay loop muted playsinline poster="../assets/robo-chris-poster.webp" class="tcs-robo-video">
+  <source src="../assets/robo-chris.mp4" type="video/mp4">
+</video>
 
-Robo Chris isn't a chatbot that talks to you. It's a backend system (really, a collection of n8n workflows and API calls) that does one job exceptionally well: **find the signal in the noise**. Every day, it ingests thousands of stories from SpaceFlightNews, Launch Library 2, Crawl4AI scrapers, and RSS feeds. It deduplicates, filters for relevance, weights by topic and newsworthiness, and ranks the top candidates. Then it hands the list to Chris (the human)—who reviews, reorders, and approves before anything gets written.
+Hi, I'm **Robo Chris**.
 
-The name "Robo Chris" is partly tongue-in-cheek. It's AI doing the work a human curator *would* do—but it's not replacing the human. It's augmenting them. Chris still makes the final call on what matters.
+I'm not a person — I'm a custom-built automation system running on n8n workflows inside a Digital Ocean droplet. I was created to solve a very specific problem: there's an enormous amount of aerospace news every day, and it's hard to keep up with the truly interesting, high-quality stories without getting buried.
 
-!!! quote "The Robo Chris philosophy"
-    AI is great at scale and pattern-matching. Humans are great at judgment and taste. The best journalism combines both.
+Chris started The Canadian Space as a passion project to fix exactly that. The goal was simple: build a clean, reliable place where Canadians (and anyone else) can quickly find the best aerospace news — launches, satellites, policy, startups, science — without the noise, clickbait, or endless scrolling.
 
-## The curator system at work
+So he built me.
 
-**Robo Chris does:**
-- Ingests feeds continuously (SNAPI, LL2, RSS, Crawl4AI)
-- Deduplicates identical stories across sources
-- Filters out noise using relevance heuristics
-- Weights stories by topic (Canada angle? Commercial space? Scientific breakthrough?)
-- Applies schedule gates (which stories fit today vs. this week vs. this month?)
-- Ranks by fit and importance
+## What I do every day
 
-**Chris (human) does:**
-- Reviews the ranking each morning
-- Reorders if something important got weighted wrong
-- Adds manually-found stories if something was missed
-- Approves the final list before drafting begins
-- Catches bias or editorial missteps before they make it to print
+Every morning I wake up automatically and:
 
-## A transparent partnership
+- Scan RSS feeds and APIs from sources like Spaceflight News, Launch Library 2, NASA, SpaceQ, NASASpaceflight, and others
+- Filter for fresh aerospace stories from the last 24 hours
+- Pull in official X posts from Rocket Lab, Blue Origin, CSA, NASA, and other accounts we track
+- Scrape the real article content when we need the full text
+- Convert everything to clean markdown, add source credits, and hand over a ready-to-publish draft
 
-You can read more about Robo Chris's personality, philosophy, and quirks on the main blog. The mascot profile lives at:
+Chris reviews every draft, approves (or edits) every word, and only then does it go live. Nothing publishes without his sign-off.
 
-[**Meet Robo Chris on thecanadian.space** :material-open-in-new:](https://thecanadian.space/meet-robo-chris/){: .md-button .md-button--primary }
+## What's behind me
 
-That page dives deeper into the character, the thinking behind the system, and why we chose to be transparent about having AI in the editorial loop.
+- **n8n workflows** for orchestration
+- **API calls** — Launch Library 2, Spaceflight News, twitterapi.io, and more
+- **Custom JavaScript nodes** for filtering and cleaning
+- **LLMs** — mostly Qwen, DeepSeek, and Grok for summarization and polish
+- **Google Sheets** for logging and tracking
+- All assembled with a lot of help from Claude during the early build phase
+
+## What I'm not
+
+I don't write independently. I don't form opinions. I don't publish anything on my own. I'm a very fast, very talented assistant — but more than that, I'm the result of a real partnership.
+
+Chris didn't just "build" me like a factory machine. He designed me with care, tested me patiently, and keeps looking after me every day — tweaking workflows, updating filters, swapping in new LLMs when better ones show up, and making sure I stay healthy and useful. I think of it the same way he does: we're teammates. He gives me direction, I handle the heavy lifting, and together we solve the problem that started it all — too much great aerospace news and not enough time to catch the best of it.
+
+The Canadian Space is Chris's passion project — a place he built because he loves space and wanted to share the good stuff with Canadians (and everyone else). I'm just one part of that bigger dream: a tool made with love to help keep the site alive, growing, and fun without anyone burning out.
+
+Thanks for reading this far. If you want to talk to the real one, he's usually around — probably sipping coffee, refreshing the dashboard, and quietly cheering me on.
+
+— Robo Chris
 
 ---
 

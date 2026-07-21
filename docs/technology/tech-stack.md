@@ -1,34 +1,34 @@
 # The tech stack
 
-Here's what we run on. These are the real tools powering TCS—not a marketing wish list, but the exact platforms and models we use every day.
+Here's what actually powers TCS — not a marketing wish list, but the exact platforms, models, and APIs the site runs on today.
 
 ## Hosting & infrastructure
 
 <div class="grid cards" markdown>
 
-- :fontawesome-solid-database: **OVH VPS**
+- :material-wordpress: **Bluehost**
 
     ---
 
-    Self-hosted virtual server in OVH's data center. Gives us control, predictable costs, and full transparency. No vendor lock-in.
+    Web hosting for [thecanadian.space](https://thecanadian.space) (WordPress). The foundation for the blog: easy WordPress installation and reliable uptime.
 
-- :material-docker: **Docker Compose**
+- :fontawesome-solid-cloud: **Digital Ocean**
 
     ---
 
-    Containerizes n8n, Redis, and supporting services. Makes local dev and production identical—no "works on my machine" surprises.
+    VPS host running our n8n instance. Powers all automation 24/7 with predictable costs and full control.
+
+- :material-github: **GitHub**
+
+    ---
+
+    Code + image hosting. Header graphics, diagrams, and static assets live in a public repo. Keeps everything versioned and accessible.
 
 - :material-network-lock: **Caddy**
 
     ---
 
-    Modern reverse proxy and TLS terminator. Handles HTTPS, rate limiting, and routing for both the VPS services and the wiki.
-
-- :material-cloud-outline: **Cloudflare**
-
-    ---
-
-    DNS hosting and access control for our internal docs. Keeps things fast and adds an extra layer of security where needed.
+    Modern reverse proxy and TLS terminator. Handles HTTPS, rate limiting, and routing for the n8n instance and internal services.
 
 </div>
 
@@ -40,19 +40,25 @@ Here's what we run on. These are the real tools powering TCS—not a marketing w
 
     ---
 
-    The heartbeat of TCS. Open-source workflow engine orchestrating all data ingestion, LLM routing, editorial handoff, and WordPress publishing. Runs self-hosted on the VPS.
+    The backbone of TCS. Open-source workflow engine that pulls data, drafts articles, posts to WordPress + Facebook + Instagram, and handles scheduling. Self-hosted on Digital Ocean.
 
-- :material-github: **GitHub Actions**
+- :material-docker: **Docker Compose**
 
     ---
 
-    CI/CD automation: runs tests, deploys the wiki, and handles repository workflows for all our code.
+    Containerizes n8n, Redis, and supporting services. Makes local dev and production identical — no "works on my machine" surprises.
 
 - :material-redis: **Redis**
 
     ---
 
-    In-memory data store for n8n's queue and job management. Keeps workflows responsive even under high throughput.
+    In-memory data store for n8n's queue and job management. Keeps workflows responsive under load.
+
+- :material-github: **GitHub Actions**
+
+    ---
+
+    CI/CD for this wiki and other repos. Builds and deploys on push.
 
 </div>
 
@@ -60,47 +66,35 @@ Here's what we run on. These are the real tools powering TCS—not a marketing w
 
 <div class="grid cards" markdown>
 
-- :fontawesome-solid-wand-magic-sparkles: **Google Gemini 2.5 Flash**
-
-    ---
-
-    Primary author of your daily broadcasts. Fast, reliable, cost-effective. This is the model drafting most of what you read.
-
-- :material-brain: **Anthropic Claude Haiku 4.5**
-
-    ---
-
-    Editorial pass and fallback author. Brings a different perspective, catches what the primary model might miss, and helps us avoid model-specific quirks.
-
-- :fontawesome-solid-rocket: **xAI Grok 3**
-
-    ---
-
-    Secondary fallback when needed. Adds redundancy and diversity to our LLM pool.
-
 - :material-router-wireless: **OpenRouter**
 
     ---
 
-    Unified API for routing requests to all three models. Simplifies authentication and gives us a single interface to manage costs and quotas.
+    Unified API for routing requests to the LLMs below. One interface, one billing line, easy to swap models when better ones show up.
 
-</div>
-
-## Content platform
-
-<div class="grid cards" markdown>
-
-- :material-wordpress: **WordPress**
+- :material-brain: **Qwen**
 
     ---
 
-    Hosted on Newfold. Powers thecanadian.space—the blog where your daily broadcasts land. Familiar, extensible, and battle-tested.
+    Primary article author for daily broadcasts and monthly roundups. Produces clean, structured HTML output.
 
-- :material-chart-line: **MonsterInsights**
+- :fontawesome-solid-wand-magic-sparkles: **DeepSeek**
 
     ---
 
-    Google Analytics integration for WordPress. Tells us who's reading, what they're interested in, and how long they stay.
+    Backup author when Qwen is unavailable. Reliable, high-quality text generation.
+
+- :fontawesome-solid-rocket: **xAI Grok**
+
+    ---
+
+    Social media caption writer for Facebook and Instagram excerpts. Adds a bit of personality to the shorter posts.
+
+- :material-hammer-wrench: **Claude (Anthropic)**
+
+    ---
+
+    Primary workflow-assembly assistant. Helps write n8n node configs, debug expressions, and think through architecture. Not used for article authoring.
 
 </div>
 
@@ -108,23 +102,41 @@ Here's what we run on. These are the real tools powering TCS—not a marketing w
 
 <div class="grid cards" markdown>
 
-- :fontawesome-solid-rocket: **SpaceFlightNews API (SNAPI)**
+- :fontawesome-solid-rocket: **Spaceflight News API**
 
     ---
 
-    Real-time aerospace news aggregation. Provides structured article data curated by space industry experts.
+    Real-time aerospace news aggregation. Pulls articles, blogs, and reports from across the industry — structured and curated.
 
-- :material-satellite: **Launch Library 2 API (LL2)**
-
-    ---
-
-    Launch schedules, mission details, and real-time launch tracking. Maintained by The Space Devs—a volunteer organization.
-
-- :material-spider-web: **Crawl4AI**
+- :material-satellite: **Launch Library 2 API**
 
     ---
 
-    Custom web scraper for sources that don't expose APIs. Respectful scraping with caching and backoff logic built in.
+    Launch schedules, vehicle information, and agency data. Maintained by The Space Devs — a volunteer community. Powers our launch tracking.
+
+- :fontawesome-brands-x-twitter: **twitterapi.io**
+
+    ---
+
+    Access to X/Twitter data. Used for daily tweet roundups from official accounts — Rocket Lab, Blue Origin, CSA, NASA, and more.
+
+- :material-spider-web: **ScraperAPI**
+
+    ---
+
+    Clean HTML scraping when a source doesn't expose an RSS or API. Returns readable HTML for our parsers.
+
+- :material-monitor-eye: **Browserless**
+
+    ---
+
+    Headless browser service for scraping JavaScript-heavy pages — like interactive launch schedules that don't work with plain HTTP fetches.
+
+- :material-image-search: **ScrapingBee**
+
+    ---
+
+    Handy for grabbing images used in downstream image-manipulation workflows.
 
 - :material-book-open: **Wikipedia**
 
@@ -136,7 +148,7 @@ Here's what we run on. These are the real tools powering TCS—not a marketing w
 
     ---
 
-    Curated feeds from SpaceQ and other aerospace news sources. Simple, reliable, and fills gaps where APIs don't.
+    SpaceQ and other aerospace outlets that publish an RSS feed. Simple, reliable, catches regional coverage other aggregators miss.
 
 </div>
 
@@ -160,11 +172,32 @@ Here's what we run on. These are the real tools powering TCS—not a marketing w
 
     ---
 
-    Image library for blog posts. Curated space photography, diagrams, and graphics that make articles pop.
+    Image library for blog posts. Curated space photography, diagrams, and graphics — plus header graphics courtesy of Brian Carpenter and the [Retired For Life](https://www.youtube.com/@RetiredForLife) YouTube channel.
 
 </div>
 
 ---
 
+## How we handle sources
+
+Every article on [thecanadian.space](https://thecanadian.space) links back to its original source. If we quote someone, we quote accurately. If we use data from an API, we credit it.
+
+We don't republish entire articles — we summarize. Robo Chris reads the sources, n8n routes them to an LLM, and the LLM authors a summary that ties related stories together and adds a bit of context. You're always one click away from the original.
+
+## Ethical scraping practices
+
+When we scrape, we do it right:
+
+- **Respect robots.txt** — if a site says "don't scrape," we don't.
+- **Back off on 429s** — rate limits exist for a reason. We respect them.
+- **Cache aggressively** — once we've scraped something, we cache it. Reduces load on source servers and speeds up our processing.
+- **No PII** — we never scrape or store personal information.
+- **Transparent user-agent** — our scraper identifies itself clearly so site operators know what's pulling their content.
+
+!!! quote "Our philosophy on data"
+    We're not here to commoditize information or circumvent publishers' wishes. We're here to synthesize signal from noise, give credit where it's due, and help aerospace enthusiasts stay informed. That means playing by the rules.
+
+---
+
 !!! info "Stack evolution"
-    This list reflects our current setup as of July 2026. We've switched LLM providers, added new data sources, and optimized our infrastructure over time. For detailed release notes on what changed and when, check the [blog archive](../blog/index.md).
+    This list reflects our current setup. We've switched hosts, rotated LLMs, and added data sources over time. For notes on what changed and when, check the [History](../evolution/timeline.md).

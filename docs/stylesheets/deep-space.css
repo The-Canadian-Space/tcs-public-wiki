@@ -339,10 +339,41 @@ body {
   line-height: 1.55;
 }
 
+.tcs-hero-logo {
+  display: block;
+  width: 140px;
+  height: auto;
+  margin: 0 auto 1.25rem;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.4));
+}
+
+.tcs-robo-video {
+  display: block;
+  max-width: 320px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto 2rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
+}
+
+.tcs-crew-photo {
+  display: block;
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  border: 3px solid var(--tcs-gold-600);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
 @media (max-width: 600px) {
   .tcs-hero { min-height: 320px; padding: 3rem 1.25rem; }
   .tcs-hero h1 { font-size: 2.15rem; }
   .tcs-hero-tagline { font-size: 1.1rem; margin-bottom: 1.75rem; }
+  .tcs-hero-logo { width: 100px; margin-bottom: 1rem; }
+  .tcs-robo-video { max-width: 260px; }
 }
 
 /* ============================================================================

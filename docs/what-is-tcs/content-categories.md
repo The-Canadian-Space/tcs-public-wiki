@@ -1,6 +1,8 @@
 # What we publish
 
-The Canadian Space publishes on a publishing cadence designed around the space industry itself. Every day brings announcements. Every week brings patterns. Every month brings the big stories. Here's what you'll find, and when you'll find it.
+Our cadence is designed around the space industry itself. Every day brings announcements. Every week brings patterns. Every month brings bigger stories worth taking stock of. Here's what we publish, and when.
+
+Each workflow is a **focus lens** — a way of slicing the daily aerospace firehose into something you can actually read over a coffee.
 
 ---
 

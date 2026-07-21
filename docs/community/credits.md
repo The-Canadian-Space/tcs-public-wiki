@@ -6,7 +6,7 @@
 
 **Chris Carpenter** — Founder, curator, editor, and the human making final calls on what gets published. Keeps the lights on and the quality high.
 
-**Robo Chris** — Our curator persona and the first voice you hear in every briefing. Robo Chris sources the stories, writes the pitch, and hands them off for publication. (Learn more about Robo Chris at [thecanadian.space/meet-robo-chris/](https://thecanadian.space/meet-robo-chris/).)
+**Robo Chris** — Our curator persona and the first voice you hear in every briefing. Robo Chris sources the stories, drafts the pitch, and hands them off for review. ([Meet Robo Chris →](../how-it-works/robo-chris.md))
 
 ## Data sources
 
@@ -21,10 +21,11 @@ We're grateful to:
 
 Our content wouldn't exist without:
 
-- **[Google](https://google.com/)** — Gemini 2.5 Flash, the primary author of your daily briefings
-- **[Anthropic](https://www.anthropic.com/)** — Claude Haiku 4.5, our editorial pass and fallback author
-- **[xAI](https://x.ai/)** — Grok 3, secondary fallback for redundancy
-- **[OpenRouter](https://openrouter.ai/)** — The unified API making it all possible
+- **[Alibaba Qwen](https://qwen.ai/)** — Primary author for daily broadcasts and monthly roundups
+- **[DeepSeek](https://www.deepseek.com/)** — Backup author when Qwen isn't available
+- **[xAI Grok](https://x.ai/)** — Social media caption writer for Facebook and Instagram
+- **[Anthropic Claude](https://www.anthropic.com/)** — Workflow-assembly assistant during the build phase
+- **[OpenRouter](https://openrouter.ai/)** — The unified API making the model routing possible
 
 ## Open source
 

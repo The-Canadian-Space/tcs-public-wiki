@@ -1,8 +1,10 @@
 # What is The Canadian Space?
 
-Every day, we pull from dozens of aerospace data sources (NASA feeds, CSA articles, SpaceFlightNews API, Launch Library 2, Rocket Lab updates, Blue Origin announcements, and more). An AI author drafts the narrative. A human journalist fact-checks and publishes. A second AI pass reviews for accuracy. And then the story goes live on [thecanadian.space](https://thecanadian.space){ target="_blank" rel="noopener" }—automatically, on schedule, ready for you. Our mission is to deliver up-to-date and exciting happenings across the sector, with a particular focus on the budding Canadian commercial launch program.
+Every day, we pull from dozens of aerospace data sources (NASA feeds, CSA articles, the Spaceflight News API, Launch Library 2, Rocket Lab updates, Blue Origin announcements, X/Twitter, and more). An AI author drafts a narrative summary. A human — Chris — reviews and edits. A second AI pass double-checks for accuracy. Then the story goes live on [thecanadian.space](https://thecanadian.space){ target="_blank" rel="noopener" }, automatically, on schedule.
 
-Why does this matter? Keeping track of everything happening in the sector is a challenge, so we do the legwork for you. TCS researches, discovers, and creates stories with a Canadian voice. We are transparent about how we do it, and built to scale.
+Our mission is to deliver up-to-date and exciting happenings across the sector, with a particular focus on the budding Canadian commercial launch program.
+
+Why does this matter? Keeping track of everything happening in the aerospace sector is a challenge, so we do the legwork for you. We aggregate, filter, and summarize stories from across the industry with a Canadian voice. We're transparent about how we do it, and built to scale.
 
 <div class="grid cards" markdown>
 
@@ -18,7 +20,7 @@ Why does this matter? Keeping track of everything happening in the sector is a c
 
     ---
 
-    Daily broadcasts, weekly spotlights, monthly deep dives—the full cadence.
+    Daily broadcasts, weekly spotlights, monthly deep dives — the full cadence.
 
     [Read more →](content-categories.md)
 
@@ -39,7 +41,7 @@ Why does this matter? Keeping track of everything happening in the sector is a c
 ```mermaid
 graph LR
   Sources["🌐 Data Sources<br/>NASA, SNAPI<br/>RSS, Wikipedia"] --> Curation["🤖 AI Curation<br/>Robo Chris<br/>sourcing"]
-  Curation --> Author["✍️ AI Authoring<br/>Gemini/Haiku<br/>draft article"]
+  Curation --> Author["✍️ AI Authoring<br/>LLM<br/>draft article"]
   Author --> Review["👤 Human Review<br/>Chris<br/>fact-check & edit"]
   Review --> Publish["📡 Auto-publish<br/>WordPress API<br/>to blog"]
   Publish --> Reader["👁️ You<br/>Read on<br/>thecanadian.space"]
@@ -51,7 +53,7 @@ graph LR
   style Reader fill:#0A1428,color:#fff
 ```
 
-Every story starts with raw data—then becomes a narrative. Every narrative gets a second set of eyes (and an AI fact-checker) before it reaches you. That's the TCS difference.
+Every story starts with raw data — then becomes a narrative. Every narrative gets a second set of eyes (and an AI fact-checker) before it reaches you. That's the TCS difference.
 
 ---
 

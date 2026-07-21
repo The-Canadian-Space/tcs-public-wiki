@@ -48,9 +48,10 @@ theme:
   font:
     text: Inter
     code: JetBrains Mono
+  logo: assets/tcs-logo.webp
+  favicon: assets/tcs-logo.webp
   icon:
     repo: fontawesome/brands/github
-    logo: material/rocket-launch
 
 extra_css:
   - stylesheets/deep-space.css
@@ -123,10 +124,9 @@ nav:
   - What is TCS:
       - Overview: what-is-tcs/index.md
       - Mission: what-is-tcs/mission.md
-      - Content categories: what-is-tcs/content-categories.md
+      - What we publish: what-is-tcs/content-categories.md
       - Editorial philosophy: what-is-tcs/editorial-philosophy.md
   - How it works:
-      - Overview: how-it-works/index.md
       - Editorial pipeline: how-it-works/pipeline.md
       - Meet Robo Chris: how-it-works/robo-chris.md
       - Quality assurance: how-it-works/quality-assurance.md
@@ -134,13 +134,7 @@ nav:
       - Overview: technology/index.md
       - Tech stack: technology/tech-stack.md
       - Infrastructure: technology/infrastructure.md
-      - Data sources: technology/data-sources.md
-  - Workflows:
-      - Overview: workflows/index.md
-      - Daily broadcast: workflows/daily-broadcast.md
-      - Weekly spotlights: workflows/weekly-spotlights.md
-      - Monthly deep dives: workflows/monthly-deep-dives.md
-  - Evolution:
+  - History:
       - Timeline: evolution/timeline.md
   - Blog: blog/index.md
   - Community:
