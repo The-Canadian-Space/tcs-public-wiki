@@ -308,6 +308,34 @@
         }
       }
 
+      // Mermaid's internal <style> sets stroke:#333333 on .flowchart-link
+      // and .marker — invisible against our dark navy modal background.
+      // Append an override <style> that forces light strokes on edges,
+      // arrowheads, and node borders. Node FILLS aren't touched (the source
+      // `style X fill:...` directive already sets those inline with
+      // !important, which wins over any CSS).
+      const overrideStyle = document.createElementNS(
+        'http://www.w3.org/2000/svg',
+        'style'
+      );
+      overrideStyle.textContent = `
+        .flowchart-link, .edgePath .path {
+          stroke: rgba(255, 255, 255, 0.75) !important;
+          stroke-width: 1.5px !important;
+          fill: none !important;
+        }
+        .marker, .marker * {
+          fill: rgba(255, 255, 255, 0.75) !important;
+          stroke: rgba(255, 255, 255, 0.75) !important;
+        }
+        .node rect, .node polygon, .node circle, .node ellipse, .node path,
+        .label-container {
+          stroke: rgba(255, 255, 255, 0.6) !important;
+          stroke-width: 1.5px !important;
+        }
+      `;
+      svgClone.appendChild(overrideStyle);
+
       const svgString = new XMLSerializer().serializeToString(svgClone);
       const blob = new Blob([svgString], { type: 'image/svg+xml' });
       const url = URL.createObjectURL(blob);
