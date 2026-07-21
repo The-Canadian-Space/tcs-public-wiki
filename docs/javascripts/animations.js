@@ -270,12 +270,26 @@
       e.preventDefault();
       e.stopPropagation();
 
-      // Serialize the SVG to a data URL
+      // Serialize the SVG to a data URL for the modal.
+      //
+      // Mermaid renders SVGs with width="100%" so they scale to their parent
+      // in the page — but as a standalone blob-URL image inside GLightbox
+      // there is no parent, so "100%" resolves to 0 and the modal shows an
+      // empty white rectangle. Extract natural pixel dimensions from the
+      // viewBox and set them explicitly on the clone.
       const svgClone = svg.cloneNode(true);
       svgClone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
-      svgClone.style.margin = '1.5rem';
-      svgClone.style.maxWidth = '95vw';
-      svgClone.style.maxHeight = '95vh';
+      const vb = svg.getAttribute('viewBox');
+      if (vb) {
+        const [, , vbW, vbH] = vb.split(/\s+/).map(Number);
+        if (vbW && vbH) {
+          svgClone.setAttribute('width', String(Math.round(vbW)));
+          svgClone.setAttribute('height', String(Math.round(vbH)));
+        }
+      }
+      // Strip mermaid's inline max-width so the modal can size the image
+      // by its natural dimensions.
+      svgClone.style.removeProperty('max-width');
 
       const svgString = new XMLSerializer().serializeToString(svgClone);
       const blob = new Blob([svgString], { type: 'image/svg+xml' });
