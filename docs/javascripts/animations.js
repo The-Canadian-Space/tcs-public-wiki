@@ -272,24 +272,41 @@
 
       // Serialize the SVG to a data URL for the modal.
       //
-      // Mermaid renders SVGs with width="100%" so they scale to their parent
-      // in the page — but as a standalone blob-URL image inside GLightbox
-      // there is no parent, so "100%" resolves to 0 and the modal shows an
-      // empty white rectangle. Extract natural pixel dimensions from the
-      // viewBox and set them explicitly on the clone.
+      // Mermaid renders SVGs with width="100%" and no background — fine when
+      // embedded in the page, wrong for a standalone blob-URL image in
+      // GLightbox: "100%" resolves to 0 (no parent) and the transparent SVG
+      // sits on GLightbox's white slide, which hides the deep-space theme's
+      // dark arrows. We fix both here — pad the viewBox for breathing room,
+      // stamp explicit pixel dimensions, and prepend a background <rect>.
       const svgClone = svg.cloneNode(true);
       svgClone.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+      svgClone.style.removeProperty('max-width');
+
       const vb = svg.getAttribute('viewBox');
       if (vb) {
-        const [, , vbW, vbH] = vb.split(/\s+/).map(Number);
+        const [vbX, vbY, vbW, vbH] = vb.split(/\s+/).map(Number);
         if (vbW && vbH) {
-          svgClone.setAttribute('width', String(Math.round(vbW)));
-          svgClone.setAttribute('height', String(Math.round(vbH)));
+          const pad = 32;
+          const outX = vbX - pad;
+          const outY = vbY - pad;
+          const outW = vbW + pad * 2;
+          const outH = vbH + pad * 2;
+          svgClone.setAttribute('viewBox', `${outX} ${outY} ${outW} ${outH}`);
+          svgClone.setAttribute('width', String(Math.round(outW)));
+          svgClone.setAttribute('height', String(Math.round(outH)));
+
+          const bgRect = document.createElementNS(
+            'http://www.w3.org/2000/svg',
+            'rect'
+          );
+          bgRect.setAttribute('x', String(outX));
+          bgRect.setAttribute('y', String(outY));
+          bgRect.setAttribute('width', String(outW));
+          bgRect.setAttribute('height', String(outH));
+          bgRect.setAttribute('fill', '#0A1428');
+          svgClone.insertBefore(bgRect, svgClone.firstChild);
         }
       }
-      // Strip mermaid's inline max-width so the modal can size the image
-      // by its natural dimensions.
-      svgClone.style.removeProperty('max-width');
 
       const svgString = new XMLSerializer().serializeToString(svgClone);
       const blob = new Blob([svgString], { type: 'image/svg+xml' });
