@@ -76,26 +76,34 @@
    * Adds subtle opacity transition on route changes via Material's document$ observable
    */
   function initPageTransitions() {
-    // Try to hook into Material's document$ observable (exists after MkDocs loads)
-    if (
-      typeof window.document$ !== 'undefined' &&
-      window.document$.subscribe
-    ) {
-      window.document$.subscribe(() => {
-        const body = document.body;
-        body.classList.add('tcs-transitioning');
+    // Material's document$ observable isn't defined at DOMContentLoaded — it
+    // gets exposed later when Material's bundle finishes bootstrapping. Poll
+    // for it and subscribe once available. Same pattern for mermaid, which
+    // Material lazy-imports.
+    const trySubscribe = (attemptsLeft) => {
+      if (typeof window.document$ !== 'undefined' && window.document$.subscribe) {
+        window.document$.subscribe(() => {
+          const body = document.body;
+          body.classList.add('tcs-transitioning');
 
-        // Re-render mermaid diagrams on the newly-swapped content.
-        renderMermaidFromSource();
+          // Re-render mermaid diagrams on the newly-swapped content (first
+          // load OR SPA nav). document$ fires on both.
+          renderMermaidFromSource();
 
-        // Remove transitioning class after animation completes
-        setTimeout(() => {
-          body.classList.remove('tcs-transitioning');
-          // Reinitialize scroll reveal for new content
-          initScrollReveal();
-        }, 300);
-      });
-    } else {
+          // Remove transitioning class after animation completes
+          setTimeout(() => {
+            body.classList.remove('tcs-transitioning');
+            // Reinitialize scroll reveal for new content
+            initScrollReveal();
+          }, 300);
+        });
+      } else if (attemptsLeft > 0) {
+        setTimeout(() => trySubscribe(attemptsLeft - 1), 200);
+      }
+    };
+    trySubscribe(30); // up to 6s
+
+    if (typeof window.document$ === 'undefined') {
       // Fallback: listen for popstate (browser back/forward)
       window.addEventListener('popstate', () => {
         const body = document.body;
@@ -210,8 +218,11 @@
    */
   async function renderMermaidFromSource() {
     if (!window.mermaid || typeof window.mermaid.render !== 'function') return;
+    // Only match div.mermaid — that's the post-transform shape Material
+    // leaves behind. Rendering into a still-present pre.mermaid would race
+    // with Material's own transform and get clobbered.
     const emptyContainers = Array.from(
-      document.querySelectorAll('div.mermaid, pre.mermaid')
+      document.querySelectorAll('div.mermaid')
     ).filter((el) => !el.querySelector('svg'));
     if (emptyContainers.length === 0) return;
 
@@ -333,7 +344,18 @@
     initPageTransitions();
     initHeroStarfieldTwinkle();
     initMermaidModals();
-    renderMermaidFromSource();
+
+    // Poll for mermaid to be lazy-loaded by Material, then render. document$
+    // (below, in initPageTransitions) is the primary render trigger; this is
+    // a first-load safety net in case document$ never becomes available.
+    const tryRender = (attemptsLeft) => {
+      if (window.mermaid && typeof window.mermaid.render === 'function') {
+        renderMermaidFromSource();
+      } else if (attemptsLeft > 0) {
+        setTimeout(() => tryRender(attemptsLeft - 1), 200);
+      }
+    };
+    tryRender(30); // up to 6s
   }
 
   // Trigger initialization
