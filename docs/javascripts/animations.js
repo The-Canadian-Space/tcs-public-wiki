@@ -308,17 +308,18 @@
         }
       }
 
-      // Mermaid's internal <style> sets stroke:#333333 on .flowchart-link
-      // and .marker — invisible against our dark navy modal background.
-      // Append an override <style> that forces light strokes on edges,
-      // arrowheads, and node borders. Node FILLS aren't touched (the source
-      // `style X fill:...` directive already sets those inline with
-      // !important, which wins over any CSS).
+      // Mermaid's internal <style> uses dark strokes (#333333) and default
+      // theme colors that vanish against our #0A1428 modal background.
+      // Append an override <style> that forces light-on-dark for each
+      // diagram type we use on the wiki (flowchart, sequence, gantt,
+      // timeline). Node FILLS aren't touched — inline `style X fill:...`
+      // directives set those with !important, which wins over any CSS.
       const overrideStyle = document.createElementNS(
         'http://www.w3.org/2000/svg',
         'style'
       );
       overrideStyle.textContent = `
+        /* --- Flowchart --- */
         .flowchart-link, .edgePath .path {
           stroke: rgba(255, 255, 255, 0.75) !important;
           stroke-width: 1.5px !important;
@@ -332,6 +333,53 @@
         .label-container {
           stroke: rgba(255, 255, 255, 0.6) !important;
           stroke-width: 1.5px !important;
+        }
+        .edgeLabel, .edgeLabel rect { background-color: transparent !important; }
+        .edgeLabel foreignObject > div { background-color: rgba(10, 20, 40, 0.85) !important; }
+
+        /* --- Sequence diagram --- */
+        rect.actor, .actor {
+          fill: rgba(255, 255, 255, 0.92) !important;
+          stroke: rgba(255, 255, 255, 0.6) !important;
+        }
+        text.actor, text.actor > tspan {
+          fill: #0A1428 !important;
+        }
+        .messageLine0, .messageLine1, line.loopLine {
+          stroke: rgba(255, 255, 255, 0.75) !important;
+          stroke-width: 1.5px !important;
+        }
+        .actor-line {
+          stroke: rgba(255, 255, 255, 0.35) !important;
+        }
+        text.messageText, .messageText {
+          fill: rgba(255, 255, 255, 0.95) !important;
+        }
+        .note, rect.note {
+          fill: rgba(255, 255, 255, 0.12) !important;
+          stroke: rgba(255, 255, 255, 0.4) !important;
+        }
+        text.noteText, .noteText {
+          fill: rgba(255, 255, 255, 0.95) !important;
+        }
+        .labelBox { stroke: rgba(255, 255, 255, 0.6) !important; fill: rgba(255, 255, 255, 0.08) !important; }
+        .labelText, .labelText tspan, .loopText, .loopText tspan {
+          fill: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        /* --- Gantt --- */
+        .grid .tick line, .grid path, .exclude-range {
+          stroke: rgba(255, 255, 255, 0.25) !important;
+        }
+        .grid .tick text, .titleText, .sectionTitle, .taskText,
+        .taskTextOutsideRight, .taskTextOutsideLeft, .today {
+          fill: rgba(255, 255, 255, 0.95) !important;
+        }
+        line.today { stroke: #FF9D3D !important; stroke-width: 2px !important; }
+
+        /* --- Timeline --- */
+        .timeline-node rect, .timeline-node circle, .section-line {
+          stroke: rgba(255, 255, 255, 0.6) !important;
         }
       `;
       svgClone.appendChild(overrideStyle);
