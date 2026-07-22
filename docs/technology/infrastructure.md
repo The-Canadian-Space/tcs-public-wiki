@@ -22,7 +22,7 @@ graph TB
         OR["OpenRouter<br/>LLM API"]
         SNAPI["Spaceflight News<br/>API"]
         LL2["Launch Library 2"]
-        X["X / Twitter<br/>via twitterapi.io"]
+        X["X / Twitter<br/>self-hosted scraper"]
     end
 
     N8N -->|"publish"| WP

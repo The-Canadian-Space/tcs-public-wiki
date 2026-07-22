@@ -114,11 +114,11 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     Launch schedules, vehicle information, and agency data. Maintained by The Space Devs — a volunteer community. Powers our launch tracking.
 
-- :fontawesome-brands-x-twitter: **twitterapi.io**
+- :fontawesome-brands-x-twitter: **Self-hosted X scraper**
 
     ---
 
-    Access to X/Twitter data. Used for daily tweet roundups from official accounts — Rocket Lab, Blue Origin, CSA, NASA, and more.
+    Custom Node.js scraper running on the VPS. Pulls the latest posts from tracked official accounts (Rocket Lab, Blue Origin, CSA, NASA Administrator, and more) into daily tweet roundups. Fully self-managed — no third-party API tier to graduate off of.
 
 - :material-spider-web: **ScraperAPI**
 

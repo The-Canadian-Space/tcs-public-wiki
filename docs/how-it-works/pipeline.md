@@ -8,7 +8,7 @@ The pipeline starts before any AI sees the story. We cast a wide net across mult
 
 - **Spaceflight News API (SNAPI)** — aggregated aerospace news
 - **Launch Library 2** — launch schedules, mission data, verified facts
-- **X/Twitter (via twitterapi.io)** — official accounts from Rocket Lab, Blue Origin, CSA, NASA, and others
+- **X/Twitter (self-hosted scraper)** — official accounts from Rocket Lab, Blue Origin, CSA, NASA, and others
 - **RSS feeds** — SpaceQ and other aerospace outlets
 - **Targeted web scrapers** — for niche outlets and pages that don't expose an API (ScraperAPI, Browserless, ScrapingBee)
 - **Wikipedia lookups** — historical context and background details

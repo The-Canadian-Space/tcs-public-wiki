@@ -27,7 +27,7 @@ Chris reviews every draft, approves (or edits) every word, and only then does it
 ## What's behind me
 
 - **n8n workflows** for orchestration
-- **API calls** — Launch Library 2, Spaceflight News, twitterapi.io, and more
+- **API calls** — Launch Library 2, Spaceflight News, and more
 - **Custom JavaScript nodes** for filtering and cleaning
 - **LLMs** — mostly Qwen, DeepSeek, and Grok for summarization and polish
 - **Google Sheets** for logging and tracking
