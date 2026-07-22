@@ -24,7 +24,7 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     Code + image hosting. Header graphics, diagrams, and static assets live in a public repo. Keeps everything versioned and accessible.
 
-- :material-network-lock: **Caddy**
+- :material-shield-lock: **Caddy**
 
     ---
 
@@ -48,7 +48,7 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     Containerizes n8n, Redis, and supporting services. Makes local dev and production identical — no "works on my machine" surprises.
 
-- :material-redis: **Redis**
+- :material-database: **Redis**
 
     ---
 
@@ -66,7 +66,7 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
 <div class="grid cards" markdown>
 
-- :material-router-wireless: **OpenRouter**
+- :material-router-network: **OpenRouter**
 
     ---
 
@@ -90,7 +90,7 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     Social media caption writer for Facebook and Instagram excerpts. Adds a bit of personality to the shorter posts.
 
-- :material-hammer-wrench: **Claude (Anthropic)**
+- :material-wrench: **Claude (Anthropic)**
 
     ---
 
@@ -126,13 +126,13 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     Clean HTML scraping when a source doesn't expose an RSS or API. Returns readable HTML for our parsers.
 
-- :material-monitor-eye: **Browserless**
+- :material-monitor: **Browserless**
 
     ---
 
     Headless browser service for scraping JavaScript-heavy pages — like interactive launch schedules that don't work with plain HTTP fetches.
 
-- :material-image-search: **ScrapingBee**
+- :material-image-outline: **ScrapingBee**
 
     ---
 

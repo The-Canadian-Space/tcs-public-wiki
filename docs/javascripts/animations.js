@@ -240,11 +240,19 @@
       doc.querySelectorAll('pre.mermaid > code')
     ).map((c) => c.textContent);
 
+    // Prepend mermaid's dark theme via init directive so unstyled diagram
+    // elements (edge labels, subgraph outlines, sequence actor text) get a
+    // light-on-dark palette instead of defaulting to near-black strokes that
+    // vanish on our navy background. Explicit `style X fill:...` directives
+    // in the source still win — theme only fills gaps.
+    const DARK_THEME_DIRECTIVE = '%%{init: {"theme":"dark"}}%%\n';
+
     for (let i = 0; i < emptyContainers.length && i < sources.length; i++) {
       try {
+        const source = DARK_THEME_DIRECTIVE + sources[i];
         const { svg } = await window.mermaid.render(
           `tcs-mermaid-${i}-${Date.now()}`,
-          sources[i]
+          source
         );
         emptyContainers[i].innerHTML = svg;
       } catch (e) {

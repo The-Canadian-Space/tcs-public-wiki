@@ -1,6 +1,6 @@
 # Meet Robo Chris
 
-<video autoplay loop muted playsinline poster="../assets/robo-chris-poster.webp" class="tcs-robo-video">
+<video autoplay muted playsinline poster="../assets/robo-chris-poster.webp" class="tcs-robo-video">
   <source src="../assets/robo-chris.mp4" type="video/mp4">
 </video>
 
