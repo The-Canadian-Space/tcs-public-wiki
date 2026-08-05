@@ -8,15 +8,17 @@ Each workflow is a **focus lens** — a way of slicing the daily aerospace fireh
 
 ## Publishing calendar
 
-| Content | Schedule | Time | Topics |
-|---------|----------|------|--------|
-| **Daily Broadcast** | Every day | 08:00 ET | All topics—launches, discoveries, funding, policy, commercial updates |
-| **SpaceX Report** | Every Monday | 09:30 ET | SpaceX launches, Starship updates, Starlink news, company milestones |
-| **NASA Overview** | Every Friday | 09:30 ET | NASA missions, Artemis, ISS updates, JWST discoveries, agency announcements |
-| **Canada From Orbit** | Week 1 Wednesday | 09:30 ET | Canadian technology, talent, international partnerships, and national programs |
-| **Rocket Lab Roundup** | Mid-month | 09:30 ET | Electron launches, Neutron development, small-lift market trends |
-| **Bright Blue Origin** | Week 3 Wednesday | 09:30 ET | New Shepard/New Glenn, Blue Moon, commercial spaceflight, human spaceflight |
-| **Commercial Space** | Week 4 Wednesday | 09:30 ET | Startups, funding rounds, supply chain, terrestrial space tech, policy |
+| Content | Schedule | Topics |
+|---------|----------|--------|
+| **Daily Broadcast** | Every day | All topics — launches, discoveries, funding, policy, commercial updates, Canadian angles |
+| **SpaceX Report** | Every Monday | SpaceX launches, Starship updates, Starlink news, company milestones |
+| **NASA Overview** | Every Friday | NASA missions, Artemis, ISS updates, JWST discoveries, agency announcements |
+| **Canada From Orbit** | First Wednesday of the month | Canadian aerospace industry — commercial launch companies, satellite operators, tech suppliers, plus CSA and government programs |
+| **Rocket Lab Roundup** | Second Wednesday of the month | Electron launches, Neutron development, small-lift market trends |
+| **Bright Blue Origin** | Third Wednesday of the month | New Glenn, Blue Moon, commercial spaceflight, human spaceflight |
+| **Commercial Space** | Fourth Wednesday of the month | Four up-and-coming commercial aerospace companies we're tracking closely: Axiom Space, Firefly Aerospace, Relativity Space, and Stoke Space |
+
+_Publish times aren't shown intentionally — the workflow drafts on schedule, but Chris still reads and edits before it goes live, so the actual post time varies from day to day._
 
 ---
 
@@ -24,86 +26,86 @@ Each workflow is a **focus lens** — a way of slicing the daily aerospace fireh
 
 === "Daily Broadcast"
 
-    The daily roundup: everything that happened in aerospace in the last 24 hours. We pull from NASA, SpaceX, Rocket Lab, Blue Origin, ESA, ISRO, CNSA, plus aerospace startups and funding announcements. You get:
-    
+    The daily roundup: everything that happened in aerospace in the last 24 hours. We pull from NASA, SpaceX, Rocket Lab, Blue Origin, ESA, ISRO, CNSA, plus aerospace startups and funding announcements. Canadian stories lead when there's one to lead with.
+
     - Launch schedules and updates
     - Mission discoveries and mission control updates
     - Funding announcements and company milestones
     - Policy and international cooperation news
     - Hardware, vehicle, and engine updates
     - Human spaceflight news
-    - One article, daily, 08:00 ET
+    - Every day
 
 === "SpaceX Report"
 
-    Deep into the week's SpaceX news—Starship test campaigns, Falcon 9 launches, Starlink constellation updates, Elon's announcements, supply chain rumors, and what it all means for the future of heavy-lift launch.
-    
+    Deep into the week's SpaceX news — Starship test campaigns, Falcon 9 launches, Starlink constellation updates, Elon's announcements, supply-chain rumors, and what it all means for the future of heavy-lift launch.
+
     - Flight test updates
     - Starship development milestones
     - Starlink and constellation news
     - Raptor engine progress
     - Competitor reactions
-    - Mondays, 09:30 ET
+    - Every Monday
 
 === "NASA Overview"
 
     What the agency is doing. Artemis lunar campaigns, ISS experiments, JWST discoveries, Mars rovers, climate science, and the slow, methodical work of human spaceflight. We focus on milestones, funding, and the vision behind each program.
-    
+
     - Artemis Moon-to-Mars progress
     - ISS science and crew updates
     - JWST discoveries and images
     - Mars and planetary exploration
     - Human spaceflight programs
     - Budget and policy decisions
-    - Fridays, 09:30 ET
+    - Every Friday
 
 === "Canada From Orbit"
 
-    A Canadian perspective on Canadian contributions to space. We cover Canadian astronauts, robotics like Canadarm, Canadian tech suppliers, international partnerships involving Canadian institutions, and policy that shapes Canada's space future.
-    
+    A Canadian perspective on Canada's role in space, covering both the commercial industry (launch companies, satellite operators, tech suppliers, startups) and the government side (CSA, RCAF Space Command, NRC). Canada's commercial space sector is just entering its own revolution — Canada From Orbit tracks it alongside the established institutional players.
+
+    - Canadian launch companies (Reaction Dynamics, NordSpace, and others)
+    - Canadian satellite operators and satellite tech
+    - Canadian tech suppliers and startups
     - Astronaut news (training, missions, appointments)
     - Canadarm and Canadian robotics
-    - Canadian suppliers and tech companies
-    - Canadian participation in ESA/international missions
-    - Space agency partnerships (CSA, industry)
-    - Funding and national programs
-    - Week 1 Wednesday (lunar calendar), 09:30 ET
+    - CSA missions and government programs
+    - International partnerships involving Canadian institutions
+    - First Wednesday of the month
 
 === "Rocket Lab Roundup"
 
     Electron launches, Neutron development, the small-lift market, and what it means for cost-effective access to orbit. We track every launch attempt, vehicle milestones, and competitors in the small-lift space (Virgin Orbit, Axiom, Relativity, etc.).
-    
+
     - Electron launch updates and manifest
     - Neutron vehicle development
     - Launch attempt outcomes
     - Small-lift market trends
     - Competitor launches
     - Supply and manufacturing news
-    - Mid-month, 09:30 ET
+    - Second Wednesday of the month
 
 === "Bright Blue Origin"
 
-    Blue Origin's path to spaceflight. New Shepard crewed flights, New Glenn heavy-lift development, Blue Moon lunar lander, Blue Alchemist, and the larger commercial spaceflight ecosystem (Virgin Galactic, Axiom modules, etc.).
-    
-    - New Shepard crewed flight updates
+    Blue Origin's path to spaceflight. New Glenn heavy-lift development, Blue Moon lunar lander, Blue Alchemist, and the larger commercial spaceflight ecosystem (Virgin Galactic, Axiom modules, etc.).
+
     - New Glenn manufacturing progress
     - Blue Moon lunar lander development
     - Blue Alchemist (in-situ resource utilization)
     - Commercial space station modules
     - Bezos and corporate announcements
-    - Week 3 Wednesday (lunar calendar), 09:30 ET
+    - Third Wednesday of the month
 
 === "Commercial Space"
 
-    The startup and business side of space. Funding rounds, IPOs, supply-chain companies, space tourism, in-orbit servicing, debris removal, and the companies building the infrastructure of the space economy.
-    
-    - Funding announcements and Series rounds
-    - Startup milestones and pivots
-    - Supply-chain and component makers
-    - Space tourism and commercial suborbital
-    - In-orbit servicing (Axiom, Vestar, etc.)
-    - Space debris and sustainability
-    - Week 4 Wednesday (lunar calendar), 09:30 ET
+    Four up-and-coming commercial aerospace companies we're tracking closely: **Axiom Space**, **Firefly Aerospace**, **Relativity Space**, and **Stoke Space**. Their launches, funding rounds, hardware milestones, and competitive positioning in the broader commercial space market.
+
+    - Axiom Space — commercial space station modules, crewed missions
+    - Firefly Aerospace — Alpha launches, lunar lander program
+    - Relativity Space — Terran R development
+    - Stoke Space — fully-reusable rocket development
+    - Funding rounds, hardware milestones, and market positioning across the four
+    - Occasional coverage of emerging companies in the broader commercial space ecosystem
+    - Fourth Wednesday of the month
 
 ---
 

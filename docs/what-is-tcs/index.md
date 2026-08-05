@@ -2,7 +2,7 @@
 
 Every day, we pull from dozens of aerospace data sources (NASA feeds, CSA articles, the Spaceflight News API, Launch Library 2, Rocket Lab updates, Blue Origin announcements, X/Twitter, and more). An AI author drafts a narrative summary. A human — Chris — reviews and edits. A second AI pass double-checks for accuracy. Then the story goes live on [thecanadian.space](https://thecanadian.space){ target="_blank" rel="noopener" }, automatically, on schedule.
 
-Our mission is to deliver up-to-date and exciting happenings across the sector, with a particular focus on the budding Canadian commercial launch program.
+Our main focus is Canada's aerospace industry — a sector just entering a new commercial revolution. Canadian stories lead every publication, but we cover the aerospace industry as a whole: launches, missions, discoveries, and the companies shaping what's next.
 
 Why does this matter? Keeping track of everything happening in the aerospace sector is a challenge, so we do the legwork for you. We aggregate, filter, and summarize stories from across the industry with a Canadian voice. We're transparent about how we do it, and built to scale.
 
