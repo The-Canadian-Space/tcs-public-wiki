@@ -135,8 +135,8 @@ nav:
       - Tech stack: technology/tech-stack.md
       - Infrastructure: technology/infrastructure.md
   - History:
-      - Timeline: evolution/timeline.md
-  - Blog: blog/index.md
+      - The story so far: evolution/timeline.md
+      - Big moments (blog archive): blog/index.md
   - Community:
       - Get involved: community/get-involved.md
       - Credits: community/credits.md

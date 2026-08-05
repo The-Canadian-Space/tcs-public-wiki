@@ -4,7 +4,7 @@ Questions, feedback, or just want to chat about space? Here's how to reach us.
 
 ## Email
 
-**thecanadianspace.contact@gmail.com**
+**[thecanadianspace.contact@gmail.com](mailto:thecanadianspace.contact@gmail.com)**
 
 Use this for story pitches, data source suggestions, corrections, or anything not suited for a public GitHub issue. We read and respond to all emails.
 

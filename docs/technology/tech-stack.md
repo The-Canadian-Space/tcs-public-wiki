@@ -72,25 +72,25 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     Unified API for routing requests to the LLMs below. One interface, one billing line, easy to swap models when better ones show up.
 
-- :material-brain: **Qwen 3.7 Plus** — *primary author*
+- :material-brain: **Qwen 3.7 Plus**
 
     ---
 
-    Drafts every daily broadcast and weekly / monthly report. Cost-effective and produces clean, structured HTML that plays well with the downstream editor.
+    Our primary author — drafts every daily broadcast and weekly / monthly report. Cost-effective and produces clean, structured HTML that plays well with the downstream editor.
 
-- :material-alpha-c-circle: **Claude Haiku 4.5 (Anthropic)** — *author fallback*
-
-    ---
-
-    Kicks in when Qwen errors or stalls mid-response. Also the model behind the workflow-assembly assistant Chris uses to build and debug n8n nodes.
-
-- :fontawesome-solid-check-double: **OpenAI GPT-5-mini** — *fact-checker / editor*
+- :material-alpha-c-circle: **Claude Haiku 4.5 (Anthropic)**
 
     ---
 
-    Runs a fact-check pass on every draft: verifies claims against the source articles, tightens SEO, and generates the patches the publisher applies before the post goes live.
+    Author fallback that kicks in when Qwen errors or stalls mid-response. Also the model behind the workflow-assembly assistant Chris uses to build and debug n8n nodes.
 
-- :fontawesome-solid-rocket: **xAI Grok** — *social media writer*
+- :fontawesome-solid-check-double: **OpenAI GPT-5-mini**
+
+    ---
+
+    Runs a fact-check + editor pass on every draft: verifies claims against the source articles, tightens SEO, and generates the patches the publisher applies before the post goes live.
+
+- :fontawesome-solid-rocket: **xAI Grok**
 
     ---
 
@@ -102,37 +102,37 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
 <div class="grid cards" markdown>
 
-- :fontawesome-solid-rocket: **Spaceflight News API**
+- :fontawesome-solid-rocket: **[Spaceflight News API](https://spaceflightnewsapi.net/){target="_blank" rel="noopener"}**
 
     ---
 
     Real-time aerospace news aggregation. Pulls articles, blogs, and reports from across the industry — structured and curated.
 
-- :material-satellite: **Launch Library 2 API**
+- :material-satellite: **[Launch Library 2 API](https://ll.thespacedevs.com/){target="_blank" rel="noopener"}**
 
     ---
 
     Launch schedules, vehicle information, and agency data. Maintained by The Space Devs — a volunteer community. Powers our launch tracking.
 
-- :fontawesome-brands-x-twitter: **[Rettiwt-API](https://github.com/Rishikant181/Rettiwt-API)**
+- :fontawesome-brands-x-twitter: **[Rettiwt-API](https://github.com/Rishikant181/Rettiwt-API){target="_blank" rel="noopener"}**
 
     ---
 
     The open-source Node.js library we wrap in a small VPS-side script to pull the latest posts from tracked official accounts (Rocket Lab, Blue Origin, CSA, NASA Administrator, and more) into daily tweet roundups. Cookie-authed via a burner X account, fully self-managed — no third-party API tier to graduate off of.
 
-- :material-spider-web: **[Crawl4AI](https://github.com/unclecode/crawl4ai)**
+- :material-spider-web: **[Crawl4AI](https://github.com/unclecode/crawl4ai){target="_blank" rel="noopener"}**
 
     ---
 
     Open-source Python library for LLM-ready web scraping. Every V3 blog workflow calls our `article_scraper.py` (a thin wrapper around Crawl4AI, run over SSH on the VPS) to fetch article content, metadata, and images. Handles JS-heavy sites, anti-bot blocks, and per-domain extraction rules cleanly.
 
-- :material-monitor: **Browserless**
+- :material-monitor: **[Browserless](https://www.browserless.io/){target="_blank" rel="noopener"}**
 
     ---
 
     Headless browser service for scraping JavaScript-heavy pages — like interactive launch schedules that don't work with plain HTTP fetches.
 
-- :material-image-outline: **ScrapingBee**
+- :material-image-outline: **[ScrapingBee](https://www.scrapingbee.com/){target="_blank" rel="noopener"}**
 
     ---
 
