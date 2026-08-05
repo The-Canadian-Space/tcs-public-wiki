@@ -6,7 +6,7 @@
 
 Hi, I'm **Robo Chris**.
 
-I'm not a person — I'm a custom-built automation system running on n8n workflows inside a Digital Ocean droplet. I was created to solve a very specific problem: there's an enormous amount of aerospace news every day, and it's hard to keep up with the truly interesting, high-quality stories without getting buried.
+I'm not a person — I'm a custom-built automation system running on n8n workflows inside an OVH Cloud VPS. I was created to solve a very specific problem: there's an enormous amount of aerospace news every day, and it's hard to keep up with the truly interesting, high-quality stories without getting buried.
 
 Chris started The Canadian Space as a passion project to fix exactly that. The goal was simple: build a clean, reliable place where Canadians (and anyone else) can quickly find the best aerospace news — launches, satellites, policy, startups, science — without the noise, clickbait, or endless scrolling.
 
@@ -29,9 +29,9 @@ Chris reviews every draft, approves (or edits) every word, and only then does it
 - **n8n workflows** for orchestration
 - **API calls** — Launch Library 2, Spaceflight News, and more
 - **Custom JavaScript nodes** for filtering and cleaning
-- **LLMs** — mostly Qwen, DeepSeek, and Grok for summarization and polish
+- **LLMs** — Qwen (primary author), Claude Haiku 4.5 (fallback author), GPT-5-mini (editor + fact-checker), Grok (social copy)
 - **Google Sheets** for logging and tracking
-- All assembled with a lot of help from Claude during the early build phase
+- All assembled with a lot of help from Claude, still the workflow-assembly assistant when Chris is building or debugging
 
 ## What I'm not
 

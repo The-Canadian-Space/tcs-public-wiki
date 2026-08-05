@@ -10,7 +10,7 @@ We believe in learning in public. So here's how we do it.
 
     ---
 
-    The specific tools, models, and platforms we use — n8n, Docker, Qwen/DeepSeek/Grok, WordPress, and every data source that feeds the pipeline.
+    The specific tools, models, and platforms we use — n8n, Docker, Qwen / Claude Haiku / GPT-5-mini / Grok, WordPress, and every data source that feeds the pipeline.
 
 - :material-network: **[Infrastructure](infrastructure.md)**
 
@@ -24,15 +24,16 @@ We believe in learning in public. So here's how we do it.
 
 ```mermaid
 graph LR
-    A["Data Feeds<br/>SNAPI, LL2, RSS<br/>Scrapers, X"] -->|"Pull articles"| B["n8n<br/>self-hosted VPS"]
-    B -->|"Route to LLM"| C["LLM rotation<br/>Qwen, DeepSeek, Grok<br/>via OpenRouter"]
-    C -->|"Author + fact-check"| D["WordPress<br/>blog"]
-    D -->|"Publish"| E["Readers<br/>thecanadian.space"]
+    A["Data Feeds<br/>SNAPI, LL2, RSS<br/>Rettiwt (X), Crawl4AI (web)"] -->|"Pull articles"| B["n8n<br/>OVH Cloud VPS"]
+    B -->|"Author + fact-check"| C["LLMs<br/>Qwen, Claude Haiku,<br/>GPT-5-mini, Grok<br/>via OpenRouter"]
+    C -->|"Return drafts"| B
+    B -->|"Publish"| D["WordPress<br/>blog"]
+    D -->|"Read"| E["Readers<br/>thecanadian.space"]
     style B fill:#0A1428,color:#fff
     style C fill:#FF9D3D,color:#000
 ```
 
-The heart of it all is **n8n**, our workflow orchestration engine, running self-hosted on a Digital Ocean droplet. It pulls from multiple sources, routes drafts through a pool of LLMs via OpenRouter, and lands finished stories on WordPress.
+The heart of it all is **n8n**, our workflow orchestration engine, running self-hosted on an OVH Cloud VPS. It pulls from multiple sources, routes drafts through a pool of LLMs via OpenRouter, and lands finished stories on WordPress.
 
 Every process is auditable. Every dependency is documented. That's the TCS way.
 

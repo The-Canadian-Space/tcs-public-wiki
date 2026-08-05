@@ -8,9 +8,9 @@ The pipeline starts before any AI sees the story. We cast a wide net across mult
 
 - **Spaceflight News API (SNAPI)** — aggregated aerospace news
 - **Launch Library 2** — launch schedules, mission data, verified facts
-- **X/Twitter (self-hosted scraper)** — official accounts from Rocket Lab, Blue Origin, CSA, NASA, and others
+- **X/Twitter (via [Rettiwt-API](https://github.com/Rishikant181/Rettiwt-API))** — open-source Node.js scraper we run VPS-side; pulls the latest posts from official accounts (Rocket Lab, Blue Origin, CSA, NASA, and others)
 - **RSS feeds** — SpaceQ and other aerospace outlets
-- **Targeted web scrapers** — for niche outlets and pages that don't expose an API (ScraperAPI, Browserless, ScrapingBee)
+- **[Crawl4AI](https://github.com/unclecode/crawl4ai)** — open-source LLM-ready web scraper, wrapped in our `article_scraper.py` and invoked over SSH on the VPS; handles JS-heavy sites and anti-bot blocks. Plus **Browserless** / **ScrapingBee** for the couple of stubborn pages Crawl4AI can't crack.
 - **Wikipedia lookups** — historical context and background details
 
 These sources feed into Robo Chris (our curator system) continuously. No filtering yet — just collection.
@@ -36,8 +36,9 @@ The curator produces a ranked candidate list. Nothing gets dropped — we just o
 
 Once curation is done, the top stories go to the LLM author. We use:
 
-- **Primary:** Qwen (via OpenRouter) — clean, structured HTML output, cost-effective
-- **Fallback:** DeepSeek (via OpenRouter) — reliable backup with strong writing quality
+- **Primary:** Qwen 3.7 Plus (via OpenRouter) — clean, structured HTML output, cost-effective
+- **Fallback:** Claude Haiku 4.5 (via OpenRouter) — kicks in when Qwen stalls or errors mid-response
+- **Fact-check / editor:** OpenAI GPT-5-mini — runs after every draft, verifies claims against sources, tightens SEO
 - **Social captions:** xAI Grok — handles the Facebook/Instagram excerpt writing
 
 The author doesn't freestyle. It works from **author rules** — a structured prompt that includes:

@@ -4,38 +4,39 @@ The Canadian Space runs on a self-hosted setup. We own the hardware contract, ma
 
 ## The layout
 
-At the core is a **single Digital Ocean droplet** running Docker Compose. Inside: n8n (workflow orchestration), Redis (job queue), and Caddy (reverse proxy). Outside: WordPress on Bluehost, GitHub for code and image hosting, OpenRouter for LLM routing, and a handful of aerospace APIs feeding data in.
+At the core is a **single OVH Cloud VPS** (VPS2 tier — 6 vCores, 12GB RAM, 100GB NVMe, Frankfurt) running Docker Compose. Inside: n8n (workflow orchestration), Redis (job queue), Caddy (reverse proxy + TLS), and a handful of Python scripts we invoke over SSH. Around it: WordPress on Bluehost, GitHub for code and image hosting, OpenRouter for LLM routing, and a handful of aerospace data sources feeding stories in.
 
 ```mermaid
 graph TB
-    subgraph DO["Digital Ocean droplet (self-hosted)"]
-        N8N["n8n<br/>workflow engine"]
-        R["Redis<br/>queue"]
-        C["Caddy<br/>reverse proxy"]
-        N8N <-->|"queues"| R
-        C <-->|"proxies"| N8N
+    Data["📡 <b>Data sources</b><br/>Spaceflight News API · Launch Library 2 · RSS<br/>X (via Rettiwt-API) · News sites (via Crawl4AI)"]
+
+    subgraph OVH["🖥️ OVH Cloud VPS — self-hosted core"]
+        Core["⚙️ <b>n8n</b> workflow engine<br/><small>every pipeline runs here</small><br/><br/>🔒 Caddy &nbsp;·&nbsp; 📦 Redis &nbsp;·&nbsp; 🐍 Python scripts"]
     end
 
-    subgraph External["External Services"]
-        WP["WordPress<br/>Bluehost"]
-        GH["GitHub<br/>code + images"]
-        OR["OpenRouter<br/>LLM API"]
-        SNAPI["Spaceflight News<br/>API"]
-        LL2["Launch Library 2"]
-        X["X / Twitter<br/>self-hosted scraper"]
-    end
+    LLM["🤖 <b>LLMs via OpenRouter</b><br/>Qwen 3.7 Plus (author) · Claude Haiku 4.5 (fallback)<br/>GPT-5-mini (editor) · Grok (social copy)"]
 
-    N8N -->|"publish"| WP
-    N8N -->|"route requests"| OR
-    N8N -->|"pull data"| SNAPI
-    N8N -->|"pull data"| LL2
-    N8N -->|"pull posts"| X
-    N8N -->|"push assets"| GH
+    WP["📡 <b>WordPress on Bluehost</b><br/>thecanadian.space"]
+    Social["📱 <b>Facebook + Instagram</b>"]
+    GH["💾 <b>GitHub</b><br/>tcs-images · workflow backups · repos"]
 
-    style DO fill:#0A1428,color:#fff,stroke:#FF9D3D
-    style External fill:#f5f5f5,color:#000
-    style N8N fill:#FF9D3D,color:#000
+    Data -->|feeds| Core
+    Core <-->|LLM calls| LLM
+    Core -->|publishes| WP
+    Core -->|distributes| Social
+    Core -->|persists| GH
+
+    classDef input fill:#0A1428,color:#fff,stroke:#0A1428
+    classDef ai fill:#FF9D3D,color:#000,stroke:#FF9D3D
+    classDef out fill:#22C55E,color:#fff,stroke:#22C55E
+    classDef store fill:#334155,color:#fff,stroke:#334155
+    class Data input
+    class LLM ai
+    class WP,Social out
+    class GH store
 ```
+
+<small><b>Legend:</b> dark blue = data in · orange = AI · green = published out · slate = storage · orange-bordered box = self-hosted OVH core</small>
 
 ## Why self-hosted?
 
@@ -49,9 +50,9 @@ We made a deliberate choice to self-host instead of using a fully managed platfo
 
 ## Disaster recovery & redundancy
 
-Our n8n workflows are version-controlled on GitHub. WordPress backups are automated. If the droplet goes down, we can spin up a new one and restore from our images in under an hour.
+Our n8n workflows are version-controlled on GitHub (auto-backup hourly). WordPress backups are automated by the host. If the VPS goes down, we can spin up a new OVH instance and restore from the backups in under an hour.
 
-For critical workflows (Daily Broadcast, editorial routing), we've built fallback routes: if Qwen is unavailable, DeepSeek steps in. If one data source is down, the others keep pulling. The pipeline degrades gracefully rather than failing outright.
+For critical workflows (Daily Broadcast, editorial routing), we've built fallback routes: if Qwen errors mid-response, Claude Haiku 4.5 steps in. If one data source is down, the others keep pulling. The pipeline degrades gracefully rather than failing outright.
 
 ---
 

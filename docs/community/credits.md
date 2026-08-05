@@ -21,10 +21,10 @@ We're grateful to:
 
 Our content wouldn't exist without:
 
-- **[Alibaba Qwen](https://qwen.ai/)** — Primary author for daily broadcasts and monthly roundups
-- **[DeepSeek](https://www.deepseek.com/)** — Backup author when Qwen isn't available
+- **[Alibaba Qwen](https://qwen.ai/)** — Primary author for daily broadcasts and weekly / monthly reports
+- **[Anthropic Claude](https://www.anthropic.com/)** — Author fallback (Haiku 4.5) when Qwen errors or stalls, and the workflow-assembly assistant Chris uses to build and debug pipelines
+- **[OpenAI](https://openai.com/)** — Fact-checker / editor (GPT-5-mini) that verifies claims and tightens SEO on every draft before it's published
 - **[xAI Grok](https://x.ai/)** — Social media caption writer for Facebook and Instagram
-- **[Anthropic Claude](https://www.anthropic.com/)** — Workflow-assembly assistant during the build phase
 - **[OpenRouter](https://openrouter.ai/)** — The unified API making the model routing possible
 
 ## Open source

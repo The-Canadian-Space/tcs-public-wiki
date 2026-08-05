@@ -46,7 +46,7 @@ You should never have to second-guess whether something you read here is still a
 
 At the bottom of every article, you'll see a byline that names the model that drafted it. Something like:
 
-> *Drafted by Qwen. Fact-checked by DeepSeek. Reviewed by Chris.*
+> *Drafted by Qwen. Fact-checked by GPT-5-mini. Reviewed by Chris.*
 
 We don't hide the AI. We name it. This matters because:
 

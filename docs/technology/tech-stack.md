@@ -12,11 +12,11 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     Web hosting for [thecanadian.space](https://thecanadian.space) (WordPress). The foundation for the blog: easy WordPress installation and reliable uptime.
 
-- :fontawesome-solid-cloud: **Digital Ocean**
+- :fontawesome-solid-cloud: **OVH Cloud**
 
     ---
 
-    VPS host running our n8n instance. Powers all automation 24/7 with predictable costs and full control.
+    VPS host (VPS2 tier — 6 vCores, 12GB RAM, 100GB NVMe) running our n8n instance, Caddy reverse proxy, and internal image-prep service. Frankfurt data centre. Powers all automation 24/7 with predictable annual billing and full control.
 
 - :material-github: **GitHub**
 
@@ -40,7 +40,7 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     ---
 
-    The backbone of TCS. Open-source workflow engine that pulls data, drafts articles, posts to WordPress + Facebook + Instagram, and handles scheduling. Self-hosted on Digital Ocean.
+    The backbone of TCS. Open-source workflow engine that pulls data, drafts articles, posts to WordPress + Facebook + Instagram, and handles scheduling. Self-hosted on OVH Cloud.
 
 - :material-docker: **Docker Compose**
 
@@ -72,29 +72,29 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     Unified API for routing requests to the LLMs below. One interface, one billing line, easy to swap models when better ones show up.
 
-- :material-brain: **Qwen**
+- :material-brain: **Qwen 3.7 Plus** — *primary author*
 
     ---
 
-    Primary article author for daily broadcasts and monthly roundups. Produces clean, structured HTML output.
+    Drafts every daily broadcast and weekly / monthly report. Cost-effective and produces clean, structured HTML that plays well with the downstream editor.
 
-- :fontawesome-solid-wand-magic-sparkles: **DeepSeek**
-
-    ---
-
-    Backup author when Qwen is unavailable. Reliable, high-quality text generation.
-
-- :fontawesome-solid-rocket: **xAI Grok**
+- :material-alpha-c-circle: **Claude Haiku 4.5 (Anthropic)** — *author fallback*
 
     ---
 
-    Social media caption writer for Facebook and Instagram excerpts. Adds a bit of personality to the shorter posts.
+    Kicks in when Qwen errors or stalls mid-response. Also the model behind the workflow-assembly assistant Chris uses to build and debug n8n nodes.
 
-- :material-wrench: **Claude (Anthropic)**
+- :fontawesome-solid-check-double: **OpenAI GPT-5-mini** — *fact-checker / editor*
 
     ---
 
-    Primary workflow-assembly assistant. Helps write n8n node configs, debug expressions, and think through architecture. Not used for article authoring.
+    Runs a fact-check pass on every draft: verifies claims against the source articles, tightens SEO, and generates the patches the publisher applies before the post goes live.
+
+- :fontawesome-solid-rocket: **xAI Grok** — *social media writer*
+
+    ---
+
+    Writes the Facebook and Instagram excerpts that go out with each published post. Handles the shorter, punchier social copy.
 
 </div>
 
@@ -114,17 +114,17 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     Launch schedules, vehicle information, and agency data. Maintained by The Space Devs — a volunteer community. Powers our launch tracking.
 
-- :fontawesome-brands-x-twitter: **Self-hosted X scraper**
+- :fontawesome-brands-x-twitter: **[Rettiwt-API](https://github.com/Rishikant181/Rettiwt-API)**
 
     ---
 
-    Custom Node.js scraper running on the VPS. Pulls the latest posts from tracked official accounts (Rocket Lab, Blue Origin, CSA, NASA Administrator, and more) into daily tweet roundups. Fully self-managed — no third-party API tier to graduate off of.
+    The open-source Node.js library we wrap in a small VPS-side script to pull the latest posts from tracked official accounts (Rocket Lab, Blue Origin, CSA, NASA Administrator, and more) into daily tweet roundups. Cookie-authed via a burner X account, fully self-managed — no third-party API tier to graduate off of.
 
-- :material-spider-web: **ScraperAPI**
+- :material-spider-web: **[Crawl4AI](https://github.com/unclecode/crawl4ai)**
 
     ---
 
-    Clean HTML scraping when a source doesn't expose an RSS or API. Returns readable HTML for our parsers.
+    Open-source Python library for LLM-ready web scraping. Every V3 blog workflow calls our `article_scraper.py` (a thin wrapper around Crawl4AI, run over SSH on the VPS) to fetch article content, metadata, and images. Handles JS-heavy sites, anti-bot blocks, and per-domain extraction rules cleanly.
 
 - :material-monitor: **Browserless**
 

@@ -36,8 +36,8 @@ Automated publishers
 </div>
 
 <div class="tcs-stat" markdown>
-:material-brain: **3+ LLMs**  
-Qwen, DeepSeek, Grok in rotation
+:material-brain: **4 LLMs**  
+Qwen, Claude Haiku, GPT-5-mini, Grok
 </div>
 
 <div class="tcs-stat" markdown>
