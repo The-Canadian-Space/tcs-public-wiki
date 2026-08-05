@@ -4,7 +4,7 @@
 
 ## Pitch a story
 
-Have a space industry story we should be covering? Want to see us dig into a specific topic in our Monthly Deep Dives?
+Have a space industry story we should be covering? Want to see us dig into a specific topic in one of our monthly reports?
 
 Email us at **[thecanadianspace.contact@gmail.com](mailto:thecanadianspace.contact@gmail.com)** with:
 

@@ -31,7 +31,7 @@ timeline
 
 **Late 2025** — the first automated fact-check pass landed. An editor LLM reads every draft against its cited sources before it reaches Chris, catching numbers, dates, and names that got mangled in summarization.
 
-**Q1 2026** — redesigned the entire workflow architecture. What started as a single Daily Broadcast workflow became modular, reusable pieces: a **chassis** workflow for data collection, **overlay** workflows for synthesis and editorial. The same pieces now power weekly reports (SpaceX, NASA) and monthly deep dives (Canada From Orbit, Rocket Lab, Bright Blue Origin, Commercial Space). That's the V3 pattern.
+**Q1 2026** — redesigned the entire workflow architecture. What started as a single Daily Broadcast workflow became modular, reusable pieces: a **chassis** workflow for data collection, **overlay** workflows for synthesis and editorial. The same pieces now power weekly reports (SpaceX, NASA) and monthly reports (Canada From Orbit, Rocket Lab, Bright Blue Origin, Commercial Space). That's the V3 pattern.
 
 **April 2026** — migrated the whole stack to an OVH Cloud VPS. Predictable annual billing, more headroom for the growing pipeline, and full control.
 

@@ -4,7 +4,7 @@ We publish AI-drafted articles. We're transparent about the AI involved and the 
 
 ## Human in the loop
 
-Every single article — whether it's a 1,200-word daily broadcast or a 3,000-word monthly deep dive — is reviewed by a human before it publishes. Chris reads the final draft, checks the facts against the sources, and makes the call. If something feels off, it doesn't go live. If something needs tweaking, we tweak it.
+Every single article — whether it's a short daily broadcast or a longer weekly / monthly report — is reviewed by a human before it publishes. Chris reads the final draft, checks the facts against the sources, and makes the call. If something feels off, it doesn't go live. If something needs tweaking, we tweak it.
 
 **The AI drafts. The human decides.** That's not a token gesture — it's the foundation of our editorial process.
 

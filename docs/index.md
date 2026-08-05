@@ -26,7 +26,7 @@ hide:
 
 We are entering a new era of space exploration, development, and adventure. Our generation's Apollo program is truly here — and it is truly massive. NASA is back in the game, the commercial aerospace sector is booming, there are new developments happening every day, and new discoveries just coming over the horizon. And frankly, it's a lot to keep track of!
 
-The Canadian Space was built to do exactly that. We aggregate stories from across the aerospace sector into focused, bite-sized pieces so you don't have to sift through hundreds of feeds yourself. Our readers can expect daily highlights, weekly drill-downs, and monthly deep-dives — all through a Canadian lens.
+The Canadian Space was built to do exactly that. We aggregate stories from across the aerospace sector into focused, bite-sized pieces so you don't have to sift through hundreds of feeds yourself. Our readers can expect daily highlights, weekly drill-downs, and monthly reports — all through a Canadian lens.
 
 <div class="tcs-stats" markdown>
 
@@ -100,7 +100,7 @@ After I'd been using it for a while, my lovely girlfriend pointed out that other
 
 ## Latest updates {: .tcs-reveal }
 
-The Canadian Space publishes **every single day** — Daily Broadcasts at 08:00 ET, Weekly Spotlights on Mondays (SpaceX) and Fridays (NASA), and monthly deep-dives on the lunar calendar. New posts land on [thecanadian.space](https://thecanadian.space){ target="_blank" rel="noopener" } as soon as they're reviewed.
+The Canadian Space publishes **every single day** — a daily broadcast, weekly SpaceX and NASA reports on Mondays and Fridays, and four monthly reports spread across the Wednesdays of the month. New posts land on [thecanadian.space](https://thecanadian.space){ target="_blank" rel="noopener" } as soon as they're reviewed. See the [full publishing calendar](what-is-tcs/content-categories.md) for what runs when.
 
 [Read the latest →](https://thecanadian.space){ target="_blank" rel="noopener" }
 

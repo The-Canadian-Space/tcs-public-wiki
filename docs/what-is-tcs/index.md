@@ -20,7 +20,7 @@ Why does this matter? Keeping track of everything happening in the aerospace sec
 
     ---
 
-    Daily broadcasts, weekly spotlights, monthly deep dives — the full cadence.
+    Daily broadcasts, weekly reports, monthly reports — the full cadence.
 
     [Read more →](content-categories.md)
 

@@ -25,7 +25,7 @@ This is where Robo Chris earns its name. The curator system:
 1. **Deduplicates** — same story across five sources? Pick the best version.
 2. **Filters** — is this actual news, or promotional fluff?
 3. **Weights** — which stories rise to the top? Canadian angle? Commercial space? Scientific breakthrough? Weights adjust per workflow.
-4. **Gates by schedule** — daily stories always go; weekly spotlights check the day of the week; monthly deep dives check the week of the month.
+4. **Gates by schedule** — daily stories always go; weekly reports check the day of the week; monthly reports check the week of the month.
 
 The curator produces a ranked candidate list. Nothing gets dropped — we just order them by fit.
 
@@ -45,7 +45,7 @@ The author doesn't freestyle. It works from **author rules** — a structured pr
 
 - Tone and voice (second-person, slightly nerdy, transparent)
 - Article structure (opener, body, source links, byline)
-- Length targets (daily ~1200 words, monthly deep dives ~2000+)
+- Length targets — a daily broadcast is roughly 600–900 words across 2–3 stories; weeklies + monthlies run longer
 - House style (hyperlinks, source attribution, no AI hype)
 - SEO guidance (keyword placement, meta description)
 
@@ -67,7 +67,7 @@ This is *not* a catch-all. The fact-checker works from the sources we already ha
 
 ## Human review: the non-negotiable gate
 
-Every article — daily broadcast, weekly spotlight, monthly deep dive — is read by Chris before it publishes. He reads the draft, opens the sources, cross-checks the facts, and either approves, edits, or sends back for revision.
+Every article — daily broadcast, weekly report, monthly report — is read by Chris before it publishes. He reads the draft, opens the sources, cross-checks the facts, and either approves, edits, or sends back for revision.
 
 The AI drafts. The human decides. Nothing goes live without a real person putting their name on it.
 

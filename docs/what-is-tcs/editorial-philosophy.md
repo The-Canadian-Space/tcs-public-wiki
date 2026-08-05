@@ -36,11 +36,7 @@ We **don't do original reporting**. TCS is a news aggregator, not a newsroom. We
 
 ## Corrections policy
 
-We get things wrong sometimes. When we do, we fix it and we tell you:
-
-- **Corrections** are published as updates to the original article, with a timestamp and explanation.
-- **Major corrections** (facts that change the meaning of the story) are flagged clearly at the top of the article.
-- **Reader-caught errors** — if you catch something, email us with the source. If it's valid, we'll correct and credit you.
+We get things wrong sometimes, and when we do we fix it visibly — timestamped correction notes on the article, majors flagged at the top, reader-caught errors credited to the reader. Full process on the [Quality Assurance](../how-it-works/quality-assurance.md#corrections-policy) page.
 
 Transparency means admitting when you're wrong.
 
