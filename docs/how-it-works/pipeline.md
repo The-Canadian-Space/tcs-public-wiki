@@ -96,30 +96,32 @@ This happens in parallel. No manual posting needed.
 
 ## The flow: a real-world example
 
-```mermaid
-sequenceDiagram
-    participant SNAPI as SpaceFlightNews<br/>API
-    participant Curator as Robo Chris<br/>Curator
-    participant Author as LLM<br/>Author
-    participant Editor as Fact-Check<br/>LLM
-    participant Chris as Chris<br/>Human
-    participant WP as WordPress<br/>Blog
-    participant Social as Facebook<br/>& Instagram
+Follow a single story — say, a Starship test flight breaking on SpaceFlightNews — as it travels from raw feed to your Facebook timeline:
 
-    SNAPI->>SNAPI: New story:<br/>"Starship test flight"
-    SNAPI->>Curator: Feed to curator
-    Curator->>Curator: Dedup, filter, weight
-    Curator->>Author: Top 8 stories<br/>for Daily Broadcast
-    Author->>Author: Draft 8 articles<br/>from author rules
-    Author->>Editor: 8 first drafts
-    Editor->>Editor: Fact-check<br/>+ SEO tags
-    Editor->>Chris: 8 polished articles<br/>+ fact-check report
-    Chris->>Chris: Review, maybe<br/>reorder or edit
-    Chris->>WP: Approve publish
-    WP->>WP: Post to blog<br/>with images
-    WP->>Social: Auto-post excerpt<br/>to FB & IG
-    WP->>WP: Update RSS feed
+```mermaid
+graph TD
+    A["📰 <b>SpaceFlightNews API</b><br/><i>New story: 'Starship test flight'</i>"]
+    B["🤖 <b>Robo Chris curator</b><br/>dedup + filter + rank across sources<br/><i>→ top ~8 stories for today's broadcast</i>"]
+    C["✍️ <b>LLM Author (Qwen)</b><br/>drafts each story per author rules<br/><i>title, body, image, social excerpt</i>"]
+    D["🔍 <b>Fact-check LLM</b><br/>verify claims against sources<br/>+ generate SEO tags"]
+    E["👤 <b>Chris</b><br/>read, edit, approve — the human gate"]
+    F["📡 <b>WordPress</b><br/>publish approved article"]
+    G["📱 <b>Facebook + Instagram</b><br/><i>auto-post excerpt + link</i>"]
+    H["📶 <b>RSS feed</b><br/><i>subscribers see it immediately</i>"]
+
+    A --> B --> C --> D --> E --> F
+    F --> G
+    F --> H
+
+    classDef data fill:#0A1428,color:#fff,stroke:#FF9D3D,stroke-width:1px
+    classDef ai fill:#FF9D3D,color:#000,stroke:#FF9D3D,stroke-width:1px
+    classDef human fill:#22C55E,color:#fff,stroke:#22C55E,stroke-width:2px
+    class A,F,G,H data
+    class B,C,D ai
+    class E human
 ```
+
+<small><b>Legend:</b> dark blue = data source / distribution · orange = AI stage · green = human gate</small>
 
 From SNAPI ingestion to RSS subscribers seeing the story: **under 60 minutes** for daily broadcasts. Weekly and monthly pieces take longer because they cover more ground and pull from more sources — but the pipeline is the same.
 
