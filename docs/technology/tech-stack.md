@@ -124,7 +124,19 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     ---
 
-    Open-source Python library for LLM-ready web scraping — a Playwright-backed headless browser with LLM-friendly markdown output. Every V3 blog workflow calls our `article_scraper.py` (a wrapper around Crawl4AI, run over SSH on the VPS) to fetch article content, metadata, and images. Handles JS-heavy sites, anti-bot blocks, and per-domain extraction rules cleanly. For the handful of WAF-fingerprinted sites where the headless browser gets flagged, we fall back to a plain n8n HTTP Request node with browser-like headers — no third-party scraping service in the loop.
+    Open-source Python library for LLM-ready web scraping — a Playwright-backed headless browser with LLM-friendly markdown output. Every V3 blog workflow calls our `article_scraper.py` (a wrapper around Crawl4AI, run over SSH on the VPS) to fetch article content, metadata, and images. Handles JS-heavy sites, anti-bot blocks, and per-domain extraction rules cleanly.
+
+- :material-monitor: **[Browserless.io](https://www.browserless.io/){target="_blank" rel="noopener"}**
+
+    ---
+
+    Managed headless-browser service. Used by the SpaceX Report V3 workflow for the `spacex.com/updates` and `starlink.com/updates` listing pages — SPA-rendered feeds where the article list only appears after JS execution and Crawl4AI's local headless browser trips their bot detection. Two nodes hit `chrome.browserless.io/content`.
+
+- :material-earth-arrow-down: **[ScraperAPI](https://www.scraperapi.com/){target="_blank" rel="noopener"}**
+
+    ---
+
+    Managed scraping API with rotating residential proxies. Used by the Bright Blue Origin V3 workflow for `blueorigin.com/news` — their site has aggressive anti-bot fingerprinting that catches both our self-hosted Crawl4AI and plain HTTP. Two nodes hit `api.scraperapi.com` (one for the news-index listing, one for per-article scrapes).
 
 - :material-book-open: **Wikipedia**
 
