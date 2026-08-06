@@ -124,19 +124,7 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     ---
 
-    Open-source Python library for LLM-ready web scraping. Every V3 blog workflow calls our `article_scraper.py` (a thin wrapper around Crawl4AI, run over SSH on the VPS) to fetch article content, metadata, and images. Handles JS-heavy sites, anti-bot blocks, and per-domain extraction rules cleanly.
-
-- :material-monitor: **[Browserless](https://www.browserless.io/){target="_blank" rel="noopener"}**
-
-    ---
-
-    Headless browser service for scraping JavaScript-heavy pages — like interactive launch schedules that don't work with plain HTTP fetches.
-
-- :material-image-outline: **[ScrapingBee](https://www.scrapingbee.com/){target="_blank" rel="noopener"}**
-
-    ---
-
-    Handy for grabbing images used in downstream image-manipulation workflows.
+    Open-source Python library for LLM-ready web scraping — a Playwright-backed headless browser with LLM-friendly markdown output. Every V3 blog workflow calls our `article_scraper.py` (a wrapper around Crawl4AI, run over SSH on the VPS) to fetch article content, metadata, and images. Handles JS-heavy sites, anti-bot blocks, and per-domain extraction rules cleanly. For the handful of WAF-fingerprinted sites where the headless browser gets flagged, we fall back to a plain n8n HTTP Request node with browser-like headers — no third-party scraping service in the loop.
 
 - :material-book-open: **Wikipedia**
 

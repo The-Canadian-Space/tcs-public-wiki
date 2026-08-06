@@ -10,7 +10,7 @@ The pipeline starts before any AI sees the story. We cast a wide net across mult
 - **Launch Library 2** — launch schedules, mission data, verified facts
 - **X/Twitter (via [Rettiwt-API](https://github.com/Rishikant181/Rettiwt-API))** — open-source Node.js scraper we run VPS-side; pulls the latest posts from official accounts (Rocket Lab, Blue Origin, CSA, NASA, and others)
 - **RSS feeds** — SpaceQ and other aerospace outlets
-- **[Crawl4AI](https://github.com/unclecode/crawl4ai)** — open-source LLM-ready web scraper, wrapped in our `article_scraper.py` and invoked over SSH on the VPS; handles JS-heavy sites and anti-bot blocks. Plus **Browserless** / **ScrapingBee** for the couple of stubborn pages Crawl4AI can't crack.
+- **[Crawl4AI](https://github.com/unclecode/crawl4ai)** — open-source LLM-ready web scraper (Playwright-backed), wrapped in our `article_scraper.py` and invoked over SSH on the VPS; handles JS-heavy sites and anti-bot blocks. For the handful of WAF-fingerprinted sites (like the CSA newsroom) where Crawl4AI's headless browser gets flagged, we fall back to a plain n8n HTTP Request node with browser-like headers plus a small parser Code node — no third-party scraping service in the loop.
 - **Wikipedia lookups** — historical context and background details
 
 These sources feed into Robo Chris (our curator system) continuously. No filtering yet — just collection.
