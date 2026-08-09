@@ -24,7 +24,7 @@ We believe in learning in public. So here's how we do it.
 
 ```mermaid
 graph LR
-    A["Data Feeds<br/>SNAPI, LL2, RSS<br/>Rettiwt (X), Crawl4AI (web)"] -->|"Pull articles"| B["n8n<br/>OVH Cloud VPS"]
+    A["Data Feeds<br/>SNAPI, LL2, RSS<br/>Rettiwt (X)<br/>Crawl4AI + CRW (web)"] -->|"Pull articles"| B["n8n<br/>OVH Cloud VPS"]
     B -->|"Author + fact-check"| C["LLMs<br/>Qwen, Claude Haiku,<br/>GPT-5-mini, Grok<br/>via OpenRouter"]
     C -->|"Return drafts"| B
     B -->|"Publish"| D["WordPress<br/>blog"]

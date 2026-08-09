@@ -8,7 +8,7 @@ At the core is a **single OVH Cloud VPS** (VPS2 tier — 6 vCores, 12GB RAM, 100
 
 ```mermaid
 graph TB
-    Data["📡 <b>Data sources</b><br/>Spaceflight News API · Launch Library 2 · RSS<br/>X (via Rettiwt-API) · News sites (via Crawl4AI)"]
+    Data["📡 <b>Data sources</b><br/>Spaceflight News API · Launch Library 2 · RSS<br/>X (via Rettiwt-API) · News sites (via Crawl4AI + CRW self-hosted)"]
 
     subgraph OVH["🖥️ OVH Cloud VPS — self-hosted core"]
         Core["⚙️ <b>n8n</b> workflow engine<br/><small>every pipeline runs here</small><br/><br/>🔒 Caddy &nbsp;·&nbsp; 📦 Redis &nbsp;·&nbsp; 🐍 Python scripts"]

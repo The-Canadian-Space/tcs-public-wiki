@@ -130,13 +130,7 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     ---
 
-    Self-hosted Rust scraper with a Firecrawl-compatible REST API and automatic stealth-JavaScript injection (patches `navigator.webdriver`, mocks the Chrome runtime, populates plugin arrays). Deployed on the OVH VPS at `127.0.0.1:3010` alongside Chrome + LightPanda renderers. Handles cookie-wall Cloudflare and modern SPAs cleanly. Being rolled out to replace paid managed browsers on sources CRW can handle — the honest ceiling is Cloudflare Turnstile / Vercel Security Checkpoint, which no free tool bypasses in 2026.
-
-- :material-monitor: **[Browserless.io](https://www.browserless.io/){target="_blank" rel="noopener"}**
-
-    ---
-
-    Managed headless-browser service. Historically used by the SpaceX Report V3 workflow for the `spacex.com/updates` and `starlink.com/updates` listing pages, and by the Space Daily article-body fetcher. Being migrated to self-hosted CRW where feasible (all three sources validated on CRW as of 2026-08-08), which drops paid-tier usage to near zero without sacrificing coverage.
+    Self-hosted Rust scraper with a Firecrawl-compatible REST API and automatic stealth-JavaScript injection (patches `navigator.webdriver`, mocks the Chrome runtime, populates plugin arrays). Deployed on the OVH VPS alongside Chrome + LightPanda renderers. Handles cookie-wall Cloudflare and modern SPAs cleanly. Since 2026-08-09, CRW backs every one of our 5 blog workflows' Space Daily article scraping (via a shared sub-workflow) plus SpaceX + Starlink update-page listings — retiring our Browserless dependency. The honest ceiling: Cloudflare Turnstile and Vercel Security Checkpoint, which no free tool bypasses in 2026 (see the ScraperAPI card below).
 
 - :material-earth-arrow-down: **[ScraperAPI](https://www.scraperapi.com/){target="_blank" rel="noopener"}**
 
