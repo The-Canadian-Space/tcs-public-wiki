@@ -130,7 +130,7 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     ---
 
-    Self-hosted Rust scraper with a Firecrawl-compatible REST API and automatic stealth-JavaScript injection (patches `navigator.webdriver`, mocks the Chrome runtime, populates plugin arrays). Deployed on the OVH VPS alongside Chrome + LightPanda renderers. Handles cookie-wall Cloudflare and modern SPAs cleanly. Since 2026-08-09, CRW backs every one of our 5 blog workflows' Space Daily article scraping (via a shared sub-workflow) plus SpaceX + Starlink update-page listings — retiring our Browserless dependency. The honest ceiling: Cloudflare Turnstile and Vercel Security Checkpoint, which no free tool bypasses in 2026 (see the ScraperAPI card below).
+    Self-hosted Rust scraper with a Firecrawl-compatible REST API and automatic stealth-JavaScript injection (patches `navigator.webdriver`, mocks the Chrome runtime, populates plugin arrays). Deployed on the OVH VPS alongside Chrome + LightPanda renderers. Handles cookie-wall Cloudflare and modern SPAs cleanly. Backs every one of our 5 blog workflows' Space Daily article scraping (via a shared sub-workflow) plus SpaceX + Starlink update-page listings. The honest ceiling: Cloudflare Turnstile and Vercel Security Checkpoint, which no free tool bypasses in 2026 (see the ScraperAPI card below).
 
 - :material-earth-arrow-down: **[ScraperAPI](https://www.scraperapi.com/){target="_blank" rel="noopener"}**
 
