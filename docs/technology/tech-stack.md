@@ -126,17 +126,23 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     Open-source Python library for LLM-ready web scraping — a Playwright-backed headless browser with LLM-friendly markdown output. Every V3 blog workflow calls our `article_scraper.py` (a wrapper around Crawl4AI, run over SSH on the VPS) to fetch article content, metadata, and images. Handles JS-heavy sites, anti-bot blocks, and per-domain extraction rules cleanly.
 
+- :material-cube-outline: **[CRW / fastCRW](https://github.com/us/crw){target="_blank" rel="noopener"}**
+
+    ---
+
+    Self-hosted Rust scraper with a Firecrawl-compatible REST API and automatic stealth-JavaScript injection (patches `navigator.webdriver`, mocks the Chrome runtime, populates plugin arrays). Deployed on the OVH VPS at `127.0.0.1:3010` alongside Chrome + LightPanda renderers. Handles cookie-wall Cloudflare and modern SPAs cleanly. Being rolled out to replace paid managed browsers on sources CRW can handle — the honest ceiling is Cloudflare Turnstile / Vercel Security Checkpoint, which no free tool bypasses in 2026.
+
 - :material-monitor: **[Browserless.io](https://www.browserless.io/){target="_blank" rel="noopener"}**
 
     ---
 
-    Managed headless-browser service. Used by the SpaceX Report V3 workflow for the `spacex.com/updates` and `starlink.com/updates` listing pages — SPA-rendered feeds where the article list only appears after JS execution and Crawl4AI's local headless browser trips their bot detection. Two nodes hit `chrome.browserless.io/content`.
+    Managed headless-browser service. Historically used by the SpaceX Report V3 workflow for the `spacex.com/updates` and `starlink.com/updates` listing pages, and by the Space Daily article-body fetcher. Being migrated to self-hosted CRW where feasible (all three sources validated on CRW as of 2026-08-08), which drops paid-tier usage to near zero without sacrificing coverage.
 
 - :material-earth-arrow-down: **[ScraperAPI](https://www.scraperapi.com/){target="_blank" rel="noopener"}**
 
     ---
 
-    Managed scraping API with rotating residential proxies. Used by the Bright Blue Origin V3 workflow for `blueorigin.com/news` — their site has aggressive anti-bot fingerprinting that catches both our self-hosted Crawl4AI and plain HTTP. Two nodes hit `api.scraperapi.com` (one for the news-index listing, one for per-article scrapes).
+    Managed scraping API with rotating residential proxies. Used by the Bright Blue Origin V3 workflow for `blueorigin.com/news` — the site is fronted by Vercel Security Checkpoint, which no self-hosted tool bypasses reliably. Two nodes hit `api.scraperapi.com` (one for the news-index listing, one for per-article scrapes). Kept deliberately; self-hosting isn't viable for this class of anti-bot.
 
 - :material-book-open: **Wikipedia**
 
