@@ -144,6 +144,9 @@ nav:
 
 extra:
   social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/vgfwHESkk8
+      name: The Canadian Space Discord
     - icon: fontawesome/brands/x-twitter
       link: https://x.com/TheCanSpace
       name: The Canadian Space on X (Twitter)

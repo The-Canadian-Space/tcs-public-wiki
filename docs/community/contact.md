@@ -8,6 +8,14 @@ Questions, feedback, or just want to chat about space? Here's how to reach us.
 
 Use this for story pitches, data source suggestions, corrections, or anything not suited for a public GitHub issue. We read and respond to all emails.
 
+## Discord
+
+For real-time chat, questions, launch discussions, and community:
+
+**[Join our Discord](https://discord.gg/vgfwHESkk8){ target="_blank" rel="noopener" }**
+
+Best channel for casual conversation, real-time launch reactions, and connecting with other aerospace fans, gamers, and modders. See [Get involved](get-involved.md#join-our-discord) for more.
+
 ## GitHub
 
 All code, issues, and public discussions live here:

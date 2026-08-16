@@ -2,6 +2,39 @@
 
 *The Canadian Space* is built in the open. Whether you want to pitch a story, improve our data sources, or contribute code, there's a place for you.
 
+## Join our Discord
+
+Hang out with other aerospace fans, gamers, and modders. Follow launches, read the daily broadcast, ask questions, chat about mods, or just say hi.
+
+<div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: flex-start; margin-top: 1rem;" markdown>
+
+<div style="flex: 1 1 300px;" markdown>
+
+**[👉 Join the Discord](https://discord.gg/vgfwHESkk8){ target="_blank" rel="noopener" .md-button .md-button--primary }**
+
+Once you're in:
+
+- Read the rules and complete a quick Onboarding
+- Pick which blogs you want notifications from
+- Say hi in `#👋-airlock`
+- Report bugs on our mods, games, or tools in the dedicated forums
+
+The server is community-moderated, safe-for-work, and everyone is welcome.
+
+</div>
+
+<div style="flex: 0 0 auto;" markdown>
+
+<iframe src="https://discord.com/widget?id=1536882117814788098&theme=dark"
+        width="350" height="500"
+        allowtransparency="true" frameborder="0"
+        sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+</iframe>
+
+</div>
+
+</div>
+
 ## Pitch a story
 
 Have a space industry story we should be covering? Want to see us dig into a specific topic in one of our monthly reports?
