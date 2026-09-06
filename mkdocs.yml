@@ -112,6 +112,19 @@ plugins:
       archive: true
       categories: true
       pagination_per_page: 5
+  # tcs-discord#12 (2026-09-06): expose RSS feeds so n8n can poll and
+  # cross-post new wiki blog posts to Discord #📢-announcements. Generates
+  # feed_rss_created.xml + feed_rss_updated.xml at the site root; feeds
+  # only the blog dir (source: [blog/]) to keep them focused on Big Moments.
+  - rss:
+      match_path: "blog/posts/.*"
+      date_from_meta:
+        as_creation: date.created
+        as_update: date.updated
+      categories:
+        - categories
+        - tags
+      abstract_chars_count: 400
   - social:
       cards: true
       cards_layout_options:
