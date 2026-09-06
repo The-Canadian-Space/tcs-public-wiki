@@ -1,0 +1,98 @@
+# Composite action: post a failure alert to the TCS #🔴-workflow-errors
+# Discord channel via webhook. Call once at the end of any job with
+# `if: failure()` to alert on any preceding step failure.
+#
+# tcs-discord#10 (2026-09-06) — pilot lives here; other TCS repos copy this
+# file into their own .github/actions/notify-discord-on-failure/ dir until we
+# either extract to a shared public repo or move to a reusable workflow.
+#
+# Requires REPO-level secret (free-plan GitHub doesn't allow org-level
+# secrets on private repos):
+#   DISCORD_WEBHOOK_WORKFLOW_ERRORS  — same webhook Tool - TCS Discord Ops
+#   Alerts uses for n8n workflow errors (single ops channel). Copy the
+#   value from /opt/tcs/n8n/.env → DISCORD_WEBHOOK_OPS_ERRORS on the VPS.
+#
+# Usage:
+#   - uses: ./.github/actions/notify-discord-on-failure
+#     if: failure()
+#     with:
+#       webhook_url: ${{ secrets.DISCORD_WEBHOOK_WORKFLOW_ERRORS }}
+#
+# The step degrades gracefully if the secret is empty (warns + exits 0) so
+# forks / PRs without secret access don't cascade the failure signal.
+
+name: Notify Discord on failure
+description: POST a failure alert embed to the TCS ops-errors Discord channel
+
+inputs:
+  webhook_url:
+    description: Discord webhook URL (pass via `secrets.DISCORD_WEBHOOK_WORKFLOW_ERRORS`)
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: POST to Discord
+      shell: bash
+      env:
+        WEBHOOK: ${{ inputs.webhook_url }}
+        REPO: ${{ github.repository }}
+        WORKFLOW: ${{ github.workflow }}
+        JOB: ${{ github.job }}
+        REF: ${{ github.ref_name }}
+        SHA: ${{ github.sha }}
+        ACTOR: ${{ github.actor }}
+        EVENT: ${{ github.event_name }}
+        RUN_ID: ${{ github.run_id }}
+        SERVER_URL: ${{ github.server_url }}
+      run: |
+        if [ -z "${WEBHOOK:-}" ]; then
+          echo "::warning::DISCORD_WEBHOOK_WORKFLOW_ERRORS not set — skipping alert."
+          exit 0
+        fi
+
+        RUN_URL="${SERVER_URL}/${REPO}/actions/runs/${RUN_ID}"
+        SHA_SHORT="${SHA:0:7}"
+
+        # Build description with proper newlines. Keep short — Discord embed
+        # description cap is 4096 chars but we only need a few fields.
+        DESC="**Repo:** \`${REPO}\`
+        **Job:** \`${JOB}\`
+        **Ref:** \`${REF}\`
+        **SHA:** \`${SHA_SHORT}\`
+        **Actor:** @${ACTOR}
+        **Event:** \`${EVENT}\`"
+
+        # Compose JSON via jq so any special chars in workflow/job names are
+        # escaped correctly. jq is preinstalled on ubuntu-latest.
+        PAYLOAD=$(jq -n \
+          --arg title "❌ GHA failure: ${WORKFLOW}" \
+          --arg desc  "$DESC" \
+          --arg url   "$RUN_URL" \
+          '{
+            username: "GitHub Actions",
+            avatar_url: "https://raw.githubusercontent.com/Godimas101/Godimas101/main/images/icons/icon-bot-git.jpg",
+            embeds: [{
+              title: $title,
+              description: $desc,
+              url: $url,
+              color: 14428710
+            }],
+            components: [{
+              type: 1,
+              components: [{
+                type: 2,
+                style: 5,
+                label: "View run",
+                emoji: { name: "🔗" },
+                url: $url
+              }]
+            }]
+          }')
+
+        # -s silent, -f fail-on-4xx/5xx, -L follow redirects. Best-effort:
+        # a Discord POST failure must not itself cascade the CI failure signal.
+        if ! curl -sfL -X POST -H "Content-Type: application/json" \
+              -d "$PAYLOAD" "$WEBHOOK" > /dev/null; then
+          echo "::warning::Discord webhook POST failed — check webhook URL + rate limits."
+        fi

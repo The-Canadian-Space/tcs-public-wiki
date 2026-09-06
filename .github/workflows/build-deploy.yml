@@ -57,6 +57,12 @@ jobs:
           path: site/
           retention-days: 3
 
+      # tcs-discord#10 rollout — alert #🔴-workflow-errors on any preceding step failure.
+      - uses: ./.github/actions/notify-discord-on-failure
+        if: failure()
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_WORKFLOW_ERRORS }}
+
   deploy-vps:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build
@@ -88,3 +94,9 @@ jobs:
       - name: Cleanup SSH key
         if: always()
         run: rm -f ~/.ssh/deploy_key
+
+      # tcs-discord#10 rollout — alert #🔴-workflow-errors on any preceding step failure.
+      - uses: ./.github/actions/notify-discord-on-failure
+        if: failure()
+        with:
+          webhook_url: ${{ secrets.DISCORD_WEBHOOK_WORKFLOW_ERRORS }}
