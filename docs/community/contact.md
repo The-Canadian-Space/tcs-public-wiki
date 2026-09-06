@@ -58,3 +58,7 @@ The Canadian Space is free to read and always will be. If you'd like to support 
     Personal emails are answered within 2–3 days. GitHub issues get triaged within a week. During high-volume periods, it might take a bit longer—we're a small team, but we read everything.
 
 Thanks for your interest in *The Canadian Space*. We're excited to have you along.
+
+
+<!-- tcs-discord#10 wiki test-fire: broken link, PR closed immediately. -->
+See [wiki-nonexistent](../wiki-nonexistent.md).
