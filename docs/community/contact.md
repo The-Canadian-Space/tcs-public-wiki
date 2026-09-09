@@ -12,7 +12,7 @@ Use this for story pitches, data source suggestions, corrections, or anything no
 
 For real-time chat, questions, launch discussions, and community:
 
-**[Join our Discord](https://discord.gg/vgfwHESkk8){ target="_blank" rel="noopener" }**
+**[Join our Discord](https://discord.gg/ZNMVZX7AKH){ target="_blank" rel="noopener" }**
 
 Best channel for casual conversation, real-time launch reactions, and connecting with other aerospace fans, gamers, and modders. See [Get involved](get-involved.md#join-our-discord) for more.
 

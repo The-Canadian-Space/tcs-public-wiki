@@ -10,7 +10,7 @@ Hang out with other aerospace fans, gamers, and modders. Follow launches, read t
 
 <div style="flex: 1 1 300px;" markdown>
 
-**[👉 Join the Discord](https://discord.gg/vgfwHESkk8){ target="_blank" rel="noopener" .md-button .md-button--primary }**
+**[👉 Join the Discord](https://discord.gg/ZNMVZX7AKH){ target="_blank" rel="noopener" .md-button .md-button--primary }**
 
 Once you're in:
 
