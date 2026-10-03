@@ -4,21 +4,21 @@ The Canadian Space runs on a self-hosted setup. We own the hardware contract, ma
 
 ## The layout
 
-At the core is a **single OVH Cloud VPS** (VPS2 tier — 6 vCores, 12GB RAM, 100GB NVMe, Frankfurt) running Docker Compose. Inside: n8n (workflow orchestration), Redis (job queue), Caddy (reverse proxy + TLS), and a handful of Python scripts we invoke over SSH. Around it: WordPress on Bluehost, GitHub for code and image hosting, OpenRouter for LLM routing, and a handful of aerospace data sources feeding stories in.
+At the core is a **single OVH Cloud VPS** (VPS2 tier — 6 vCores, 12GB RAM, 100GB NVMe, Frankfurt) running Docker Compose. Inside: n8n (workflow orchestration), Caddy (reverse proxy + TLS, and the image host behind assets.thecanadian.space), and a handful of Python scripts we invoke over SSH. Around it: WordPress on Bluehost, GitHub for code, OpenRouter for LLM routing, and a handful of aerospace data sources feeding stories in.
 
 ```mermaid
 graph TB
     Data["📡 <b>Data sources</b><br/>Spaceflight News API · Launch Library 2 · RSS<br/>X (via Rettiwt-API) · News sites (via Crawl4AI + CRW self-hosted)"]
 
     subgraph OVH["🖥️ OVH Cloud VPS — self-hosted core"]
-        Core["⚙️ <b>n8n</b> workflow engine<br/><small>every pipeline runs here</small><br/><br/>🔒 Caddy &nbsp;·&nbsp; 📦 Redis &nbsp;·&nbsp; 🐍 Python scripts"]
+        Core["⚙️ <b>n8n</b> workflow engine<br/><small>every pipeline runs here</small><br/><br/>🔒 Caddy &nbsp;·&nbsp; 🖼️ image host &nbsp;·&nbsp; 🐍 Python scripts"]
     end
 
-    LLM["🤖 <b>LLMs via OpenRouter</b><br/>Qwen 3.7 Plus (author) · Claude Haiku 4.5 (fallback)<br/>GPT-5-mini (editor) · Grok (social copy)"]
+    LLM["🤖 <b>LLMs via OpenRouter</b><br/>Qwen 3.7 Plus · Claude Haiku 4.5 (authors)<br/>GPT-5-mini (editor) · Grok (social copy)"]
 
     WP["📡 <b>WordPress on Bluehost</b><br/>thecanadian.space"]
     Social["📱 <b>Facebook + Instagram</b>"]
-    GH["💾 <b>GitHub</b><br/>tcs-images · workflow backups · repos"]
+    GH["💾 <b>GitHub</b><br/>repos · workflow backups · image archive"]
 
     Data -->|feeds| Core
     Core <-->|LLM calls| LLM

@@ -36,8 +36,8 @@ The curator produces a ranked candidate list. Nothing gets dropped — we just o
 
 Once curation is done, the top stories go to the LLM author. We use:
 
-- **Primary:** Qwen 3.7 Plus (via OpenRouter) — clean, structured HTML output, cost-effective
-- **Fallback:** Claude Haiku 4.5 (via OpenRouter) — kicks in when Qwen stalls or errors mid-response
+- **Daily and weekly posts:** Qwen 3.7 Plus (via OpenRouter) — clean, structured HTML output, cost-effective — with Claude Haiku 4.5 as the fallback when Qwen stalls or errors mid-response
+- **Monthly deep dives:** Claude Haiku 4.5 (via OpenRouter), with Qwen 3.7 Plus as the fallback
 - **Fact-check / editor:** OpenAI GPT-5-mini — runs after every draft, verifies claims against sources, tightens SEO
 - **Social captions:** xAI Grok — handles the Facebook/Instagram excerpt writing
 
@@ -81,7 +81,7 @@ Approved articles go to the blog via the WordPress REST API:
 - Categories and tags
 - Publish timestamp
 
-Images pull from our **tcs-images** GitHub repository — a folder structure organized by date and topic.
+Each post gets a header image built for it, served from our own server at assets.thecanadian.space. Older posts still pull images from our **tcs-images** GitHub repository.
 
 ## Distribution: social + RSS
 

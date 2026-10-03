@@ -14,8 +14,8 @@ Each workflow is a **focus lens** — a way of slicing the daily aerospace fireh
 | **SpaceX Report** | Every Monday | SpaceX launches, Starship updates, Starlink news, company milestones |
 | **NASA Overview** | Every Friday | NASA missions, Artemis, ISS updates, JWST discoveries, agency announcements |
 | **Canada From Orbit** | First Wednesday of the month | Canadian aerospace industry — commercial launch companies, satellite operators, tech suppliers, plus CSA and government programs |
-| **Rocket Lab Roundup** | Second Wednesday of the month | Electron launches, Neutron development, small-lift market trends |
-| **Bright Blue Origin** | Third Wednesday of the month | New Glenn, Blue Moon, commercial spaceflight, human spaceflight |
+| **Bright Blue Origin** | Second Wednesday of the month | New Glenn, Blue Moon, commercial spaceflight, human spaceflight |
+| **Rocket Lab Roundup** | Third Wednesday of the month | Electron launches, Neutron development, small-lift market trends |
 | **Commercial Space** | Fourth Wednesday of the month | Four up-and-coming commercial aerospace companies we're tracking closely: Axiom Space, Firefly Aerospace, Relativity Space, and Stoke Space |
 
 _Publish times aren't shown intentionally — the workflow drafts on schedule, but Chris still reads and edits before it goes live, so the actual post time varies from day to day._
@@ -72,6 +72,17 @@ _Publish times aren't shown intentionally — the workflow drafts on schedule, b
     - International partnerships involving Canadian institutions
     - First Wednesday of the month
 
+=== "Bright Blue Origin"
+
+    Blue Origin's path to spaceflight. New Glenn heavy-lift development, Blue Moon lunar lander, Blue Alchemist, and the larger commercial spaceflight ecosystem (Virgin Galactic, Axiom modules, etc.).
+
+    - New Glenn manufacturing progress
+    - Blue Moon lunar lander development
+    - Blue Alchemist (in-situ resource utilization)
+    - Commercial space station modules
+    - Bezos and corporate announcements
+    - Second Wednesday of the month
+
 === "Rocket Lab Roundup"
 
     Electron launches, Neutron development, the small-lift market, and what it means for cost-effective access to orbit. We track every launch attempt, vehicle milestones, and competitors in the small-lift space (Virgin Orbit, Axiom, Relativity, etc.).
@@ -82,17 +93,6 @@ _Publish times aren't shown intentionally — the workflow drafts on schedule, b
     - Small-lift market trends
     - Competitor launches
     - Supply and manufacturing news
-    - Second Wednesday of the month
-
-=== "Bright Blue Origin"
-
-    Blue Origin's path to spaceflight. New Glenn heavy-lift development, Blue Moon lunar lander, Blue Alchemist, and the larger commercial spaceflight ecosystem (Virgin Galactic, Axiom modules, etc.).
-
-    - New Glenn manufacturing progress
-    - Blue Moon lunar lander development
-    - Blue Alchemist (in-situ resource utilization)
-    - Commercial space station modules
-    - Bezos and corporate announcements
     - Third Wednesday of the month
 
 === "Commercial Space"
