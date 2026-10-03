@@ -22,7 +22,7 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     ---
 
-    Code + image hosting. Header graphics, diagrams, and static assets live in a public repo. Keeps everything versioned and accessible.
+    Code hosting and workflow backups, plus the image archive older posts still link to. Keeps everything versioned and accessible.
 
 - :material-shield-lock: **Caddy**
 
@@ -166,7 +166,7 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     ---
 
-    Image library for blog posts. Curated space photography, diagrams, and graphics — plus header graphics courtesy of Brian Carpenter and the [Retired For Life](https://www.youtube.com/@RetiredForLife) YouTube channel.
+    Our original image library: curated space photography, diagrams, and graphics that older posts still link to. New images (post headers, Rocket Lab photos, Instagram cards) are served from our own server at assets.thecanadian.space. Header graphics courtesy of Brian Carpenter and the [Retired For Life](https://www.youtube.com/@RetiredForLife) YouTube channel.
 
 </div>
 

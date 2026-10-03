@@ -81,7 +81,7 @@ Approved articles go to the blog via the WordPress REST API:
 - Categories and tags
 - Publish timestamp
 
-Images pull from our **tcs-images** GitHub repository — a folder structure organized by date and topic.
+Each post gets a header image built for it, served from our own server at assets.thecanadian.space. Older posts still pull images from our **tcs-images** GitHub repository.
 
 ## Distribution: social + RSS
 
