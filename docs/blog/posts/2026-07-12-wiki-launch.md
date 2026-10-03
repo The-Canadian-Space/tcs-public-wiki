@@ -14,7 +14,7 @@ authors:
 
 # Public wiki, launched
 
-For two years, we've been building *The Canadian Space* in the open. We publish our costs, share our architecture decisions, and tell you exactly which models are writing your daily briefing.
+For two years, we've been building *The Canadian Space* in the open. We share our architecture decisions and tell you exactly which models are writing your daily briefing.
 
 Today, we're making that transparency official with a public wiki.
 
