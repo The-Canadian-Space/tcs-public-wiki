@@ -46,13 +46,7 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     ---
 
-    Containerizes n8n, Redis, and supporting services. Makes local dev and production identical — no "works on my machine" surprises.
-
-- :material-database: **Redis**
-
-    ---
-
-    In-memory data store for n8n's queue and job management. Keeps workflows responsive under load.
+    Containerizes n8n, Caddy, and the supporting services. Makes local dev and production identical — no "works on my machine" surprises.
 
 - :material-github: **GitHub Actions**
 
@@ -76,13 +70,13 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     ---
 
-    Our primary author — drafts every daily broadcast and weekly / monthly report. Cost-effective and produces clean, structured HTML that plays well with the downstream editor.
+    Our primary author for the daily broadcast and the weekly reports, and the fallback for the monthly deep dives. Cost-effective and produces clean, structured HTML that plays well with the downstream editor.
 
 - :material-alpha-c-circle: **Claude Haiku 4.5 (Anthropic)**
 
     ---
 
-    Author fallback that kicks in when Qwen errors or stalls mid-response. Also the model behind the workflow-assembly assistant Chris uses to build and debug n8n nodes.
+    Primary author for the four monthly deep dives, and the fallback for the daily and weekly posts when Qwen errors or stalls mid-response. Also the model behind the workflow-assembly assistant Chris uses to build and debug n8n nodes.
 
 - :fontawesome-solid-check-double: **OpenAI GPT-5-mini**
 

@@ -16,14 +16,14 @@ This repo is the **public marketing-forward wiki** for The Canadian Space. It is
 - Show enthusiasm without being cutesy
 - Aerospace metaphors OK but don't overuse
 - **Transparent about AI-in-the-loop model** — celebrate it, don't hide it. E.g., "Robo Chris sources articles from feeds and APIs, an LLM drafts the blog post, and Chris reviews and publishes."
-- Include specific numbers and stats where you can (7 workflows, 14 tagged n8n workflows, cost tracking, etc.)
+- Include specific numbers and stats where you can (how many blog series run, how many posts have gone out; check the live numbers first, they change)
 - Aim for clarity over formality
 
 ## What to NEVER leak
 
 - Execution IDs or run logs from n8n
 - VPS IPs (except 51.195.43.156 in documentation and CI secrets — that's public infrastructure)
-- Cost figures per token or per LLM call
+- Cost figures of any kind (per token, per call, per post, or totals)
 - API keys, secrets, or credentials
 - References to internal ADRs (Architecture Decision Records)
 - Links to internal docs (e.g., tcs-docs) — note them as "behind Cloudflare Access" if relevant
@@ -32,7 +32,7 @@ This repo is the **public marketing-forward wiki** for The Canadian Space. It is
 
 Before changing `docs/technology/tech-stack.md`:
 
-1. Open the live n8n instance at [n8n.thecanadian.space](https://n8n.thecanadian.space/) (ask Chris for access if needed)
+1. Open the live n8n instance (ask Chris for the address and access; don't publish it)
 2. Check the **Daily Broadcast**, **Weekly Spotlights**, and **Monthly Deep Dives** workflows
 3. Look at each workflow's LLM nodes (Code nodes, HTTP calls to OpenRouter, etc.)
 4. Verify the current primary LLM, fallback LLMs, and any data transformations
