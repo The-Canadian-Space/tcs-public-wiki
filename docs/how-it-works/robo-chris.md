@@ -29,7 +29,7 @@ Chris reviews every draft, approves (or edits) every word, and only then does it
 - **n8n workflows** for orchestration
 - **API calls** — Launch Library 2, Spaceflight News, and more
 - **Custom JavaScript nodes** for filtering and cleaning
-- **LLMs** — Qwen (primary author), Claude Haiku 4.5 (fallback author), GPT-5-mini (editor + fact-checker), Grok (social copy)
+- **LLMs** — Qwen and Claude Haiku 4.5 (authors), GPT-6 Sol (fact checker) and GPT-5-mini (editor), Grok (social copy)
 - **Google Sheets** for logging and tracking
 - All assembled with a lot of help from Claude, still the workflow-assembly assistant when Chris is building or debugging
 

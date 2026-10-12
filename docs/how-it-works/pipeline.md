@@ -38,7 +38,8 @@ Once curation is done, the top stories go to the LLM author. We use:
 
 - **Daily and weekly posts:** Qwen 3.7 Plus (via OpenRouter) — clean, structured HTML output, cost-effective — with Claude Haiku 4.5 as the fallback when Qwen stalls or errors mid-response
 - **Monthly deep dives:** Claude Haiku 4.5 (via OpenRouter), with Qwen 3.7 Plus as the fallback
-- **Fact-check / editor:** OpenAI GPT-5-mini — runs after every draft, verifies claims against sources, tightens SEO
+- **Fact check (the Daily Broadcast):** OpenAI GPT-6 Sol, with Claude Sonnet 5.5 as the backup — checks every claim against the source articles. GPT-6 Luna supplies new wording when an SEO fix needs it
+- **Editor (the other blogs, for now):** OpenAI GPT-5-mini — reviews each draft against the sources and tightens the headline, excerpt and SEO
 - **Social captions:** xAI Grok — handles the Facebook/Instagram excerpt writing
 
 The author doesn't freestyle. It works from **author rules** — a structured prompt that includes:
@@ -53,17 +54,20 @@ The output is a first draft with title, body, featured image candidate, and soci
 
 ## Editing & fact-checking
 
-Before anything publishes, an LLM fact-checker runs:
+Before anything publishes, the draft goes through automated checks. We're moving the blogs to a new publishing pipeline one at a time, so right now there are two routes.
 
-1. **Identifies claims** — pulls out factual assertions (dates, numbers, agency names, mission details)
-2. **Cross-references sources** — checks claims against the original articles we cited
-3. **Flags discrepancies** — if something doesn't match, it raises a flag for human review
-4. **Signs off** — if everything checks, it marks the article ready for Chris
+**The Daily Broadcast (the new pipeline, since October 2026).** Each step does one job:
 
-This is *not* a catch-all. The fact-checker works from the sources we already have. But it prevents copy-paste errors and catches numbers that got mangled in summarization.
+1. **SEO** — code fixes the headline length, heading levels, excerpt and link text. A model is only called when a fix needs new wording
+2. **Fact check** — the post is split into individual claims (title, excerpt, headings, sentences, citations), and each one is checked against the articles the author actually read. Anything the sources don't support is fixed or removed. Style is left alone
+3. **Draft** — the checked post goes to WordPress as a draft, and Chris gets a log of every change, plus anything the checker wasn't sure about
+
+**The other blogs (the older route, moving over in the coming weeks).** One editing model reviews the draft against the sources and tightens the headline, excerpt and SEO before it becomes a WordPress draft.
+
+This is *not* a catch-all. The checks work from the sources we already have. But they catch copy-paste errors and numbers that got mangled in summarization.
 
 !!! success "Fact-checking in the pipeline"
-    Every article gets a fact-check pass. If the checker flags something, Chris reviews the sources manually. No article publishes with open flags.
+    Every article gets an automated check against its sources before Chris sees it, and every article stays a draft until Chris publishes it.
 
 ## Human review: the non-negotiable gate
 
@@ -104,7 +108,7 @@ graph TD
     A["📰 <b>SpaceFlightNews API</b><br/><i>New story: 'Starship test flight'</i>"]
     B["🤖 <b>Robo Chris curator</b><br/>dedup + filter + rank across sources<br/><i>→ top ~8 stories for today's broadcast</i>"]
     C["✍️ <b>LLM Author (Qwen)</b><br/>drafts each story per author rules<br/><i>title, body, image, social excerpt</i>"]
-    D["🔍 <b>Fact-check LLM</b><br/>verify claims against sources<br/>+ generate SEO tags"]
+    D["🔍 <b>SEO + fact check</b><br/>verify claims against sources<br/>+ fix headline and SEO tags"]
     E["👤 <b>Chris</b><br/>read, edit, approve — the human gate"]
     F["📡 <b>WordPress</b><br/>publish approved article"]
     G["📱 <b>Facebook + Instagram</b><br/><i>auto-post excerpt + link</i>"]
