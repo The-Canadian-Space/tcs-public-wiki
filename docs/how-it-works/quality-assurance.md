@@ -10,17 +10,15 @@ Every single article — whether it's a short daily broadcast or a longer weekly
 
 ## Automated fact-checking
 
-Before Chris even sees an article, an LLM fact-checker runs a verification pass:
+Before Chris even sees an article, an AI model checks it against the articles the author read. How that works depends on the blog, because we're moving the blogs to a new publishing pipeline one at a time:
 
-1. **Identifies factual claims** — dates, numbers, names, mission details
-2. **Cross-references sources** — checks each claim against the original articles we cited
-3. **Flags discrepancies** — if a number doesn't match, or a launch date got corrupted, it raises a flag
-4. **Generates a report** — Chris sees which claims checked out and which need manual review
+- **The Daily Broadcast** (since October 2026) has a dedicated fact-check step. It splits the post into individual claims — dates, numbers, names, mission details — and checks every one against the source articles. Anything the sources don't support is fixed or removed. Chris gets a log of every change, and of anything the checker wasn't sure about, before he publishes.
+- **The other blogs** still use the older route: one editing model reviews the draft against the sources and tightens the headline, excerpt and SEO. They move to the new pipeline in the coming weeks.
 
-This doesn't prevent every possible error, but it dramatically reduces copy-paste mistakes and accidental drift between the source and the published article.
+This doesn't prevent every possible error, but it reduces copy-paste mistakes and accidental drift between the source and the published article.
 
 !!! success "Fact-checking by default"
-    Every article gets a fact-check pass. Flagged claims go to manual review. Nothing with open flags publishes.
+    Every article gets an automated check against its sources, and every article is read by Chris before it publishes.
 
 ## Source attribution
 
@@ -44,13 +42,11 @@ You should never have to second-guess whether something you read here is still a
 
 ## Model transparency
 
-At the bottom of every article, you'll see a byline that names the model that drafted it. Something like:
-
-> *Drafted by Qwen. Fact-checked by GPT-5-mini. Reviewed by Chris.*
+Every article is credited to **Robo Chris**, and the author box at the end of each post says what Robo Chris is: an automated pipeline of API calls, filters and searches that also does a fair bit of writing. The models behind each step are listed on [Tech Stack](../technology/tech-stack.md), and this page explains what each step does.
 
 We don't hide the AI. We name it. This matters because:
 
-- **Different models have different strengths.** Knowing which one drafted your article helps you calibrate.
+- **Different models have different strengths.** We say which ones we use, and for what.
 - **Transparency builds trust.** We're not pretending this is 100% human-written. We're telling you what we built and who/what touched it — and letting you judge for yourself.
 - **It's honest.** This is the cutting edge of publishing. Transparency about the method is part of the integrity.
 

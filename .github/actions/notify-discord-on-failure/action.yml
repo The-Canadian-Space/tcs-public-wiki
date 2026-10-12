@@ -8,7 +8,7 @@
 #
 # Requires REPO-level secret (free-plan GitHub doesn't allow org-level
 # secrets on private repos):
-#   DISCORD_WEBHOOK_WORKFLOW_ERRORS  — same webhook Tool - TCS Discord Ops
+#   DISCORD_WEBHOOK_WORKFLOW_ERRORS  — same webhook TCS - Ops - Error
 #   Alerts uses for n8n workflow errors (single ops channel). Copy the
 #   value from /opt/tcs/n8n/.env → DISCORD_WEBHOOK_OPS_ERRORS on the VPS.
 #

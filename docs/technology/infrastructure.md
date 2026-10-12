@@ -14,7 +14,7 @@ graph TB
         Core["⚙️ <b>n8n</b> workflow engine<br/><small>every pipeline runs here</small><br/><br/>🔒 Caddy &nbsp;·&nbsp; 🖼️ image host &nbsp;·&nbsp; 🐍 Python scripts"]
     end
 
-    LLM["🤖 <b>LLMs via OpenRouter</b><br/>Qwen 3.7 Plus · Claude Haiku 4.5 (authors)<br/>GPT-5-mini (editor) · Grok (social copy)"]
+    LLM["🤖 <b>LLMs via OpenRouter</b><br/>Qwen 3.7 Plus · Claude Haiku 4.5 (authors)<br/>GPT-6 Sol (fact check) · GPT-5-mini (editor) · Grok (social copy)"]
 
     WP["📡 <b>WordPress on Bluehost</b><br/>thecanadian.space"]
     Social["📱 <b>Facebook + Instagram</b>"]
@@ -50,7 +50,7 @@ We made a deliberate choice to self-host instead of using a fully managed platfo
 
 ## Disaster recovery & redundancy
 
-Our n8n workflows are version-controlled on GitHub (auto-backup hourly). WordPress backups are automated by the host. If the VPS goes down, we can spin up a new OVH instance and restore from the backups in under an hour.
+Our n8n workflows are version-controlled on GitHub (auto-backup nightly). WordPress backups are automated by the host. If the VPS goes down, we can spin up a new OVH instance and restore from the backups in under an hour.
 
 For critical workflows (Daily Broadcast, editorial routing), we've built fallback routes: if Qwen errors mid-response, Claude Haiku 4.5 steps in. If one data source is down, the others keep pulling. The pipeline degrades gracefully rather than failing outright.
 

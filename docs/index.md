@@ -36,8 +36,8 @@ Automated publishers
 </div>
 
 <div class="tcs-stat" markdown>
-:material-brain: **4 LLMs**  
-Qwen, Claude Haiku, GPT-5-mini, Grok
+:material-brain: **5 model families**  
+Qwen, Claude, GPT, Gemini, Grok
 </div>
 
 <div class="tcs-stat" markdown>
