@@ -76,13 +76,13 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     ---
 
-    Primary author for the four monthly deep dives, and the fallback for the daily and weekly posts when Qwen errors or stalls mid-response. Also the model behind the workflow-assembly assistant Chris uses to build and debug n8n nodes.
+    Primary author for the four monthly deep dives, and the fallback for the daily and weekly posts when Qwen errors or stalls mid-response. Claude Sonnet 5.5 is the fact checker's backup. Also the model behind the workflow-assembly assistant Chris uses to build and debug n8n nodes.
 
-- :fontawesome-solid-check-double: **OpenAI GPT-5-mini**
+- :fontawesome-solid-check-double: **OpenAI GPT-6 and GPT-5-mini**
 
     ---
 
-    Runs a fact-check + editor pass on every draft: verifies claims against the source articles, tightens SEO, and generates the patches the publisher applies before the post goes live.
+    **GPT-6 Sol** is the fact checker for the Daily Broadcast: it checks every claim against the source articles and fixes or removes what they don't support. **GPT-6 Luna** supplies new wording when an SEO fix needs it. **GPT-5-mini** is the editor for the other blogs until they move to the new pipeline: it reviews each draft and tightens the headline, excerpt and SEO.
 
 - :fontawesome-solid-rocket: **xAI Grok**
 
@@ -130,7 +130,7 @@ Here's what actually powers TCS — not a marketing wish list, but the exact pla
 
     ---
 
-    Managed scraping API with rotating residential proxies. Used by the Bright Blue Origin V3 workflow for `blueorigin.com/news` — the site is fronted by Vercel Security Checkpoint, which no self-hosted tool bypasses reliably. Two nodes hit `api.scraperapi.com` (one for the news-index listing, one for per-article scrapes). Kept deliberately; self-hosting isn't viable for this class of anti-bot.
+    Managed scraping API with rotating residential proxies. Used by the Bright Blue Origin workflow for `blueorigin.com/news` — the site is fronted by Vercel Security Checkpoint, which no self-hosted tool bypasses reliably. Two nodes hit `api.scraperapi.com` (one for the news-index listing, one for per-article scrapes). Kept deliberately; self-hosting isn't viable for this class of anti-bot.
 
 - :material-book-open: **Wikipedia**
 

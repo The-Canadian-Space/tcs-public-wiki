@@ -10,7 +10,7 @@ We believe in learning in public. So here's how we do it.
 
     ---
 
-    The specific tools, models, and platforms we use — n8n, Docker, Qwen / Claude Haiku / GPT-5-mini / Grok, WordPress, and every data source that feeds the pipeline.
+    The specific tools, models, and platforms we use — n8n, Docker, Qwen / Claude / GPT / Gemini / Grok, WordPress, and every data source that feeds the pipeline.
 
 - :material-network: **[Infrastructure](infrastructure.md)**
 
@@ -25,7 +25,7 @@ We believe in learning in public. So here's how we do it.
 ```mermaid
 graph LR
     A["Data Feeds<br/>SNAPI, LL2, RSS<br/>Rettiwt (X)<br/>Crawl4AI + CRW (web)"] -->|"Pull articles"| B["n8n<br/>OVH Cloud VPS"]
-    B -->|"Author + fact-check"| C["LLMs<br/>Qwen, Claude Haiku,<br/>GPT-5-mini, Grok<br/>via OpenRouter"]
+    B -->|"Author + fact-check"| C["LLMs<br/>Qwen, Claude, GPT,<br/>Gemini, Grok<br/>via OpenRouter"]
     C -->|"Return drafts"| B
     B -->|"Publish"| D["WordPress<br/>blog"]
     D -->|"Read"| E["Readers<br/>thecanadian.space"]
