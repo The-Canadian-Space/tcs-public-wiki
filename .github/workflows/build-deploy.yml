@@ -67,6 +67,9 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
+    # tcs-docs#252: TCS_WIKI_DEPLOY_KEY is kept in the `vps` environment, which
+    # only `main` may use, so no other branch's run can read it.
+    environment: vps
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
