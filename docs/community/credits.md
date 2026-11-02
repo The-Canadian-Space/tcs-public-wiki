@@ -32,7 +32,7 @@ Our content wouldn't exist without:
 We build on giants:
 
 - **[n8n](https://n8n.io/)** — Open-source workflow orchestration engine, the heartbeat of TCS
-- **[MkDocs](https://www.mkdocs.org/)** and **[Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)** — This wiki
+- **[Zensical](https://zensical.org/)**, from the team behind Material for MkDocs — This wiki
 - **[Caddy](https://caddyserver.com/)** — Modern reverse proxy and TLS terminator
 - **[Docker](https://www.docker.com/)** — Containerization for reproducible deployments
 - **Python**, **JavaScript**, and countless libraries that power our data pipeline

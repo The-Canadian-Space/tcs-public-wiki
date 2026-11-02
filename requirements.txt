@@ -1,10 +1,6 @@
-# MkDocs Material for public wiki
-# CI (ubuntu-latest) installs libcairo2-dev libfreetype6-dev libffi-dev libjpeg-dev libpng-dev libz-dev fontconfig via apt
-# for the social plugin (OG cards with custom styling)
+# Zensical builds the public wiki (tcs-docs#318). It reads mkdocs.yml as it is, brings its own
+# Markdown, pymdown-extensions and Pygments, and makes the social cards, the RSS feeds and the
+# lightbox itself, so no other packages or system libraries are needed.
+# Pinned exactly: Zensical is still 0.0.x and releases often, so bump it on purpose.
 
-mkdocs-material[imaging]>=9.5.30
-mkdocs-material-extensions>=1.3
-mkdocs-glightbox>=0.4
-mkdocs-rss-plugin>=1.15
-pillow>=10.0
-cairosvg>=2.7
+zensical==0.0.73

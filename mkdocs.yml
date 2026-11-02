@@ -9,6 +9,8 @@ copyright: Copyright &copy; Chris Carpenter — The Canadian Space
 
 theme:
   name: material
+  # Zensical (tcs-docs#318): the classic variant keeps Material for MkDocs' look.
+  variant: classic
   language: en
   # custom_dir: overrides
   features:
@@ -97,9 +99,6 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
   - pymdownx.tilde
-
-hooks:
-  - hooks/cache_bust.py
 
 plugins:
   - search
