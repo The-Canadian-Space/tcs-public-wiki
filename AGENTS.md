@@ -53,7 +53,7 @@ Before changing `docs/technology/tech-stack.md`:
 Push to main
   ↓
 GitHub Actions: build-deploy.yml
-  ├─ build: mkdocs build --strict
+  ├─ build: zensical build --strict
   ├─ Upload site/ artifact
   └─ deploy-vps: rsync to ubuntu@51.195.43.156:/var/www/tcs-wiki/site
   ↓
@@ -95,8 +95,8 @@ Ask Chris directly. This repo is fresh and working principles may evolve.
 
 ## How to verify (before flagging In QA or closing)
 
-- **`mkdocs serve` locally.** Open [http://localhost:8000](http://localhost:8000) and click through every page you touched. Broken links = broken ticket.
-- **Check on real browsers.** MkDocs Material renders differently on mobile — verify at least Chrome desktop + a mobile viewport for any layout change.
-- **Search still works.** MkDocs Material's search indexes on build — if you renamed a page or heading, test a search query for the old text and confirm the redirect (or add one).
+- **`zensical serve` locally.** Open [http://localhost:8000](http://localhost:8000) and click through every page you touched. Broken links = broken ticket.
+- **Check on real browsers.** The site renders differently on mobile — verify at least Chrome desktop + a mobile viewport for any layout change.
+- **Search still works.** Zensical's search indexes on build — if you renamed a page or heading, test a search query for the old text and confirm the redirect (or add one).
 - **Link integrity.** For internal `[label](path.md)` links — mkdocs will warn on broken ones at build time. Warnings = bugs.
 

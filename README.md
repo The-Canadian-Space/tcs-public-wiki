@@ -20,11 +20,11 @@ Source repo for the **public-facing wiki** of [The Canadian Space](https://theca
 **Want to run the wiki locally** (for editing or previewing changes)?
 
 ```bash
-# Install MkDocs Material
+# Install Zensical
 pip install -r requirements.txt
 
 # Serve locally
-mkdocs serve
+zensical serve
 ```
 
 Opens at `http://localhost:8000` with hot reload on file changes.
