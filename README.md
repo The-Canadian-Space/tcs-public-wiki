@@ -6,12 +6,12 @@
   <a href="https://wiki.thecanadian.space"><img src="https://img.shields.io/badge/wiki.thecanadian.space-live-14B8A6?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Live wiki" /></a>
   <a href="https://thecanadian.space"><img src="https://img.shields.io/badge/The%20Canadian%20Space-space%20blog-0EA5E9?style=for-the-badge&logo=rocket&logoColor=white" alt="TCS" /></a>
   <a href="https://github.com/The-Canadian-Space/tcs-public-wiki/issues/new"><img src="https://img.shields.io/badge/Report%20a%20bug-red?style=for-the-badge&logo=github&logoColor=white" alt="Report a bug" /></a>
-  <img src="https://img.shields.io/badge/MkDocs%20Material-526CFE?style=for-the-badge&logo=materialformkdocs&logoColor=white" alt="MkDocs Material" />
+  <img src="https://img.shields.io/badge/Zensical-526CFE?style=for-the-badge&logoColor=white" alt="Zensical" />
 </p>
 
 > **"Aerospace docs for people who like docs, and for the LLMs helping them."**
 
-Source repo for the **public-facing wiki** of [The Canadian Space](https://thecanadian.space). Built with **MkDocs Material** and published live at **[wiki.thecanadian.space](https://wiki.thecanadian.space)**.
+Source repo for the **public-facing wiki** of [The Canadian Space](https://thecanadian.space). Built with **Zensical** and published live at **[wiki.thecanadian.space](https://wiki.thecanadian.space)**.
 
 ## 🚀 Quick Start
 
@@ -42,7 +42,7 @@ Ships to production on every merge to `main`.
 - Markdown files live under `docs/`
 - Navigation structure is defined in `mkdocs.yml`
 - Assets (images, diagrams) go under `docs/assets/`
-- MkDocs Material extensions used: admonitions, code copy, mermaid diagrams, tabs
+- Markdown extensions used: admonitions, code copy, mermaid diagrams, tabs
 
 ## 🎫 Work in this repo
 
